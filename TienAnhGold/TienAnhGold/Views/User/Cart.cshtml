@@ -1,0 +1,136 @@
+﻿@model TienAnhGold.Models.Order
+
+@{
+    ViewData["Title"] = "Giỏ hàng";
+    Layout = "_Layout";
+}
+
+<h2 class="text-gold fw-bold mb-4">Giỏ hàng của bạn</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
+
+@if (Model == null || Model.OrderDetails == null || !Model.OrderDetails.Any())
+{
+    <p class="text-center text-muted py-5">Giỏ hàng của bạn đang trống.</p>
+}
+else
+{
+    <table class="table table-hover shadow-lg rounded-4">
+        <thead class="table-light">
+            <tr>
+                <th class="fw-bold text-dark">Sản phẩm</th>
+                <th class="fw-bold text-dark">Số lượng</th>
+                <th class="fw-bold text-dark">Giá</th>
+                <th class="fw-bold text-dark">Tổng</th>
+                <th class="fw-bold text-dark">Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detail in Model.OrderDetails)
+            {
+                var goldList = ViewData["GoldList"] as List<TienAnhGold.Models.Gold>;
+                var product = goldList?.FirstOrDefault(g => g.Id == detail.GoldId);
+                if (product != null)
+                {
+                    <tr>
+                        <td class="text-muted">@product.Name</td>
+                        <td class="text-muted">@detail.Quantity</td>
+                        <td class="text-muted">@detail.Price.ToString("N0") VND</td>
+                        <td class="text-muted">@((detail.Quantity * detail.Price).ToString("N0")) VND</td>
+                        <td>
+                            <form asp-action="RemoveFromCart" asp-controller="User" asp-route-id="@detail.GoldId" method="post" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-danger btn-sm py-1 px-3">Xóa</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="text-muted">Sản phẩm (ID: @detail.GoldId) không tồn tại.</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <div>
+            <form asp-action="ClearCart" asp-controller="User" method="post">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-danger">Xóa toàn bộ</button>
+            </form>
+        </div>
+        <div>
+            <h5>Tổng cộng: <span class="text-gold fw-bold">@Model.TotalAmount?.ToString("N0") VND</span></h5>
+            <a asp-action="Checkout" asp-controller="User" class="btn btn-gold mt-2">Thanh toán</a>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Xử lý xóa sản phẩm khỏi giỏ hàng
+            $('form[action*="RemoveFromCart"]').on('submit', function (e) {
+                e.preventDefault();
+                var $form = $(this);
+
+                $.ajax({
+                    url: $form.attr('action'),
+                    type: 'POST',
+                    data: $form.serialize(),
+                    headers: {
+                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message || 'Đã xóa sản phẩm khỏi giỏ hàng.');
+                            window.location.href = response.redirectUrl || '@Url.Action("Cart", "User")';
+                        } else {
+                            alert(response.message || 'Không thể xóa sản phẩm.');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Đã xảy ra lỗi khi xóa sản phẩm: ' + (xhr.responseText || error));
+                    }
+                });
+            });
+
+            // Xử lý xóa toàn bộ giỏ hàng
+            $('form[action*="ClearCart"]').on('submit', function (e) {
+                e.preventDefault();
+                var $form = $(this);
+
+                if (confirm('Bạn có chắc chắn muốn xóa toàn bộ giỏ hàng không?')) {
+                    $.ajax({
+                        url: $form.attr('action'),
+                        type: 'POST',
+                        data: $form.serialize(),
+                        headers: {
+                            'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function (response) {
+                            if (response.success) {
+                                alert(response.message || 'Đã xóa toàn bộ giỏ hàng.');
+                                window.location.href = response.redirectUrl || '@Url.Action("Cart", "User")';
+                            } else {
+                                alert(response.message || 'Không thể xóa giỏ hàng.');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            alert('Đã xảy ra lỗi khi xóa giỏ hàng: ' + (xhr.responseText || error));
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

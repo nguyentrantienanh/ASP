@@ -1,0 +1,149 @@
+﻿@using TienAnhGold.Models
+@model DashboardViewModel
+
+@{
+    ViewData["Title"] = "Bảng điều khiển Admin";
+}
+
+<header class="bg-light py-4 mb-5">
+    <h1 class="text-center fw-bold text-gold">@ViewData["Title"]</h1>
+</header>
+
+<div class="container">
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="card h-100 shadow-lg border-0 rounded-4 text-center p-4 bg-gold text-white">
+                <h5>Tài khoản người dùng</h5>
+                <h2>@(Model?.UserCount ?? 0)</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 shadow-lg border-0 rounded-4 text-center p-4 bg-success text-white">
+                <h5>Tài khoản nhân viên</h5>
+                <h2>@(Model?.EmployeeCount ?? 0)</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 shadow-lg border-0 rounded-4 text-center p-4 bg-warning text-dark">
+                <h5>Đơn chờ xác nhận</h5>
+                <h2>@(Model?.OrderCount ?? 0)</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 shadow-lg border-0 rounded-4 text-center p-4 bg-primary text-white">
+                <h5>Doanh thu</h5>
+                <h2>@(Model?.TotalRevenue.ToString("N0") ?? "0") VND</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 shadow-lg border-0 rounded-4 text-center p-4 bg-info text-white">
+                <h5>Sản phẩm vàng</h5>
+                <h2>@(Model?.GoldCount ?? 0)</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h3 class="text-dark mb-4">Quản lý</h3>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a asp-action="ManageUsers" class="btn btn-gold w-100 py-3 fw-bold">Quản lý người dùng</a>
+            </div>
+            <div class="col-md-4">
+                <a asp-action="ManageEmployees" class="btn btn-gold w-100 py-3 fw-bold">Quản lý nhân viên</a>
+            </div>
+            <div class="col-md-4">
+                <a asp-action="ManageOrders" class="btn btn-gold w-100 py-3 fw-bold">Quản lý đơn hàng</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --gold-color: #d4a017;
+        --gold-hover: #b88a0f;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    header {
+        border-bottom: 2px solid var(--gold-color);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+    }
+
+    .bg-gold {
+        background-color: var(--gold-color) !important;
+    }
+
+        .bg-gold:hover {
+            background-color: var(--gold-hover) !important;
+        }
+
+    .bg-success {
+        background-color: #28a745 !important;
+    }
+
+        .bg-success:hover {
+            background-color: #218838 !important;
+        }
+
+    .bg-warning {
+        background-color: #ffc107 !important;
+    }
+
+        .bg-warning:hover {
+            background-color: #e0a800 !important;
+        }
+
+    .bg-primary {
+        background-color: #007bff !important;
+    }
+
+        .bg-primary:hover {
+            background-color: #0056b3 !important;
+        }
+
+    .bg-info {
+        background-color: #17a2b8 !important;
+    }
+
+        .bg-info:hover {
+            background-color: #138496 !important;
+        }
+
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+    .btn-gold {
+        background-color: var(--gold-color);
+        border-color: var(--gold-color);
+        color: #ffffff;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+            border-color: var(--gold-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+    .text-dark {
+        color: #333;
+    }
+</style>

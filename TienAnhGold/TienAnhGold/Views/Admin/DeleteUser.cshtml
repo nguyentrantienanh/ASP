@@ -1,0 +1,139 @@
+﻿@model TienAnhGold.Models.User
+
+@{
+    ViewData["Title"] = "Xóa người dùng";
+}
+
+<header class="bg-light py-4 mb-5">
+    <h1 class="text-center fw-bold text-gold">@ViewData["Title"]</h1>
+</header>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-dark mb-0">Xác nhận xóa người dùng</h2>
+        <a asp-action="ManageUsers" class="btn btn-secondary py-2 px-4">Quay lại danh sách</a>
+    </div>
+
+    <div class="card shadow-lg rounded-4 p-4">
+        <h4 class="text-danger mb-4">Bạn có chắc chắn muốn xóa người dùng này?</h4>
+        <dl class="row">
+            <dt class="col-sm-3 fw-bold text-dark">ID</dt>
+            <dd class="col-sm-9 text-muted">@Model.Id</dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">Tên</dt>
+            <dd class="col-sm-9 text-muted">@Model.Name</dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">Email</dt>
+            <dd class="col-sm-9 text-muted">@Model.Email</dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">Địa chỉ</dt>
+            <dd class="col-sm-9 text-muted">@Model.Address</dd>
+
+            <dt class="col-sm-3 fw-bold text-dark">Trạng thái</dt>
+            <dd class="col-sm-9 text-muted">
+                @if (Model.IsActive)
+                {
+                    <span class="text-success fw-bold">Hoạt động</span>
+                }
+                else
+                {
+                    <span class="text-danger fw-bold">Không hoạt động</span>
+                }
+            </dd>
+        </dl>
+
+        <form asp-action="DeleteUser" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="d-flex justify-content-end gap-2">
+                <button type="submit" class="btn btn-danger py-2 px-4">Xóa người dùng</button>
+                <a asp-action="ManageUsers" class="btn btn-secondary py-2 px-4">Hủy</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    :root {
+        --gold-color: #d4a017; /* Màu vàng sang trọng */
+        --gold-hover: #b88a0f;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    header {
+        border-bottom: 2px solid var(--gold-color);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+    }
+
+    .card {
+        background-color: #ffffff;
+        border-radius: 16px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+    .btn {
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: #ffffff;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #ffffff;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #5a6268;
+        }
+
+    .text-success {
+        color: #28a745;
+    }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+    .fw-bold {
+        font-weight: 600;
+    }
+
+    .text-dark {
+        color: #333;
+    }
+
+    .text-muted {
+        color: var(--secondary-color);
+    }
+</style>

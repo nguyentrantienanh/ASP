@@ -1,0 +1,118 @@
+﻿@model TienAnhGold.Models.Order
+
+@{
+    ViewData["Title"] = "Thanh toán";
+    Layout = "_Layout";
+}
+
+<h2 class="text-gold fw-bold mb-4">Thông tin thanh toán</h2>
+
+<form asp-action="Checkout" asp-controller="User" method="post" id="checkoutForm">
+    <div class="card shadow-lg rounded-4 p-4">
+        <div class="mb-3">
+            <label class="form-label">Họ và tên</label>
+            <input asp-for="CustomerName" class="form-control" value="@(User.Identity?.Name ?? "")" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Số điện thoại</label>
+            <input asp-for="CustomerPhone" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Địa chỉ giao hàng</label>
+            <input asp-for="CustomerAddress" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Phương thức thanh toán:</label><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="PaymentMethod" id="bankTransfer" value="BankTransfer" checked>
+                <label class="form-check-label" for="bankTransfer">Chuyển khoản ngân hàng</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="PaymentMethod" id="cod" value="COD">
+                <label class="form-check-label" for="cod">Thanh toán khi nhận hàng</label>
+            </div>
+        </div>
+
+        <div id="bankTransferInfo" class="alert alert-info" style="margin-top: 20px; text-align: center;">
+            <h5>Thông tin chuyển khoản</h5>
+            <p style="font-size: 14px;">
+                Ngân hàng: <strong>VCB Digibank (Vietcombank)</strong><br />
+                Số tài khoản: <strong>1023200196</strong><br />
+                Chủ tài khoản: <strong>NGUYEN TRAN TIEN ANH</strong><br />
+                Số tiền: <strong>@($"{Model.TotalAmount:N0} VND")</strong><br />
+                Nội dung: <strong>ORDER ID: @Model.Id</strong>
+            </p>
+            <p class="text-danger">Vui lòng chuyển khoản chính xác số tiền và nội dung để xác nhận đơn hàng.</p>
+        </div>
+
+        <div id="codInfo" class="alert alert-info" style="margin-top: 20px; text-align: center; display: none;">
+            <h5>Thanh toán khi nhận hàng</h5>
+            <p style="font-size: 14px;">
+                Bạn sẽ thanh toán <strong>@($"{Model.TotalAmount:N0} VND")</strong> khi nhận hàng.<br />
+                Vui lòng kiểm tra kỹ thông tin giao hàng trước khi xác nhận.
+            </p>
+        </div>
+
+        <button type="submit" id="submitButton" class="btn btn-gold w-100 mt-3">Xác nhận đặt hàng</button>
+    </div>
+</form>
+
+<style>
+    :root {
+        --gold-color: #d4a017;
+        --gold-hover: #b88a0f;
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+    }
+
+    .btn-gold {
+        background-color: var(--gold-color);
+        color: #ffffff;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+        }
+
+    .alert-info {
+        background-color: #e7f3ff;
+        border-color: #b8daff;
+        color: #31708f;
+    }
+
+    .text-danger {
+        color: #dc3545;
+    }
+</style>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Ẩn/hiện thông tin dựa trên phương thức thanh toán
+            $('input[name="PaymentMethod"]').change(function () {
+                if ($('#bankTransfer').is(':checked')) {
+                    $('#bankTransferInfo').show();
+                    $('#codInfo').hide();
+                } else {
+                    $('#bankTransferInfo').hide();
+                    $('#codInfo').show();
+                }
+            });
+
+            // Ban đầu, nếu COD được chọn, ẩn thông tin chuyển khoản
+            if ($('#cod').is(':checked')) {
+                $('#bankTransferInfo').hide();
+                $('#codInfo').show();
+            }
+
+            // Vô hiệu hóa nút khi đang xử lý
+            $('#checkoutForm').on('submit', function () {
+                $('#submitButton').text('Đang xử lý...').prop('disabled', true);
+            });
+        });
+    </script>
+}

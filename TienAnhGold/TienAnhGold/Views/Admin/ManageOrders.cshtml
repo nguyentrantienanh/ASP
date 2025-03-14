@@ -1,0 +1,248 @@
+﻿@model List<TienAnhGold.Models.Order>
+
+@{
+    ViewData["Title"] = "Quản lý đơn hàng";
+}
+
+<header class="bg-light py-4 mb-5">
+    <h1 class="text-center fw-bold text-gold">@ViewData["Title"]</h1>
+</header>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-dark mb-0">Danh sách đơn hàng</h2>
+        <a asp-action="Dashboard" class="btn btn-secondary py-2 px-4">Quay lại bảng điều khiển</a>
+    </div>
+
+    <table class="table table-hover shadow-lg rounded-4">
+        <thead class="table-light">
+            <tr>
+                <th class="fw-bold text-dark">ID</th>
+                <th class="fw-bold text-dark">Người dùng</th>
+                <th class="fw-bold text-dark">Ngày đặt</th>
+                <th class="fw-bold text-dark">Tổng tiền</th>
+                <th class="fw-bold text-dark">Phương thức thanh toán</th>
+                <th class="fw-bold text-dark">Trạng thái</th>
+                <th class="fw-bold text-dark">Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td class="text-muted">@order.Id</td>
+                    <td class="text-muted">@order.User.Name</td>
+                    <td class="text-muted">@order.OrderDate.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td class="text-muted">@order.TotalAmount?.ToString("N0") VND</td>
+                    <td class="text-muted">@(order.PaymentMethod == "COD" ? "Thanh toán khi nhận hàng" : "Chuyển khoản qua STK")</td>
+                    <td class="text-muted">
+                        @switch (order.Status)
+                        {
+                            case TienAnhGold.Models.OrderStatus.Pending:
+                                <span class="text-warning fw-bold">Chờ xác nhận</span>
+                                break;
+                            case TienAnhGold.Models.OrderStatus.Approved:
+                                <span class="text-info fw-bold">Đã duyệt</span>
+                                break;
+                            case TienAnhGold.Models.OrderStatus.AwaitingConfirmation:
+                                <span class="text-primary fw-bold">Chờ xác nhận nhận hàng</span>
+                                break;
+                            case TienAnhGold.Models.OrderStatus.Completed:
+                                <span class="text-success fw-bold">Hoàn thành</span>
+                                break;
+                            default:
+                                <span class="text-muted">Không xác định</span>
+                                break;
+                        }
+                    </td>
+                    <td>
+                        <div class="d-flex gap-2">
+                            @if (order.Status == TienAnhGold.Models.OrderStatus.Pending)
+                            {
+                                <a asp-action="ConfirmOrder" asp-route-id="@order.Id" class="btn btn-gold btn-sm py-1 px-3 confirm-order-btn">Xác nhận</a>
+                            }
+                            @if (order.Status == TienAnhGold.Models.OrderStatus.AwaitingConfirmation)
+                            {
+                                <a asp-action="CompleteOrder" asp-route-id="@order.Id" class="btn btn-success btn-sm py-1 px-3 complete-order-btn">Hoàn thành</a>
+                            }
+                            <a asp-action="OrderDetails" asp-route-id="@order.Id" class="btn btn-secondary btn-sm py-1 px-3">Chi tiết</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (!Model.Any())
+    {
+        <p class="text-center text-muted py-5">Không có đơn hàng nào available.</p>
+    }
+</div>
+
+<style>
+    :root {
+        --gold-color: #d4a017;
+        --gold-hover: #b88a0f;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    header {
+        border-bottom: 2px solid var(--gold-color);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+    }
+
+    .table {
+        background-color: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .table-light {
+        background-color: #f8f9fa;
+    }
+
+    .btn {
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-gold {
+        background-color: var(--gold-color);
+        border-color: var(--gold-color);
+        color: #ffffff;
+    }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+            border-color: var(--gold-hover);
+        }
+
+    .btn-secondary {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+        color: #ffffff;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #5a6268;
+        }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: #ffffff;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+    .text-success {
+        color: #28a745;
+    }
+
+    .text-warning {
+        color: #ffc107;
+    }
+
+    .text-info {
+        color: #17a2b8;
+    }
+
+    .text-primary {
+        color: #007bff;
+    }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+    .fw-bold {
+        font-weight: 600;
+    }
+
+    .text-dark {
+        color: #333;
+    }
+
+    .text-muted {
+        color: var(--secondary-color);
+    }
+</style>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Xử lý nút Xác nhận
+            $('.confirm-order-btn').click(function (e) {
+                e.preventDefault();
+                var url = $(this).attr('href');
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    headers: {
+                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message);
+                            location.reload();
+                        } else {
+                            alert('Lỗi: ' + response.message);
+                        }
+                    },
+                    error: function () {
+                        alert('Đã xảy ra lỗi khi xác nhận đơn hàng.');
+                    }
+                });
+            });
+
+            // Xử lý nút Hoàn thành
+            $('.complete-order-btn').click(function (e) {
+                e.preventDefault();
+                var url = $(this).attr('href');
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    headers: {
+                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message);
+                            location.reload();
+                        } else {
+                            alert('Lỗi: ' + response.message);
+                        }
+                    },
+                    error: function () {
+                        alert('Đã xảy ra lỗi khi hoàn thành đơn hàng.');
+                    }
+                });
+            });
+        });
+    </script>
+}

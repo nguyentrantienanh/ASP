@@ -1,0 +1,181 @@
+﻿@model List<TienAnhGold.Models.User>
+
+@{
+    ViewData["Title"] = "Quản lý người dùng";
+}
+
+<header class="bg-light py-4 mb-5">
+    <h1 class="text-center fw-bold text-gold">@ViewData["Title"]</h1>
+</header>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-dark mb-0">Danh sách người dùng</h2>
+        <a asp-action="Dashboard" class="btn btn-secondary py-2 px-4">Quay lại bảng điều khiển</a>
+    </div>
+
+    <table class="table table-hover shadow-lg rounded-4">
+        <thead class="table-light">
+            <tr>
+                <th class="fw-bold text-dark">ID</th>
+                <th class="fw-bold text-dark">Tên</th>
+                <th class="fw-bold text-dark">Email</th>
+                <th class="fw-bold text-dark">Địa chỉ</th>
+                <th class="fw-bold text-dark">Trạng thái</th>
+                <th class="fw-bold text-dark">Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td class="text-muted">@user.Id</td>
+                    <td class="text-muted">@user.Name</td>
+                    <td class="text-muted">@user.Email</td>
+                    <td class="text-muted">@user.Address</td>
+                    <td class="text-muted">
+                        @if (user.IsActive)
+                        {
+                            <span class="text-success fw-bold">Hoạt động</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger fw-bold">Không hoạt động</span>
+                        }
+                    </td>
+                    <td>
+                        <div class="d-flex gap-2">
+                            <a asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-gold btn-sm py-1 px-3">Sửa</a>
+         
+                            <a asp-action="DeleteUser" asp-route-id="@user.Id" class="btn btn-danger btn-sm py-1 px-3">Xóa</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (!Model.Any())
+    {
+        <p class="text-center text-muted py-5">Không có người dùng nào available.</p>
+    }
+</div>
+
+@section Scripts {
+    @{
+        await Html.PartialAsync("_ValidationScriptsPartial");
+    }
+
+}
+
+<style>
+    :root {
+        --gold-color: #d4a017; /* Màu vàng sang trọng */
+        --gold-hover: #b88a0f;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    header {
+        border-bottom: 2px solid var(--gold-color);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+    }
+
+    .table {
+        background-color: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .table-light {
+        background-color: #f8f9fa;
+    }
+
+    .btn {
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-gold {
+        background-color: var(--gold-color);
+        border-color: var(--gold-color);
+        color: #ffffff;
+    }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+            border-color: var(--gold-hover);
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #ffffff;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #5a6268;
+        }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: #ffffff;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #c82333;
+        }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+        color: #212529;
+    }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+            border-color: #e0a800;
+        }
+
+    .text-success {
+        color: #28a745;
+    }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+    .fw-bold {
+        font-weight: 600;
+    }
+
+    .text-dark {
+        color: #333;
+    }
+
+    .text-muted {
+        color: var(--secondary-color);
+    }
+</style>

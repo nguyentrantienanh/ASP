@@ -1,0 +1,176 @@
+﻿@model TienAnhGold.Models.Gold
+
+@{
+    ViewData["Title"] = "Tạo sản phẩm mới";
+}
+
+<header class="bg-light py-4 mb-5">
+    <h1 class="text-center fw-bold text-gold">@ViewData["Title"]</h1>
+</header>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card h-100 shadow-lg border-0 rounded-4 p-4">
+                <h4 class="card-title text-dark mb-4">Thông tin sản phẩm vàng</h4>
+                <hr class="border-gold mb-4" />
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <div class="form-group mb-4">
+                        <label asp-for="Name" class="form-label fw-bold text-dark"></label>
+                        <input asp-for="Name" class="form-control form-control-lg border-gold" />
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label asp-for="ImageFile" class="form-label fw-bold text-dark">Hình ảnh</label>
+                        <input type="file" asp-for="ImageFile" class="form-control form-control-lg border-gold" accept="image/*" />
+                        <span asp-validation-for="ImageFile" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label asp-for="Material" class="form-label fw-bold text-dark">Loại vàng</label>
+                        <select asp-for="Material" class="form-control form-control-lg border-gold">
+                            <option value="18K">18K</option>
+                            <option value="24K">24K</option>
+                            <option value="99K">99K</option>
+                        </select>
+                        <span asp-validation-for="Material" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label asp-for="Weight" class="form-label fw-bold text-dark"></label>
+                        <input asp-for="Weight" class="form-control form-control-lg border-gold" />
+                        <span asp-validation-for="Weight" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label asp-for="Description" class="form-label fw-bold text-dark"></label>
+                        <textarea asp-for="Description" class="form-control form-control-lg border-gold" rows="3"></textarea>
+                        <span asp-validation-for="Description" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label asp-for="Price" class="form-label fw-bold text-dark"></label>
+                        <input asp-for="Price" class="form-control form-control-lg border-gold" />
+                        <span asp-validation-for="Price" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label asp-for="Quantity" class="form-label fw-bold text-dark"></label>
+                        <input asp-for="Quantity" class="form-control form-control-lg border-gold" id="Quantity" onchange="updateStatus()" />
+                        <span asp-validation-for="Quantity" class="text-danger small"></span>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="Status" class="form-label fw-bold text-dark">Trạng thái</label>
+                        <input type="text" class="form-control form-control-lg border-gold" id="Status" value="@((Model?.Quantity > 0) ? "Còn hàng" : "Hết hàng")" disabled />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-gold w-100 py-3 fw-bold">Tạo sản phẩm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-secondary py-2 px-4">Quay lại danh sách</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.PartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    function updateStatus() {
+        var quantity = document.getElementById("Quantity").value;
+        var statusField = document.getElementById("Status");
+        statusField.value = quantity > 0 ? "Còn hàng" : "Hết hàng";
+    }
+</script>
+
+<style>
+    :root {
+        --gold-color: #d4a017;
+        --gold-hover: #b88a0f;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    header {
+        border-bottom: 2px solid var(--gold-color);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+    }
+
+    .card {
+        background-color: #ffffff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+    .border-gold {
+        border: 2px solid var(--gold-color) !important;
+        border-radius: 8px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .border-gold:focus {
+            border-color: var(--gold-hover) !important;
+            box-shadow: 0 0 8px rgba(212, 160, 23, 0.5);
+        }
+
+    .form-label {
+        font-size: 1.1rem;
+        color: #333;
+    }
+
+    .form-control {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+        .form-control:focus {
+            border-color: var(--gold-hover);
+            box-shadow: 0 0 8px rgba(212, 160, 23, 0.5);
+        }
+
+    .btn {
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-gold {
+        background-color: var(--gold-color);
+        border-color: var(--gold-color);
+        color: #ffffff;
+    }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+            border-color: var(--gold-hover);
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #ffffff;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #5a6268;
+        }
+</style>

@@ -1,0 +1,166 @@
+﻿@model List<TienAnhGold.Models.Order>
+
+@{
+    ViewData["Title"] = "Đơn hàng của bạn";
+    Layout = "_Layout";
+}
+
+<header class="bg-light py-4 mb-5">
+    <h1 class="text-center fw-bold text-gold">@ViewData["Title"]</h1>
+</header>
+
+<div class="container">
+    @if (Model == null || !Model.Any())
+    {
+        <p class="text-center text-muted py-5">Bạn chưa có đơn hàng nào.</p>
+    }
+    else
+    {
+        <form id="paymentForm">
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+                <div>
+                    <input type="checkbox" id="selectAll" class="form-check-input me-2">
+                    <label for="selectAll" class="form-check-label">Chọn tất cả</label>
+                </div>
+                <div>
+                    <strong>Tổng tiền thanh toán: </strong>
+                    <span id="totalAmount" class="text-gold fw-bold">0 VND</span>
+                </div>
+            </div>
+
+            <table class="table table-hover shadow-lg rounded-4">
+                <thead class="table-light">
+                    <tr>
+                        <th class="fw-bold text-dark">Chọn</th>
+                        <th class="fw-bold text-dark">Mã đơn hàng</th>
+                        <th class="fw-bold text-dark">Phương thức thanh toán</th>
+                        <th class="fw-bold text-dark">Ngày đặt</th>
+                        <th class="fw-bold text-dark">Tổng tiền</th>
+                        <th class="fw-bold text-dark">Trạng thái</th>
+                        <th class="fw-bold text-dark">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model)
+                    {
+                        <tr>
+                            <td>
+                                @if (order.Status == OrderStatus.Pending || order.Status == OrderStatus.AwaitingConfirmation)
+                                {
+                                    <input type="checkbox"
+                                           class="form-check-input order-checkbox"
+                                           value="@order.TotalAmount"
+                                           data-order-id="@order.Id">
+                                }
+                            </td>
+                            <td class="text-muted">@order.Id</td>
+                            <td class="text-muted">@(order.PaymentMethod == "COD" ? "Thanh toán khi nhận hàng" : "Chuyển khoản qua STK")</td>
+                            <td class="text-muted">@order.OrderDate.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td class="text-muted">@order.TotalAmount?.ToString("N0") VND</td>
+                            <td class="text-muted">
+                                @switch (order.Status)
+                                {
+                                    case OrderStatus.Pending:
+                                        <span class="badge bg-warning">Chờ duyệt</span>
+                                        break;
+                                    
+                                    case OrderStatus.AwaitingConfirmation:
+                                        <span class="badge bg-primary">Chờ xác nhận nhận hàng</span>
+                                        break;
+                                    case OrderStatus.Completed:
+                                        <span class="badge bg-success">Hoàn thành</span>
+                                        break;
+                                    default:
+                                        <span class="badge bg-secondary">Không xác định</span>
+                                        break;
+                                }
+                            </td>
+                            <td>
+                                <a asp-action="OrderDetails" asp-controller="User" asp-route-id="@order.Id" class="btn btn-gold btn-sm py-1 px-3">Xem chi tiết</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </form>
+    }
+</div>
+
+<style>
+    :root {
+        --gold-color: #d4a017;
+        --gold-hover: #b88a017;
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+    }
+
+    .badge {
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .btn-gold {
+        background-color: var(--gold-color);
+        color: #ffffff;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+        }
+
+    .table {
+        background-color: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .table-light {
+        background-color: #f8f9fa;
+    }
+
+    .text-muted {
+        color: #6c757d;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkboxes = document.querySelectorAll('.order-checkbox');
+        const selectAll = document.getElementById('selectAll');
+        const totalAmountSpan = document.getElementById('totalAmount');
+
+        function updateTotal() {
+            let total = 0;
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    total += parseFloat(checkbox.value) || 0;
+                }
+            });
+            totalAmountSpan.textContent = total.toLocaleString('vi-VN') + ' VND';
+        }
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                updateTotal();
+                selectAll.checked = [...checkboxes].every(cb => cb.checked);
+            });
+        });
+
+        selectAll.addEventListener('change', function () {
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+            updateTotal();
+        });
+
+        updateTotal();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('orderSuccess') === 'true') {
+            alert('Đơn hàng đã được gửi thành công. Vui lòng chờ xác nhận.');
+        }
+    });
+</script>

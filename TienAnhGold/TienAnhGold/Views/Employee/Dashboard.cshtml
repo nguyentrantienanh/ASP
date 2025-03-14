@@ -1,0 +1,75 @@
+﻿@model TienAnhGold.Models.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Bảng điều khiển Nhân viên";
+}
+
+<header class="bg-light py-4 mb-5">
+    <h1 class="text-center fw-bold text-gold">@ViewData["Title"]</h1>
+</header>
+
+<div class="container">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100 shadow-lg border-0 rounded-4 text-center p-4 bg-warning text-dark">
+                <h5>Đơn chờ xác nhận</h5>
+                <h2>@Model.OrderCount</h2>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100 shadow-lg border-0 rounded-4 text-center p-4 bg-primary text-white">
+                <h5>Sản phẩm</h5>
+                <h2>@Model.GoldCount</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h3 class="text-dark mb-4">Quản lý</h3>
+        <div class="row g-4">
+            <div class="col-md-12">
+                <a asp-action="ManageOrders" asp-controller="Employee" class="btn btn-gold w-100 py-3 fw-bold">Quản lý đơn hàng</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --gold-color: #d4a017; /* Màu vàng sang trọng */
+        --gold-hover: #b88a0f;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    header {
+        border-bottom: 2px solid var(--gold-color);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+    }
+
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+    .btn-gold {
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+</style>

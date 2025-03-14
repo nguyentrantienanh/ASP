@@ -1,0 +1,122 @@
+﻿@model TienAnhGold.Models.Employee
+
+@{
+    ViewData["Title"] = "Chỉnh sửa nhân viên";
+}
+
+<header class="bg-light py-4 mb-5">
+    <h1 class="text-center fw-bold text-gold">@ViewData["Title"]</h1>
+</header>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-dark mb-0">Chỉnh sửa thông tin nhân viên</h2>
+        <a asp-action="ManageEmployees" class="btn btn-secondary py-2 px-4">Quay lại danh sách</a>
+    </div>
+
+    <form asp-action="EditEmployee" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="Name" class="form-label fw-bold text-dark">Tên nhân viên</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="Email" class="form-label fw-bold text-dark">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="Password" class="form-label fw-bold text-dark">Mật khẩu (để trống nếu không thay đổi)</label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold text-dark">Trạng thái</label>
+                <div class="form-check">
+                    <input asp-for="IsActive" class="form-check-input" type="checkbox" />
+                    <label asp-for="IsActive" class="form-check-label">Hoạt động</label>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end gap-2">
+            <button type="submit" class="btn btn-gold py-2 px-4">Lưu thay đổi</button>
+            <a asp-action="ManageEmployees" class="btn btn-secondary py-2 px-4">Hủy</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<style>
+    :root {
+        --gold-color: #d4a017; /* Màu vàng sang trọng */
+        --gold-hover: #b88a0f;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    header {
+        border-bottom: 2px solid var(--gold-color);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+    }
+
+    .form-control, .form-check-input {
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: var(--gold-color);
+            box-shadow: 0 0 5px rgba(212, 160, 23, 0.3);
+        }
+
+    .btn {
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-gold {
+        background-color: var(--gold-color);
+        border-color: var(--gold-color);
+        color: #ffffff;
+    }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+            border-color: var(--gold-hover);
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #ffffff;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #5a6268;
+        }
+
+    .text-dark {
+        color: #333;
+    }
+
+    .text-muted {
+        color: var(--secondary-color);
+    }
+</style>

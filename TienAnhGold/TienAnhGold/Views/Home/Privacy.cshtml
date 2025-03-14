@@ -1,0 +1,446 @@
+﻿@model List<TienAnhGold.Models.Gold>
+
+@{
+    ViewData["Title"] = "Sản Phẩm";
+    string? currentMaterial = ViewData["CurrentMaterial"]?.ToString();
+    string? currentSort = ViewData["CurrentSort"]?.ToString();
+}
+
+<header class="bg-light py-4 mb-5">
+    <h1 class="text-center fw-bold text-gold" style="text-shadow: 2px 2px 6px rgba(212, 160, 23, 0.3); font-size: 2.2rem;">@ViewData["Title"]</h1>
+</header>
+
+<div class="container">
+    <!-- Thanh tìm kiếm và bộ lọc -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <form asp-action="Privacy" method="get" class="search-bar d-flex flex-wrap gap-3 align-items-center p-3 bg-white shadow-md rounded-4 border border-gold" onsubmit="return validateSearchForm()" style="max-width: 100%; overflow: hidden;">
+                <!-- Ô nhập tìm kiếm -->
+                <div class="search-input-container" style="flex: 1 1 300px; min-width: 200px; max-width: 400px;">
+                    <input type="text" name="searchString" class="form-control border-gold search-input" style="padding: 10px 40px 10px 15px; font-size: 1rem;"
+                           placeholder="Tìm kiếm sản phẩm..." value="@ViewData["CurrentSearch"]" />
+                    <span class="search-icon bi bi-search"></span>
+                </div>
+
+                <!-- Dropdown Lọc Loại Vàng -->
+                <div class="custom-select-container" style="flex: 1 1 180px; min-width: 150px; max-width: 200px;">
+                    <select name="materialFilter" class="form-control border-gold custom-select" style="padding: 10px; font-size: 1rem;">
+                        <option value="" selected="@string.IsNullOrEmpty(currentMaterial)">Tất cả loại vàng</option>
+                        <option value="18K" selected="@(currentMaterial == "18K")">18K</option>
+                        <option value="24K" selected="@(currentMaterial == "24K")">24K</option>
+                        <option value="99K" selected="@(currentMaterial == "99K")">99K</option>
+                    </select>
+                </div>
+
+                <!-- Dropdown Sắp Xếp -->
+                <div class="custom-select-container" style="flex: 1 1 180px; min-width: 150px; max-width: 200px;">
+                    <select name="sortOrder" class="form-control border-gold custom-select" style="padding: 10px; font-size: 1rem;">
+                        <option value="" selected="@string.IsNullOrEmpty(currentSort)">Sắp xếp mặc định</option>
+                        <option value="priceAsc" selected="@(currentSort == "priceAsc")">Giá: Thấp đến Cao</option>
+                        <option value="priceDesc" selected="@(currentSort == "priceDesc")">Giá: Cao đến Thấp</option>
+                    </select>
+                </div>
+
+                <!-- Nút Lọc -->
+                <div class="filter-btn-container" style="flex: 0 0 auto;">
+                    <button type="submit" class="btn btn-gold filter-btn" style="padding: 10px 20px; font-size: 1rem;">Lọc</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Danh sách sản phẩm -->
+    <div class="product-list">
+        @if (Model != null && Model.Any())
+        {
+            <ul class="product-grid">
+                @foreach (var product in Model)
+                {
+                    <li class="product-item">
+                        <div class="product-image" style="flex: 0 0 180px;">
+                            @if (!string.IsNullOrEmpty(product.ImagePath))
+                            {
+                                <img src="@product.ImagePath" alt="@product.Name" class="product-img" style="max-height: 225px;" />
+                            }
+                            else
+                            {
+                                <div class="product-img placeholder" style="max-height: 225px;">Không có ảnh</div>
+                            }
+                        </div>
+                        <div class="product-info" style="flex: 1 1 50%; padding-top: 10px;">
+                            <h3 class="product-name fw-bold text-dark" style="font-size: 1.4rem; margin-bottom: 12px;">@product.Name</h3>
+                            <p class="product-details text-muted" style="font-size: 0.95rem; line-height: 1.6;">
+                                <strong>Giá:</strong> @product.Price.ToString("N0") VND<br />
+                                <strong>Trạng thái:</strong>
+                                @if (product.Quantity == 0)
+                                {
+                                    <span class="text-danger" style="font-weight: 500;">Hết hàng</span>
+                                }
+                                else
+                                {
+                                    <span>Còn hàng</span>
+                                }<br />
+                                <strong>Chất liệu:</strong> @product.Material<br />
+                                <strong>Trọng lượng:</strong> @product.Weight g<br />
+                                <strong>Mô tả:</strong> @product.Description
+                            </p>
+                        </div>
+                        <div class="product-buttons" style="flex: 0 0 180px; gap: 8px;">
+                            <a asp-area="" asp-controller="Home" asp-action="Details" asp-route-id="@product.Id" class="btn btn-gold" title="Xem chi tiết sản phẩm" style="padding: 8px 12px; font-size: 0.95rem;">Xem chi tiết</a>
+                            <form class="buy-now-form @(product.Quantity == 0 ? "disabled" : "")" data-product-id="@product.Id" style="width: 100%;">
+                                <input type="hidden" name="id" value="@product.Id" />
+                                <input type="hidden" name="quantity" value="1" />
+                                <button type="submit" class="btn btn-success w-100" title="Mua ngay và chuyển đến giỏ hàng" style="padding: 8px 12px; font-size: 0.95rem;">Mua ngay</button>
+                            </form>
+                            <form asp-action="AddToCart" asp-controller="User" method="post" class="add-to-cart-form mb-2 flex-grow-1 @(product.Quantity == 0 ? "disabled" : "")" data-product-id="@product.Id">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@product.Id" />
+                                <input type="number" name="quantity" value="1" min="1" max="@product.Quantity" class="form-control mb-2" style="width: 100px;" />
+                                <button type="submit" class="btn btn-warning w-100" title="Thêm sản phẩm vào giỏ hàng" style="padding: 8px; font-size: 0.95rem;">Thêm vào giỏ hàng</button>
+                            </form>
+                        </div>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p class="text-center text-muted py-4" style="font-size: 1.1rem;">Không có sản phẩm nào phù hợp.</p>
+        }
+    </div>
+</div>
+
+<style>
+    :root {
+        --gold-color: #d4a017;
+        --gold-hover: #b88a0f;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+    }
+
+    header {
+        border-bottom: 2px solid var(--gold-color);
+        box-shadow: 0 2px 10px rgba(212, 160, 23, 0.15);
+        background: linear-gradient(135deg, #ffffff 80%, #f8f9fa 100%);
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+        text-shadow: 1px 1px 3px rgba(212, 160, 23, 0.2);
+    }
+
+    /* Thanh tìm kiếm */
+    .search-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-items: center;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border: 2px solid var(--gold-color);
+        max-width: 100%;
+        overflow: hidden;
+        border: 2px solid var(--gold-color) !important;
+    }
+
+    .search-input-container {
+        position: relative;
+        flex: 1 1 300px;
+        min-width: 200px;
+        max-width: 400px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 10px 40px 10px 15px;
+        border-radius: 8px;
+        border: 2px solid var(--gold-color);
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .search-input:focus {
+            border-color: var(--gold-hover);
+            box-shadow: 0 0 8px rgba(212, 160, 23, 0.4);
+            outline: none;
+        }
+
+    .search-icon {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        color: var(--secondary-color);
+    }
+
+    .custom-select-container {
+        flex: 1 1 180px;
+        min-width: 150px;
+        max-width: 200px;
+    }
+
+    .custom-select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid var(--gold-color);
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+        .custom-select:focus {
+            border-color: var(--gold-hover);
+            outline: none;
+        }
+
+    .filter-btn-container {
+        flex: 0 0 auto;
+    }
+
+    .filter-btn {
+        padding: 10px 20px;
+        background-color: var(--gold-color);
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        color: white;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .filter-btn:hover {
+            background-color: var(--gold-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+    /* Danh sách sản phẩm */
+    .product-list {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 15px;
+    }
+
+    .product-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        list-style: none;
+        padding: 0;
+    }
+
+    .product-item {
+        border: 1px solid #e9ecef;
+        padding: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 15px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        background: linear-gradient(135deg, #ffffff 85%, #f8f9fa 100%);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .product-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+
+    .product-image {
+        flex: 0 0 180px;
+        max-width: 180px;
+    }
+
+    .product-img {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        border: 2px solid var(--gold-color);
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        object-fit: cover;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+        .product-img:hover {
+            transform: scale(1.03);
+            border-color: var(--gold-hover);
+        }
+
+    .placeholder {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        border: 2px solid var(--gold-color);
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--secondary-color);
+        font-style: italic;
+        font-size: 14px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+        .placeholder:hover {
+            transform: scale(1.02);
+            border-color: var(--gold-hover);
+        }
+
+    .product-info {
+        flex: 1 1 50%;
+        padding-top: 10px;
+    }
+
+    .product-name {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+        color: #222;
+    }
+
+    .product-details {
+        line-height: 1.6;
+        font-size: 0.95rem;
+        color: #555;
+    }
+
+    .product-buttons {
+        flex: 0 0 180px;
+        max-width: 180px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-self: flex-start;
+    }
+
+    .btn {
+        flex: 1 1 100%;
+        padding: 8px 12px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        font-size: 0.95rem;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0.95;
+        }
+
+    .btn-gold {
+        background-color: var(--gold-color);
+        border: 1px solid var(--gold-color);
+    }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+            border-color: var(--gold-hover);
+        }
+
+    .btn-success {
+        background-color: #28a745;
+        border: 1px solid #28a745;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #218838;
+        }
+
+    .btn-warning {
+        background-color: #ffc107;
+        color: black;
+        border: 1px solid #ffc107;
+    }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+            border-color: #e0a800;
+        }
+
+    .btn.disabled {
+        opacity: 0.6;
+        pointer-events: none;
+        cursor: not-allowed;
+        background-color: #ccc !important;
+        border-color: #ccc !important;
+    }
+
+    .text-danger {
+        color: #dc3545;
+        font-weight: 500;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+@section Scripts {
+    @{
+        await Html.PartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Xử lý form "Thêm vào giỏ hàng"
+            $('.add-to-cart-form, .buy-now-form').on('submit', function (e) {
+                e.preventDefault(); // Ngăn submit mặc định
+
+                var $form = $(this);
+                var url = $form.attr('action');
+                var data = $form.serialize();
+
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: data,
+                    headers: {
+                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (response) {
+                        console.log('Response:', response); // Debug phản hồi từ server
+
+                        if (response.success) {
+                            alert(response.message || 'Đã thêm sản phẩm vào giỏ hàng!');
+                            if (response.cartCount !== undefined) {
+                                // Cập nhật badge giỏ hàng
+                                $('#cart-count').text(response.cartCount);
+                            }
+                            // Chuyển hướng đến giỏ hàng (nếu cần)
+                            if ($form.hasClass('buy-now-form')) {
+                                window.location.href = response.redirectUrl || '@Url.Action("Cart", "User")';
+                            }
+                        } else {
+                            alert(response.message || 'Không thể thêm sản phẩm vào giỏ hàng.');
+                            if (response.message && response.message.includes("đăng nhập")) {
+                                window.location.href = '@Url.Action("Login", "User")';
+                            }
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error:', error); // Debug lỗi AJAX
+                        alert('Đã xảy ra lỗi khi thêm sản phẩm vào giỏ hàng: ' + (xhr.responseText || error));
+                    }
+                });
+            });
+        });
+    </script>
+
+}

@@ -1,0 +1,193 @@
+﻿@model TienAnhGold.Models.Gold
+
+@{
+    ViewData["Title"] = "Xóa sản phẩm";
+}
+
+<header class="bg-light py-4 mb-5">
+    <h1 class="text-center fw-bold text-gold">@ViewData["Title"]</h1>
+</header>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card h-100 shadow-lg border-0 rounded-4 p-4">
+                <h3 class="card-title text-dark mb-4">Bạn có chắc chắn muốn xóa sản phẩm này?</h3>
+                <h4 class="text-gold mb-4">Thông tin sản phẩm vàng</h4>
+                <hr class="border-gold mb-4" />
+                <dl class="row">
+                    <dt class="col-sm-3 fw-bold text-dark">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd class="col-sm-9 text-muted">
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt class="col-sm-3 fw-bold text-dark">
+                        Hình ảnh
+                    </dt>
+                    <dd class="col-sm-9">
+                        @if (!string.IsNullOrEmpty(Model.ImagePath))
+                        {
+                            <img src="@Model.ImagePath" alt="Hình ảnh sản phẩm" class="img-fluid product-img mb-3" />
+                        }
+                        else
+                        {
+                            <div class="product-img placeholder mb-3">No Image</div>
+                        }
+                    </dd>
+                    <dt class="col-sm-3 fw-bold text-dark">
+                        @Html.DisplayNameFor(model => model.Material)
+                    </dt>
+                    <dd class="col-sm-9 text-muted">
+                        @Html.DisplayFor(model => model.Material)
+                    </dd>
+                    <dt class="col-sm-3 fw-bold text-dark">
+                        @Html.DisplayNameFor(model => model.Weight)
+                    </dt>
+                    <dd class="col-sm-9 text-muted">
+                        @Html.DisplayFor(model => model.Weight)
+                    </dd>
+                    <dt class="col-sm-3 fw-bold text-dark">
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+                    <dd class="col-sm-9 text-muted">
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+                    <dt class="col-sm-3 fw-bold text-dark">
+                        @Html.DisplayNameFor(model => model.Price)
+                    </dt>
+                    <dd class="col-sm-9 text-muted">
+                        @Html.DisplayFor(model => model.Price)
+                    </dd>
+                    <dt class="col-sm-3 fw-bold text-dark">
+                        @Html.DisplayNameFor(model => model.Quantity)
+                    </dt>
+                    <dd class="col-sm-9 text-muted">
+                        @Html.DisplayFor(model => model.Quantity)
+                    </dd>
+                </dl>
+
+                <form asp-action="Delete" class="mt-4">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="d-flex gap-3">
+                        <button type="submit" class="btn btn-danger w-25 py-2 fw-bold">Xóa</button>
+                        <a asp-action="Index" class="btn btn-secondary w-25 py-2 fw-bold">Quay lại danh sách</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --gold-color: #d4a017; /* Màu vàng sang trọng */
+        --gold-hover: #b88a0f;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    header {
+        border-bottom: 2px solid var(--gold-color);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+    }
+
+    .card {
+        background-color: #ffffff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+    .border-gold {
+        border: 2px solid var(--gold-color) !important;
+        border-radius: 8px;
+    }
+
+    .product-img {
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
+        border: 2px solid #e9ecef;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+        .product-img:hover {
+            transform: scale(1.05);
+        }
+
+    .placeholder {
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
+        border: 2px solid #e9ecef;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--secondary-color);
+        font-style: italic;
+        font-size: 16px;
+    }
+
+    .dt, .dd {
+        padding: 10px 0;
+    }
+
+    .fw-bold {
+        font-weight: 600;
+    }
+
+    .text-dark {
+        color: #333;
+    }
+
+    .text-muted {
+        color: var(--secondary-color);
+    }
+
+    .btn {
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #c82333;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #ffffff;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #5a6268;
+        }
+</style>

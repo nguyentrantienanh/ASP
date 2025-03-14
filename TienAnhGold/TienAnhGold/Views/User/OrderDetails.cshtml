@@ -1,0 +1,60 @@
+﻿@model TienAnhGold.Models.Order
+
+@{
+    ViewData["Title"] = "Chi tiết đơn hàng";
+    Layout = "_Layout";
+}
+
+<h2 class="text-gold fw-bold mb-4">Chi tiết đơn hàng #@Model.Id</h2>
+
+<div class="card shadow-lg rounded-4 p-4">
+    <p><strong>Ngày đặt hàng:</strong> @Model.OrderDate.ToString("dd/MM/yyyy HH:mm")</p>
+    <p><strong>Tổng tiền:</strong> @Model.TotalAmount?.ToString("N0") VND</p>
+    <p>
+        <strong>Trạng thái:</strong>
+        @switch (Model.Status)
+        {
+            case OrderStatus.Pending:
+                <span class="badge bg-warning">Chờ duyệt</span>
+                break;
+            case OrderStatus.Approved:
+                <span class="badge bg-info">Đã duyệt</span>
+                break;
+            case OrderStatus.AwaitingConfirmation:
+                <span class="badge bg-primary">Chờ xác nhận thanh toán</span>
+                break;
+            case OrderStatus.Completed:
+                <span class="badge bg-success">Hoàn thành</span>
+                break;
+        }
+    </p>
+    <p><strong>Tên khách hàng:</strong> @Model.CustomerName</p>
+    <p><strong>Số điện thoại:</strong> @Model.CustomerPhone</p>
+    <p><strong>Địa chỉ:</strong> @Model.CustomerAddress</p>
+    <p><strong>Phương thức thanh toán:</strong> @Model.PaymentMethod</p>
+
+    <h5 class="mt-4">Sản phẩm trong đơn hàng</h5>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+                <th>Tổng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detail in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@detail.Gold.Name</td>
+                    <td>@detail.Quantity</td>
+                    <td>@detail.Price.ToString("N0") VND</td>
+                    <td>@((detail.Quantity * detail.Price).ToString("N0")) VND</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-action="Orders" asp-controller="User" class="btn btn-gold mt-3">Quay lại</a>
+</div>

@@ -1,0 +1,248 @@
+﻿@model IEnumerable<TienAnhGold.Models.Gold>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+}
+
+<header class="bg-light py-4 mb-5">
+    <h1 class="text-center fw-bold text-gold">@ViewData["Title"]</h1>
+</header>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-dark mb-0">Sản phẩm vàng</h2>
+        <a asp-action="Create" class="btn btn-gold py-2 px-4">Thêm mới</a>
+    </div>
+
+    <table class="table table-hover shadow-lg rounded-4">
+        <thead class="table-light">
+            <tr>
+                <th class="fw-bold text-dark">
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th class="fw-bold text-dark">
+                    Hình ảnh
+                </th>
+                <th class="fw-bold text-dark">
+                    @Html.DisplayNameFor(model => model.Material)
+                </th>
+                <th class="fw-bold text-dark">
+                    @Html.DisplayNameFor(model => model.Weight)
+                </th>
+                <th class="fw-bold text-dark">
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th class="fw-bold text-dark">
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th class="fw-bold text-dark">
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th class="fw-bold text-dark">
+                    Trạng thái
+                </th>
+                <th class="fw-bold text-dark">Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="@(item.Quantity == 0 ? "table-row-out-of-stock" : "")">
+                    <td class="text-muted">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.ImagePath))
+                        {
+                            <img src="@item.ImagePath" alt="Image" class="table-img" />
+                        }
+                        else
+                        {
+                            <div class="placeholder-table">No Image</div>
+                        }
+                    </td>
+                    <td class="text-muted">
+                        @Html.DisplayFor(modelItem => item.Material)
+                    </td>
+                    <td class="text-muted">
+                        @Html.DisplayFor(modelItem => item.Weight)
+                    </td>
+                    <td class="text-muted">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td class="text-muted">
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td class="text-muted">
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td class="text-muted">
+                        @if (item.Quantity > 0)
+                        {
+                            <span class="text-success fw-bold">Còn hàng</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger fw-bold">Hết hàng</span>
+                        }
+                    </td>
+                    <td>
+                        <div class="d-flex gap-2">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-gold btn-sm py-1 px-3">Sửa</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary btn-sm py-1 px-3">Chi tiết</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm py-1 px-3">Xóa</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (!Model.Any())
+    {
+        <p class="text-center text-muted py-5">Không có sản phẩm nào available.</p>
+    }
+</div>
+
+<style>
+    :root {
+        --gold-color: #d4a017; /* Màu vàng sang trọng */
+        --gold-hover: #b88a0f;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    header {
+        border-bottom: 2px solid var(--gold-color);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+    }
+
+    .table {
+        background-color: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .table-light {
+        background-color: #f8f9fa;
+    }
+
+    .table-row-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .table-row-out-of-stock {
+        background-color: #A9A9A9; /* Màu xám nhạt cho hàng hết hàng */
+        opacity: 0.7;
+        transition: background-color 0.3s ease, opacity 0.3s ease;
+    }
+
+        .table-row-out-of-stock:hover {
+            background-color: #D3D3D3; /* Màu xám nhạt hơn khi hover */
+            opacity: 0.9;
+        }
+
+    .table-img {
+        width: 100px;
+        height: 100px;
+        border: 2px solid #e9ecef;
+        border-radius: 6px;
+        object-fit: cover;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+    }
+
+        .table-img:hover {
+            transform: scale(1.1);
+        }
+
+    .placeholder-table {
+        width: 100px;
+        height: 100px;
+        border: 2px solid #e9ecef;
+        border-radius: 6px;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--secondary-color);
+        font-style: italic;
+        font-size: 12px;
+    }
+
+    .btn {
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-gold {
+        background-color: var(--gold-color);
+        border-color: var(--gold-color);
+        color: #ffffff;
+    }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+            border-color: var(--gold-hover);
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #ffffff;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #5a6268;
+        }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #c82333;
+        }
+
+    .text-success {
+        color: #28a745;
+    }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+    .fw-bold {
+        font-weight: 600;
+    }
+
+    .text-dark {
+        color: #333;
+    }
+
+    .text-muted {
+        color: var(--secondary-color);
+    }
+</style>

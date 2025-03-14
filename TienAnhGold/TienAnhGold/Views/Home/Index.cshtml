@@ -1,0 +1,521 @@
+﻿@model IEnumerable<TienAnhGold.Models.Gold>
+
+@{
+    ViewData["Title"] = "Trang chủ";
+    string? currentMaterial = ViewData["CurrentMaterial"]?.ToString();
+    string? currentSort = ViewData["CurrentSort"]?.ToString();
+}
+
+<header class="bg-light py-3 mb-4">
+    <h1 class="text-center fw-bold text-gold" style="text-shadow: 2px 2px 4px rgba(212, 160, 23, 0.3); font-size: 2.2rem;">@ViewData["Title"]</h1>
+</header>
+
+<!-- Poster -->
+<div class="poster-section mb-4">
+    <div class="poster-container d-flex align-items-center justify-content-between" style="border: 2px solid var(--gold-color); border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); background: linear-gradient(135deg, #fff8e1 0%, #fffde7 100%);">
+        <!-- Phần trái: Hình ảnh trang sức -->
+        <div class="poster-image-left" style="flex: 0 0 33.33%; max-width: 33.33%; padding: 10px;">
+            <img src="~/poster/poster.webp" alt="Trang Sức Vàng 24K" class="img-fluid" style="width: 100%; height: 300px; object-fit: contain;" />
+        </div>
+        <!-- Phần giữa: Tên shop -->
+        <div class="poster-text text-center" style="flex: 0 0 33.33%; max-width: 33.33%;">
+            <h2 class="fw-bold text-gold" style="font-size: 2rem; text-shadow: 2px 2px 4px rgba(212, 160, 23, 0.3); margin: 0;">TRANG SỨC VÀNG </h2>
+        </div>
+        <!-- Phần phải: Hình ảnh trang sức (lặp lại) -->
+        <div class="poster-image-right" style="flex: 0 0 33.33%; max-width: 33.33%; padding: 10px;">
+            <img src="~/poster/poster.webp" alt="Trang Sức Vàng 24K" class="img-fluid" style="width: 100%; height: 300px; object-fit: contain;" />
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Thông báo</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="toast-message"></div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Thanh tìm kiếm và bộ lọc -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <form asp-action="Index" method="get" class="d-flex flex-column flex-md-row gap-2 p-2 bg-white shadow-lg rounded-3 border border-gold" style="max-width: 100%; overflow: hidden; object-fit: cover;">
+                <div class="search-input-container" style="flex: 1 1 300px; min-width: 200px; max-width: 400px;">
+                    <input type="text" name="searchString" class="form-control border-gold search-input" style="padding: 8px 35px 8px 12px; font-size: 0.9rem;"
+                           placeholder="Tìm kiếm sản phẩm..." value="@ViewData["CurrentSearch"]" />
+                    <span class="search-icon bi bi-search"></span>
+                </div>
+                <div style="min-width: 140px; max-width: 180px;">
+                    <select name="materialFilter" class="form-control border-gold" style="padding: 8px; font-size: 0.9rem;">
+                        <option value="" selected="@string.IsNullOrEmpty(currentMaterial)">Tất cả loại vàng</option>
+                        <option value="18K" selected="@(currentMaterial == "18K")">18K</option>
+                        <option value="24K" selected="@(currentMaterial == "24K")">24K</option>
+                        <option value="99K" selected="@(currentMaterial == "99K")">99K</option>
+                    </select>
+                </div>
+                <div style="min-width: 140px; max-width: 180px;">
+                    <select name="sortOrder" class="form-control border-gold" style="padding: 8px; font-size: 0.9rem;">
+                        <option value="" selected="@string.IsNullOrEmpty(currentSort)">Sắp xếp mặc định</option>
+                        <option value="priceAsc" selected="@(currentSort == "priceAsc")">Giá: Thấp đến Cao</option>
+                        <option value="priceDesc" selected="@(currentSort == "priceDesc")">Giá: Cao đến Thấp</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-gold px-3 py-2" style="font-size: 0.9rem; min-width: 90px;">Lọc</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Slider sản phẩm -->
+    <div class="product-slider-container mb-5">
+        <button class="slider-btn prev-btn" onclick="scrollSlider(-1)"><i class="bi bi-chevron-left"></i></button>
+        <div class="product-slider">
+            @if (Model != null && Model.Any())
+            {
+                foreach (var product in Model)
+                {
+                    <div class="col slider-item">
+                        <div class="card h-100 shadow-md border-0 rounded-4 overflow-hidden @(product.Quantity == 0 ? "out-of-stock" : "")" style="max-width: 100%; background: linear-gradient(135deg, #ffffff 70%, #f8f9fa 100%);">
+                            @if (!string.IsNullOrEmpty(product.ImagePath) && product.ImagePath.Trim().Length > 0)
+                            {
+                                <img src="@product.ImagePath" class="card-img-top custom-img" alt="@product.Name" style="max-height: 200px; width: 100%; object-fit: cover;" />
+                            }
+                            else
+                            {
+                                <div class="card-img-top placeholder" style="max-height: 200px; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; color: var(--secondary-color); font-style: italic; padding: 10px; font-size: 12px;">Không có ảnh</div>
+                            }
+                            <div class="card-body d-flex flex-column p-2">
+                                <h5 class="card-title fw-bold text-dark mb-1" style="font-size: 1.1rem;">@product.Name</h5>
+                                <p class="card-text flex-grow-1 text-muted small" style="font-size: 0.85rem; line-height: 1.4;">
+                                    <strong>Loại:</strong> @product.Material<br />
+                                    <strong>Trọng lượng:</strong> @product.Weight gram<br />
+                                    <strong>Giá:</strong> @product.Price.ToString("C")
+                                </p>
+                                <p class="card-text text-muted small mb-1" style="font-size: 0.8rem;"><strong>Số lượng:</strong> @product.Quantity</p>
+                                @if (product.IsOutOfStock || product.Quantity == 0)
+                                {
+                                    <p class="text-danger fw-bold mb-1" style="font-size: 0.85rem;">Hết hàng</p>
+                                }
+                                <div class="mt-auto">
+                                    <div class="d-flex gap-1 mb-1">
+                                        <a asp-area="" asp-controller="Home" asp-action="Details" asp-route-id="@product.Id" class="btn btn-gold flex-grow-1" title="Xem chi tiết sản phẩm" style="padding: 6px 8px; font-size: 0.85rem;">Xem chi tiết</a>
+                                        <a asp-area="" asp-controller="Order" asp-action="Index" asp-route-id="@product.Id"
+                                           class="btn btn-success flex-grow-1 @(product.Quantity == 0 ? "disabled" : "")"
+                                           title="Mua sản phẩm ngay lập tức" style="padding: 6px 8px; font-size: 0.85rem;">Mua ngay</a>
+                                    </div>
+                                    <form asp-action="AddToCart" asp-controller="User" method="post" class="add-to-cart-form @(product.Quantity == 0 ? "disabled" : "")" data-product-id="@product.Id">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="id" value="@product.Id" />
+                                        <div class="d-flex gap-1">
+                                            <input type="number" name="quantity" value="1" min="1" max="@product.Quantity" class="form-control" style="width: 60px; padding: 5px; font-size: 0.85rem;" />
+                                            <button type="submit" class="btn btn-warning flex-grow-1" title="Thêm sản phẩm vào giỏ hàng" style="padding: 6px 8px; font-size: 0.85rem;">Thêm vào giỏ</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="text-center text-muted py-4" style="font-size: 1.1rem;">Không có sản phẩm nào phù hợp.</p>
+            }
+        </div>
+        <button class="slider-btn next-btn" onclick="scrollSlider(1)"><i class="bi bi-chevron-right"></i></button>
+    </div>
+</div>
+
+<style>
+    :root {
+        --gold-color: #d4a017;
+        --gold-hover: #b88a0f;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        border-bottom: 2px solid var(--gold-color);
+        box-shadow: 0 2px 10px rgba(212, 160, 23, 0.15);
+        background: linear-gradient(135deg, #ffffff 80%, #f8f9fa 100%);
+        text-align: center;
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+        text-shadow: 1px 1px 3px rgba(212, 160, 23, 0.2);
+    }
+
+    /* Poster */
+    .poster-section {
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .poster-container {
+        height: 320px; /* Chiều cao cố định cho poster */
+    }
+
+    /* Thanh tìm kiếm */
+    .search-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-items: center;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border: 2px solid var(--gold-color);
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .search-input-container {
+        position: relative;
+        flex: 1 1 300px;
+        min-width: 200px;
+        max-width: 400px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 8px 35px 8px 12px;
+        border-radius: 8px;
+        border: 2px solid var(--gold-color);
+        font-size: 0.9rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .search-input:focus {
+            border-color: var(--gold-hover);
+            box-shadow: 0 0 8px rgba(212, 160, 23, 0.4);
+            outline: none;
+        }
+
+    .search-icon {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        color: var(--secondary-color);
+    }
+
+    .custom-select-container {
+        flex: 1 1 180px;
+        min-width: 150px;
+        max-width: 200px;
+    }
+
+    .custom-select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid var(--gold-color);
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+        .custom-select:focus {
+            border-color: var(--gold-hover);
+            outline: none;
+        }
+
+    .filter-btn-container {
+        flex: 0 0 auto;
+    }
+
+    .filter-btn {
+        padding: 10px 20px;
+        background-color: var(--gold-color);
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        color: white;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .filter-btn:hover {
+            background-color: var(--gold-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+    /* Slider */
+    .product-slider-container {
+        position: relative;
+        overflow: hidden;
+        padding: 15px 0;
+    }
+
+    .product-slider {
+        display: flex;
+        flex-wrap: nowrap;
+        transition: transform 0.5s ease;
+        gap: 15px;
+        overflow-x: hidden;
+    }
+
+    .slider-item {
+        flex: 0 0 19.5%; /* Hiển thị 5 sản phẩm */
+        max-width: 19.5%;
+        box-sizing: border-box;
+    }
+
+    .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--gold-color);
+        color: white;
+        border: none;
+        padding: 8px;
+        cursor: pointer;
+        border-radius: 50%;
+        z-index: 10;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .prev-btn {
+        left: 0;
+    }
+
+    .next-btn {
+        right: 0;
+    }
+
+    .slider-btn:hover {
+        background-color: var(--gold-hover);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    /* Card */
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #e9ecef;
+        max-width: 100%;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+    .card-img-top {
+        border-bottom: 2px solid var(--gold-color);
+        padding: 8px;
+        max-height: 200px;
+        width: 100%;
+        object-fit: cover;
+        background-color: #fff;
+        transition: transform 0.3s ease;
+    }
+
+        .card-img-top:hover {
+            transform: scale(1.05);
+        }
+
+    .custom-img {
+        width: 100%;
+        height: 200px;
+        border: 2px solid var(--gold-color);
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        object-fit: cover;
+    }
+
+    .placeholder {
+        border-bottom: 2px solid var(--gold-color);
+        color: var(--secondary-color);
+        font-style: italic;
+        padding: 8px;
+        font-size: 12px;
+        transition: transform 0.3s ease;
+    }
+
+        .placeholder:hover {
+            transform: scale(1.02);
+        }
+
+    .card-body {
+        padding: 12px;
+        background: linear-gradient(135deg, #ffffff 85%, #f8f9fa 100%);
+        border-top: 1px solid #e9ecef;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+        color: #222;
+    }
+
+    .card-text {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin-bottom: 8px;
+    }
+
+    .btn {
+        padding: 6px 10px;
+        font-weight: 600;
+        border-radius: 6px;
+        transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        font-size: 0.85rem;
+    }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            opacity: 0.95;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+
+    .btn-gold {
+        background-color: var(--gold-color);
+        border-color: var(--gold-color);
+        color: #ffffff;
+    }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+            border-color: var(--gold-hover);
+        }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #218838;
+        }
+
+    .btn-warning {
+        background-color: #ffc107;
+        color: black;
+        border-color: #ffc107;
+    }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+            border-color: #e0a800;
+        }
+
+    .out-of-stock {
+        border: 2px solid #dc3545;
+        background: linear-gradient(135deg, #fff 85%, #ffebee 100%);
+    }
+
+    .btn.disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: 0.6;
+        background-color: #ccc !important;
+        border-color: #ccc !important;
+    }
+
+    .border-gold {
+        border: 2px solid var(--gold-color) !important;
+        border-radius: 8px;
+    }
+
+    .form-control:focus {
+        border-color: var(--gold-hover);
+        box-shadow: 0 0 8px rgba(212, 160, 23, 0.4);
+        outline: none;
+    }
+
+    .add-to-cart-form .btn {
+        padding: 6px 8px;
+        font-size: 0.85rem;
+    }
+
+    .add-to-cart-form.disabled .btn {
+        background-color: #ccc !important;
+        border-color: #ccc !important;
+        cursor: not-allowed;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+</style>
+
+@section Scripts {
+    @{
+        await Html.PartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Hàm điều khiển slider
+            function scrollSlider(direction) {
+                const slider = $('.product-slider');
+                const itemWidth = $('.slider-item').outerWidth(true);
+                const scrollAmount = direction * itemWidth * 5;
+                const currentScroll = slider.scrollLeft();
+                const maxScroll = slider[0].scrollWidth - slider.outerWidth();
+
+                let newScroll = currentScroll + scrollAmount;
+                if (newScroll < 0) newScroll = 0;
+                if (newScroll > maxScroll) newScroll = maxScroll;
+
+                slider.animate({ scrollLeft: newScroll }, 500);
+            }
+
+            // Xử lý thêm vào giỏ hàng
+            $('.add-to-cart-form').on('submit', function (e) {
+                e.preventDefault();
+                var $form = $(this);
+                var url = $form.attr('action');
+                var data = $form.serialize();
+
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: data,
+                    headers: {
+                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (response) {
+                        console.log('Response:', response);
+                        if (response.success) {
+                            alert(response.message || 'Đã thêm sản phẩm vào giỏ hàng!');
+                            if (response.cartCount !== undefined) {
+                                $('.badge').text(response.cartCount);
+                            }
+                            window.location.href = response.redirectUrl || '@Url.Action("Cart", "User")';
+                        } else {
+                            alert(response.message || 'Không thể thêm sản phẩm vào giỏ hàng.');
+                            if (response.message && response.message.includes("đăng nhập")) {
+                                window.location.href = '@Url.Action("Login", "User")';
+                            }
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('Đã xảy ra lỗi khi thêm sản phẩm vào giỏ hàng: ' + (xhr.responseText || error));
+                    }
+                });
+            });
+        });
+    </script>
+}
