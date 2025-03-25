@@ -18,7 +18,11 @@ namespace TienAnhGold.Data
         public DbSet<OrderDetail> OrderDetails { get; set; } = default!;
         public DbSet<Employee> Employees { get; set; } = default!;
         public DbSet<Admin> Admins { get; set; } = default!;
-        public DbSet<PasswordReset> PasswordResets { get; set; } = default!;
+        public DbSet<Chat> Chats { get; set; } = default!;
+        public DbSet<ChatMessage> ChatMessages { get; set; } = default!;
+
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -37,7 +41,6 @@ namespace TienAnhGold.Data
             modelBuilder.Entity<OrderDetail>().ToTable("OrderDetails");
             modelBuilder.Entity<Employee>().ToTable("Employees");
             modelBuilder.Entity<Admin>().ToTable("Admins");
-            modelBuilder.Entity<PasswordReset>().ToTable("PasswordResets");
  
 
             

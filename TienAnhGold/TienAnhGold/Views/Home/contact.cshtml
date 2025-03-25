@@ -1,0 +1,173 @@
+﻿@model object
+
+@{
+    ViewData["Title"] = "Liên Hệ";
+}
+
+<header class="bg-light py-2 mb-3">
+    <h1 class="text-center fw-bold text-gold" style="text-shadow: 1px 1px 3px rgba(212, 160, 23, 0.2); font-size: 1.8rem;">@ViewData["Title"]</h1>
+</header>
+
+<div class="container contact-page">
+    <!-- Phần tiêu đề và giới thiệu -->
+    <div class="contact-header text-center mb-4">
+        <h2 class="fw-bold text-gold" style="font-size: 1.5rem; text-shadow: 1px 1px 2px rgba(212, 160, 23, 0.2);">
+            Liên Hệ Với Trang Sức Vàng
+        </h2>
+        <p class="text-muted" style="font-size: 0.9rem; line-height: 1.5;">
+            Chúng tôi luôn sẵn sàng hỗ trợ bạn. Dưới đây là thông tin liên hệ!
+        </p>
+    </div>
+
+    <!-- Phần thông tin liên hệ và bản đồ -->
+    <div class="row align-items-center">
+        <!-- Phần thông tin liên hệ (bên trái) -->
+        <div class="col-md-6 mb-3">
+            <div class="contact-info bg-white p-3 rounded-3 shadow-md border border-gold">
+                <h3 class="text-gold fw-bold mb-3" style="font-size: 1.3rem; text-shadow: 1px 1px 2px rgba(212, 160, 23, 0.2);">
+                    Thông Tin Liên Hệ
+                </h3>
+                <div class="contact-item d-flex align-items-center mb-2">
+                    <div class="icon-wrapper me-2">
+                        <i class="bi bi-person-fill" style="font-size: 1.2rem; color: var(--gold-color);"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-0" style="font-size: 0.9rem;">Người liên hệ</h5>
+                        <p class="text-muted" style="font-size: 0.85rem;">Nguyễn Trần Tiến Anh</p>
+                    </div>
+                </div>
+                <div class="contact-item d-flex align-items-center mb-2">
+                    <div class="icon-wrapper me-2">
+                        <i class="bi bi-telephone-fill" style="font-size: 1.2rem; color: var(--gold-color);"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-0" style="font-size: 0.9rem;">Số điện thoại</h5>
+                        <p class="text-muted" style="font-size: 0.85rem;">
+                            <a href="tel:0972364028" class="text-decoration-none text-muted">0972 364 028</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="contact-item d-flex align-items-center mb-2">
+                    <div class="icon-wrapper me-2">
+                        <i class="bi bi-geo-alt-fill" style="font-size: 1.2rem; color: var(--gold-color);"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-0" style="font-size: 0.9rem;">Địa chỉ</h5>
+                        <p class="text-muted" style="font-size: 0.85rem;">Nha Trang - Khánh Hòa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Phần bản đồ (bên phải) -->
+        <div class="col-md-6 mb-3">
+            <div class="map-container bg-white p-3 rounded-3 shadow-md border border-gold">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.447219804465!2d109.18820891417358!3d12.238785291326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3170677811c54c6d%3A0x728f2d82c0f918f8!2sNha%20Trang%2C%20Kh%C3%A1nh%20H%C3%B2a%2C%20Vietnam!5e0!3m2!1sen!2s!4v1698051234567!5m2!1sen!2s"
+                        width="100%" height="250" style="border: 1px solid var(--gold-color); border-radius: 6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --gold-color: #d4a017;
+        --gold-hover: #b88a0f;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        border-bottom: 1px solid var(--gold-color);
+        box-shadow: 0 1px 6px rgba(212, 160, 23, 0.1);
+        background: linear-gradient(135deg, #ffffff 80%, #f8f9fa 100%);
+        text-align: center;
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+        text-shadow: 1px 1px 2px rgba(212, 160, 23, 0.2);
+    }
+
+    .container.contact-page {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 10px 15px;
+        margin-bottom: 60px; /* Tăng khoảng cách với chân trang */
+    }
+
+    /* Contact Header */
+    .contact-header {
+        margin-bottom: 20px;
+    }
+
+    /* Contact Info */
+    .contact-info {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+        border: 1px solid var(--gold-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        padding: 15px;
+    }
+
+        .contact-info:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12), 0 3px 8px rgba(0, 0, 0, 0.06);
+        }
+
+    .contact-item {
+        padding: 8px 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+    .icon-wrapper {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff8e1;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+
+    .contact-item:hover .icon-wrapper {
+        background-color: var(--gold-color);
+    }
+
+        .contact-item:hover .icon-wrapper i {
+            color: #ffffff;
+        }
+
+    /* Map Container */
+    .map-container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+        border: 1px solid var(--gold-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        padding: 15px;
+    }
+
+        .map-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12), 0 3px 8px rgba(0, 0, 0, 0.06);
+        }
+</style>
+
+@section Scripts {
+    @{
+        await Html.PartialAsync("_ValidationScriptsPartial");
+    }
+}

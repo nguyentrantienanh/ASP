@@ -358,59 +358,7 @@ namespace TienAnhGold.Controllers
             return View();
         }
 
-        // GET: User/ResetPassword
-        public IActionResult ResetPassword(string token)
-        {
-            if (string.IsNullOrEmpty(token))
-            {
-                return BadRequest("Token không hợp lệ.");
-            }
-
-            return View(new ResetPasswordViewModel { Token = token });
-        }
-
-        // POST: User/ResetPassword
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    var resetPassword = await _context.PasswordResets
-                        .FirstOrDefaultAsync(r => r.Token == model.Token && r.Expiration > DateTime.UtcNow);
-
-                    if (resetPassword == null)
-                    {
-                        _logger.LogWarning("Invalid or expired reset token: {Token}", model.Token);
-                        ModelState.AddModelError("", "Token không hợp lệ hoặc đã hết hạn.");
-                        return View(model);
-                    }
-
-                    var user = await _context.Users.FindAsync(resetPassword.UserId);
-                    if (user == null)
-                    {
-                        _logger.LogError("User not found for reset token: {Token}", model.Token);
-                        return NotFound();
-                    }
-
-                    user.Password = BCrypt.Net.BCrypt.HashPassword(model.NewPassword);
-                    _context.PasswordResets.Remove(resetPassword);
-                    await _context.SaveChangesAsync();
-
-                    _logger.LogInformation("Password reset successfully for user: {Email}", user.Email);
-                    return RedirectToAction("Login", "User");
-                }
-                return View(model);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error during password reset for token: {Token}", model.Token);
-                ModelState.AddModelError("", "Đã xảy ra lỗi khi đặt lại mật khẩu. Vui lòng thử lại.");
-                return View(model);
-            }
-        }
+  
 
         // GET: User/ResetPasswordConfirmation
         public IActionResult ResetPasswordConfirmation(string email)
@@ -554,7 +502,64 @@ namespace TienAnhGold.Controllers
                 };
             }
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> BuyNow(int id, int quantity = 1)
+        {
+            try
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                int? userIdInt = null;
+                if (!string.IsNullOrEmpty(userId) && int.TryParse(userId, out int parsedUserId))
+                {
+                    userIdInt = parsedUserId;
+                }
 
+                var gold = await _context.Gold.AsNoTracking().FirstOrDefaultAsync(g => g.Id == id);
+                if (gold == null)
+                {
+                    _logger.LogWarning("Không tìm thấy sản phẩm với ID {Id} để mua ngay.", id);
+                    return Json(new { success = false, message = $"Sản phẩm với ID {id} không tồn tại." });
+                }
+
+                if (gold.Quantity < quantity)
+                {
+                    _logger.LogWarning("Số lượng trong kho không đủ cho sản phẩm ID {Id}. Yêu cầu: {Quantity}, Sẵn có: {Available}", id, quantity, gold.Quantity);
+                    return Json(new { success = false, message = $"Số lượng trong kho không đủ. Yêu cầu: {quantity}, Sẵn có: {gold.Quantity}." });
+                }
+
+                if (!userIdInt.HasValue)
+                {
+                    _logger.LogWarning("Người dùng chưa đăng nhập khi cố gắng mua ngay sản phẩm ID {Id}.", id);
+                    return Json(new { success = false, message = "Vui lòng đăng nhập để tiếp tục mua hàng.", redirectUrl = Url.Action("Login", "User") });
+                }
+
+                var cartOrder = await GetCartAsync();
+                cartOrder.OrderDetails.Clear();
+                cartOrder.OrderDetails.Add(new OrderDetail
+                {
+                    GoldId = id,
+                    Quantity = quantity,
+                    Price = gold.Price
+                });
+                cartOrder.TotalAmount = cartOrder.OrderDetails.Sum(od => od.Quantity * od.Price);
+
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Đã thêm sản phẩm ID {Id} vào giỏ hàng để mua ngay cho UserId {UserId}.", id, userIdInt);
+
+                return Json(new
+                {
+                    success = true,
+                    message = "Đã thêm sản phẩm để mua ngay.",
+                    redirectUrl = Url.Action("Checkout", "User")
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi thực hiện mua ngay sản phẩm ID {Id}.", id);
+                return Json(new { success = false, message = "Đã xảy ra lỗi khi thực hiện mua ngay: " + ex.Message });
+            }
+        }
         public async Task<IActionResult> Cart()
         {
             try
@@ -792,20 +797,28 @@ namespace TienAnhGold.Controllers
                     return RedirectToAction("Cart", new { error = "Giỏ hàng trống." });
                 }
 
+                // Cập nhật thông tin đơn hàng từ model
                 cartOrder.CustomerName = model.CustomerName;
                 cartOrder.CustomerPhone = model.CustomerPhone;
                 cartOrder.CustomerAddress = model.CustomerAddress;
-                cartOrder.PaymentMethod = "BankTransfer";
+                cartOrder.PaymentMethod = model.PaymentMethod; // Lấy từ form
                 cartOrder.TotalAmount = cartOrder.OrderDetails.Sum(od => od.Quantity * od.Price);
-                cartOrder.Status = OrderStatus.AwaitingConfirmation;
+                cartOrder.Status = model.PaymentMethod.ToLower() == "cod" ? OrderStatus.Pending : OrderStatus.AwaitingConfirmation; // Thêm ToLower để tránh lỗi hoa/thường
                 cartOrder.OrderDate = DateTime.Now;
+                cartOrder.UserId = userIdInt; // Đảm bảo gán UserId
 
+                // Lưu đơn hàng vào cơ sở dữ liệu
+                await _context.SaveChangesAsync();
+
+                // Làm trống giỏ hàng bằng cách xóa các OrderDetails, nhưng giữ lại bản ghi Orders
+                _context.OrderDetails.RemoveRange(cartOrder.OrderDetails);
                 await _context.SaveChangesAsync();
 
                 _logger.LogInformation("Đơn hàng đã được gửi cho UserId {UserId}. OrderId: {OrderId}, Phương thức thanh toán: {PaymentMethod}, Trạng thái: {Status}",
-                    cartOrder.UserId, cartOrder.Id, cartOrder.PaymentMethod, cartOrder.Status);
+                    userIdInt, cartOrder.Id, cartOrder.PaymentMethod, cartOrder.Status);
 
-                return RedirectToAction("Orders", new { orderSuccess = true });
+                TempData["OrderNotification"] = "Đặt hàng thành công!";
+                return RedirectToAction("Orders");
             }
             catch (InvalidOperationException ex)
             {
@@ -818,7 +831,7 @@ namespace TienAnhGold.Controllers
                 return RedirectToAction("Cart", new { error = "Đã xảy ra lỗi khi thanh toán. Vui lòng thử lại." });
             }
         }
-
+        // UserController.cs
         [Authorize(Roles = "User")]
         public async Task<IActionResult> Orders()
         {
@@ -837,6 +850,13 @@ namespace TienAnhGold.Controllers
                     .Where(o => o.UserId == userIdInt)
                     .OrderByDescending(o => o.OrderDate)
                     .ToListAsync();
+
+                // Kiểm tra đơn hàng mới được xác nhận trong 5 phút
+                var recentlyApproved = orders.Any(o => o.Status == OrderStatus.Approved && o.OrderDate > DateTime.Now.AddMinutes(-5));
+                if (recentlyApproved)
+                {
+                    TempData["OrderMessage"] = "Một hoặc nhiều đơn hàng của bạn đã được xác nhận. Chờ giao hàng!";
+                }
 
                 return View(orders);
             }
@@ -1035,6 +1055,149 @@ namespace TienAnhGold.Controllers
             {
                 _logger.LogError(ex, "Lỗi khi hoàn thành đơn hàng ID {Id}.", id);
                 return Json(new { success = false, message = "Đã xảy ra lỗi khi hoàn thành đơn hàng." });
+            }
+        }
+
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> GetOrderStatuses()
+        {
+            try
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (string.IsNullOrEmpty(userId) || !int.TryParse(userId, out int userIdInt))
+                {
+                    _logger.LogWarning("UserId không hợp lệ để lấy trạng thái đơn hàng.");
+                    return Json(new List<object>());
+                }
+
+                // Lấy dữ liệu thô từ cơ sở dữ liệu
+                var orders = await _context.Orders
+                    .Where(o => o.UserId == userIdInt)
+                    .Select(o => new { Id = o.Id, Status = o.Status })
+                    .ToListAsync();
+
+                // Ánh xạ trạng thái trong bộ nhớ
+                var result = orders.Select(o => new
+                {
+                    id = o.Id,
+                    statusText = MapStatusToText(o.Status),
+                    statusClass = MapStatusToClass(o.Status)
+                }).ToList();
+
+                return Json(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi lấy trạng thái đơn hàng cho UserId: {UserId}", User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                return Json(new List<object>());
+            }
+        }
+
+        // Phương thức ánh xạ trạng thái thành text
+        private string MapStatusToText(OrderStatus status)
+        {
+            return status switch
+            {
+                OrderStatus.Pending => "Chờ duyệt",
+                OrderStatus.Approved => "Đã xác nhận - Chờ giao hàng",
+                OrderStatus.AwaitingConfirmation => "Chờ xác nhận nhận hàng",
+                OrderStatus.Completed => "Hoàn thành",
+                _ => "Không xác định"
+            };
+        }
+
+        // Phương thức ánh xạ trạng thái thành class
+        private string MapStatusToClass(OrderStatus status)
+        {
+            return status switch
+            {
+                OrderStatus.Pending => "warning",
+                OrderStatus.Approved => "info",
+                OrderStatus.AwaitingConfirmation => "primary",
+                OrderStatus.Completed => "success",
+                _ => "secondary"
+            };
+        }
+
+
+        // POST: User/DeleteOrder
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> DeleteOrder(int id)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId) || !int.TryParse(userId, out int userIdInt))
+            {
+                _logger.LogWarning("Invalid UserId for deleting order.");
+                return Unauthorized();
+            }
+
+            try
+            {
+                var order = await _context.Orders
+                    .FirstOrDefaultAsync(o => o.Id == id && o.UserId == userIdInt && o.Status == OrderStatus.Deleted);
+
+                if (order == null)
+                {
+                    _logger.LogWarning("Order with ID {Id} not found or not deleted for UserId {UserId}", id, userIdInt);
+                    TempData["OrderNotification"] = "Đơn hàng không tồn tại hoặc không thể xóa.";
+                    return RedirectToAction("Orders");
+                }
+
+                // Xóa hoàn toàn đơn hàng khỏi cơ sở dữ liệu
+                _context.Orders.Remove(order);
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Order with ID {Id} permanently deleted by UserId {UserId}", id, userIdInt);
+
+                TempData["OrderNotification"] = "Đơn hàng đã được xóa vĩnh viễn.";
+                return RedirectToAction("Orders");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting order with ID {Id} by UserId {UserId}", id, userId);
+                TempData["OrderNotification"] = "Đã xảy ra lỗi khi xóa đơn hàng.";
+                return RedirectToAction("Orders");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> DeleteOrderPermanently(int id)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId) || !int.TryParse(userId, out int userIdInt))
+            {
+                _logger.LogWarning("Invalid UserId for deleting order.");
+                return Unauthorized();
+            }
+
+            try
+            {
+                var order = await _context.Orders
+                    .FirstOrDefaultAsync(o => o.Id == id && o.UserId == userIdInt && o.Status == OrderStatus.Deleted);
+
+                if (order == null)
+                {
+                    _logger.LogWarning("Order with ID {Id} not found or not deleted for UserId {UserId}", id, userIdInt);
+                    TempData["OrderNotification"] = "Đơn hàng không tồn tại hoặc không thể xóa.";
+                    return RedirectToAction("Orders");
+                }
+
+                _context.Orders.Remove(order);
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Order with ID {Id} permanently deleted by UserId {UserId}", id, userIdInt);
+
+                TempData["OrderNotification"] = "Đơn hàng đã được xóa vĩnh viễn.";
+                return RedirectToAction("Orders");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting order with ID {Id} by UserId {UserId}", id, userId);
+                TempData["OrderNotification"] = "Đã xảy ra lỗi khi xóa đơn hàng.";
+                return RedirectToAction("Orders");
             }
         }
     }

@@ -3,172 +3,192 @@
   "WorkspaceRootPath": "D:\\CNTT17A\\ASP\\TienAnhGold\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\shared\\_chatbox.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\shared\\_chatbox.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\controllers\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\controllers\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\golds\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\golds\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\user\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\user\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\createaccount.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\createaccount.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\user\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\user\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\data\\tienanhgoldcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\data\\tienanhgoldcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\employee\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\employee\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\user\\orderdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\user\\orderdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\home\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\home\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\deleteuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\deleteuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\deleteemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\deleteemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\checkoutviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\checkoutviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\chat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\chat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250304055211_updatemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250304055211_updatemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\manageusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\manageusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\data\\tienanhgoldcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\data\\tienanhgoldcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\manageemployees.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\manageemployees.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\controllers\\goldscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\controllers\\goldscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250325150451_addhasadminjoinedmessagetochat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250325150451_addhasadminjoinedmessagetochat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\transactionlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\transactionlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\gold.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\gold.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\chat\\employeechat.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\chat\\employeechat.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\editemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\editemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\golds\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\golds\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\golds\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\golds\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\user\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\user\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250304055211_updatemodels.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250304055211_updatemodels.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\home\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\home\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250324060310_addidentitytables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250324060310_addidentitytables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250324045643_updateemployeeidtonullable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250324045643_updateemployeeidtonullable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250322135406_createchattables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250322135406_createchattables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\gold.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\gold.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\transactionlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\transactionlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\checkoutviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\checkoutviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\golds\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\golds\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\manageorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\manageorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\manageemployees.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\manageemployees.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\createaccount.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\createaccount.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\user\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\user\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\user\\editprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\user\\editprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\user\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -179,32 +199,92 @@
       "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\user\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\editemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\editemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\employee\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\employee\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\user\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\user\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\user\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\user\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\user\\deleteorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\user\\deleteorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\deleteorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\deleteorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\deleteemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\deleteemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\user\\orderdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\user\\orderdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\controllers\\goldscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\controllers\\goldscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\deleteuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\deleteuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250317004752_updatetienanhgoldcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250317004752_updatetienanhgoldcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\extensions\\claimsprincipalextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\extensions\\claimsprincipalextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250311020436_addmissingordercolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250311020436_addmissingordercolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\manageusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\manageusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\admin\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\admin\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\golds\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\golds\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\golds\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\golds\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250304055211_updatemodels.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250304055211_updatemodels.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250304051823_addremainingtables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250304051823_addremainingtables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250304054438_updateaccountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250304054438_updateaccountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250304054014_createemptydatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250304054014_createemptydatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\resetpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\resetpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\passwordreset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\passwordreset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250304054438_updateaccountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250304054438_updateaccountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -213,22 +293,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250304055211_updatemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250304055211_updatemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|d:\\cntt17a\\asp\\tienanhgold\\tienanhgold\\migrations\\20250311020436_addmissingordercolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{648E64A8-5258-42E6-9D51-14FE27BC5CB3}|TienAnhGold\\TienAnhGold.csproj|solutionrelative:tienanhgold\\migrations\\20250311020436_addmissingordercolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -238,7 +302,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 372,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Document",
@@ -248,24 +312,23 @@
               "RelativeDocumentMoniker": "TienAnhGold\\Views\\Golds\\Create.cshtml",
               "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Golds\\Create.cshtml",
               "RelativeToolTip": "TienAnhGold\\Views\\Golds\\Create.cshtml",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAgwK8AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-03T06:42:10.191Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAM4BAAAAAAAAAAAqwAgCAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-03T07:33:30.627Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Program.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Program.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Program.cs",
+              "RelativeToolTip": "TienAnhGold\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T06:15:24.691Z",
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -289,312 +352,80 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Controllers\\UserController.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\UserController.cs",
-              "RelativeToolTip": "TienAnhGold\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAEYCAAAAAAAAAAAqwFICAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T00:26:22.397Z"
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "TienAnhGold\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAcwFIAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T07:32:43.43Z"
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Cart.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Cart.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\Cart.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Cart.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\User\\Cart.cshtml",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAuwHcAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-10T02:15:47.895Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAMAAAAAAAAAAAAAuwPAAAAAHAAAAAAAAAA==",
+              "Title": "ChatController.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\ChatController.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Controllers\\ChatController.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\ChatController.cs",
+              "RelativeToolTip": "TienAnhGold\\Controllers\\ChatController.cs",
+              "ViewState": "AgIAADwBAAAAAAAAAAAswFIBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T13:57:49.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_ChatBox.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Shared\\_ChatBox.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Shared\\_ChatBox.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Shared\\_ChatBox.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Shared\\_ChatBox.cshtml",
+              "ViewState": "AgIAAD0CAAAAAAAAAAAowHACAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-03T07:19:53.724Z",
+              "WhenOpened": "2025-03-22T14:06:01.738Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Chat.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Chat.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\Chat.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Chat.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\Chat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T13:48:05.766Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Privacy.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\Privacy.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Home\\Privacy.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\Privacy.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Home\\Privacy.cshtml",
-              "ViewState": "AgIAALQAAAAAAAAAAAAAAN8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-03T08:23:04.784Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CreateAccount.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\CreateAccount.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\CreateAccount.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\CreateAccount.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\CreateAccount.cshtml",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAIwJEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-04T05:26:17.817Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Orders.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Orders.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\Orders.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Orders.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\User\\Orders.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAACoAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T04:06:38.626Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Controllers\\AdminController.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "TienAnhGold\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAANwCAAAAAAAAAAAqwAsDAAABAAAAAAAAAA==",
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\Hubs\\ChatHub.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Controllers\\Hubs\\ChatHub.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\Hubs\\ChatHub.cs",
+              "RelativeToolTip": "TienAnhGold\\Controllers\\Hubs\\ChatHub.cs",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAswO8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T04:04:42.231Z"
+              "WhenOpened": "2025-03-22T13:54:05.815Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Controllers\\OrderController.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "TienAnhGold\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAswNUAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T14:03:12.285Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Order.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\Order.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Order.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\Order.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA/wBUAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T06:09:14.051Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "TienAnhGoldContext.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Data\\TienAnhGoldContext.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Data\\TienAnhGoldContext.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Data\\TienAnhGoldContext.cs",
-              "RelativeToolTip": "TienAnhGold\\Data\\TienAnhGoldContext.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAwwCYAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T06:13:39.162Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Program.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Program.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Program.cs",
-              "RelativeToolTip": "TienAnhGold\\Program.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAuwCQAAABjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T06:15:24.691Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Employee\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Employee\\Dashboard.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Employee\\Dashboard.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Employee\\Dashboard.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-04T00:49:47.708Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "20250311020436_AddMissingOrderColumns.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250311020436_AddMissingOrderColumns.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250311020436_AddMissingOrderColumns.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250311020436_AddMissingOrderColumns.cs",
-              "RelativeToolTip": "TienAnhGold\\Migrations\\20250311020436_AddMissingOrderColumns.cs",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T02:04:36.933Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AccessDenied.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\AccessDenied.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Home\\AccessDenied.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\AccessDenied.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Home\\AccessDenied.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-04T09:13:04.896Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "OrderDetails.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\OrderDetails.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\OrderDetails.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\OrderDetails.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\User\\OrderDetails.cshtml",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwDsAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-07T14:37:28.678Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "OrderDetail.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\OrderDetail.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\OrderDetail.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\OrderDetail.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\OrderDetail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T06:09:24.143Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AccountViewModel.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\AccountViewModel.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\AccountViewModel.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\AccountViewModel.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\AccountViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T05:25:48.212Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Cart\\Index.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Cart\\Index.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Cart\\Index.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Cart\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-03T07:22:07.298Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\Details.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Home\\Details.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\Details.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Home\\Details.cshtml",
-              "ViewState": "AgIAAL4AAAAAAAAAAAAuwNkAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-03T09:32:11.299Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "DeleteUser.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\DeleteUser.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\DeleteUser.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\DeleteUser.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\DeleteUser.cshtml",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAuwGwAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-10T00:54:50.915Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "DeleteEmployee.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\DeleteEmployee.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\DeleteEmployee.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\DeleteEmployee.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\DeleteEmployee.cshtml",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAAwIcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-10T00:38:13.727Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "DashboardViewModel.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\DashboardViewModel.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\DashboardViewModel.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\DashboardViewModel.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\DashboardViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T01:22:06.362Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "CheckoutViewModel.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\CheckoutViewModel.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\CheckoutViewModel.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\CheckoutViewModel.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\CheckoutViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T02:51:52.537Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Employee.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\Employee.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Employee.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\Employee.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T06:09:35.106Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 6,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\appsettings.json",
               "RelativeDocumentMoniker": "TienAnhGold\\appsettings.json",
@@ -606,247 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\Dashboard.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\Dashboard.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\Dashboard.cshtml",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAuwHQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-04T00:48:43.13Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "ManageUsers.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\ManageUsers.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\ManageUsers.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\ManageUsers.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\ManageUsers.cshtml",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAuwLQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-04T00:48:55.874Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "ManageEmployees.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\ManageEmployees.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\ManageEmployees.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\ManageEmployees.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\ManageEmployees.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAqwC0AAACCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-04T00:49:06.801Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "GoldsController.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\GoldsController.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Controllers\\GoldsController.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\GoldsController.cs",
-              "RelativeToolTip": "TienAnhGold\\Controllers\\GoldsController.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAkwFAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T04:08:36.072Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "TransactionLog.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\TransactionLog.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\TransactionLog.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\TransactionLog.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\TransactionLog.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T02:52:10.736Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Gold.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Gold.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\Gold.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Gold.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\Gold.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T04:01:49.671Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "EditUser.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\EditUser.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\EditUser.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\EditUser.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\EditUser.cshtml",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAwwH4AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-10T00:54:35.564Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\User.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\User.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\User.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T06:08:54.079Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "EditEmployee.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\EditEmployee.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\EditEmployee.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\EditEmployee.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\EditEmployee.cshtml",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAAwHkAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-10T00:37:56.31Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Golds\\Delete.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Golds\\Delete.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Golds\\Delete.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Golds\\Delete.cshtml",
-              "ViewState": "AgIAAGMAAAAAAAAAAADgv4AAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-03T07:09:46.066Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Golds\\Details.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Golds\\Details.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Golds\\Details.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Golds\\Details.cshtml",
-              "ViewState": "AgIAAAQAAAAAAAAAAADgvyEAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-03T07:17:00.423Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "20250304055211_UpdateModels.Designer.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304055211_UpdateModels.Designer.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250304055211_UpdateModels.Designer.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304055211_UpdateModels.Designer.cs",
-              "RelativeToolTip": "TienAnhGold\\Migrations\\20250304055211_UpdateModels.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T06:48:16.594Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Golds\\Index.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Golds\\Index.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Golds\\Index.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\Golds\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-03T06:48:00.514Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Login.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\Login.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Login.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\User\\Login.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-04T00:54:38.432Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Register.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\Register.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Register.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\User\\Register.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJIAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-04T00:54:30.225Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "EditProfile.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\EditProfile.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\EditProfile.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\EditProfile.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\User\\EditProfile.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAiwBcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-04T01:44:42.055Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "Profile.cshtml",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Profile.cshtml",
-              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\Profile.cshtml",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Profile.cshtml",
-              "RelativeToolTip": "TienAnhGold\\Views\\User\\Profile.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-04T01:38:49.01Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "ClaimsPrincipalExtensions.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Extensions\\ClaimsPrincipalExtensions.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Extensions\\ClaimsPrincipalExtensions.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Extensions\\ClaimsPrincipalExtensions.cs",
-              "RelativeToolTip": "TienAnhGold\\Extensions\\ClaimsPrincipalExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T01:32:01.559Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "20250304051823_AddRemainingTables.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304051823_AddRemainingTables.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250304051823_AddRemainingTables.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304051823_AddRemainingTables.cs",
-              "RelativeToolTip": "TienAnhGold\\Migrations\\20250304051823_AddRemainingTables.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T05:18:24.096Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "20250304054014_CreateEmptyDatabase.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304054014_CreateEmptyDatabase.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250304054014_CreateEmptyDatabase.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304054014_CreateEmptyDatabase.cs",
-              "RelativeToolTip": "TienAnhGold\\Migrations\\20250304054014_CreateEmptyDatabase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T05:40:14.461Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 7,
               "Title": "20250304055211_UpdateModels.cs",
               "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304055211_UpdateModels.cs",
               "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250304055211_UpdateModels.cs",
@@ -858,7 +449,751 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TienAnhGoldContext.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Data\\TienAnhGoldContext.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Data\\TienAnhGoldContext.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Data\\TienAnhGoldContext.cs",
+              "RelativeToolTip": "TienAnhGold\\Data\\TienAnhGoldContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T06:13:39.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAuwMEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-17T00:40:35.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "20250325150451_AddHasAdminJoinedMessageToChat.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250325150451_AddHasAdminJoinedMessageToChat.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250325150451_AddHasAdminJoinedMessageToChat.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250325150451_AddHasAdminJoinedMessageToChat.cs",
+              "RelativeToolTip": "TienAnhGold\\Migrations\\20250325150451_AddHasAdminJoinedMessageToChat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T15:04:52.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ChatMessage.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\ChatMessage.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\ChatMessage.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\ChatMessage.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\ChatMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T13:48:28.999Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DashboardViewModel.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\DashboardViewModel.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\DashboardViewModel.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\DashboardViewModel.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\DashboardViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T01:22:06.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\Employee.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Employee.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\Employee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T06:09:35.106Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "EmployeeChat.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Chat\\EmployeeChat.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Chat\\EmployeeChat.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Chat\\EmployeeChat.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Chat\\EmployeeChat.cshtml",
+              "ViewState": "AgIAAMIAAAAAAAAAAADwv/oAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T15:25:21.314Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Controllers\\EmployeeController.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "TienAnhGold\\Controllers\\EmployeeController.cs",
+              "ViewState": "AgIAAMcAAAAAAAAAAAAuwP8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T00:35:19.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\UserController.cs",
+              "RelativeToolTip": "TienAnhGold\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T00:26:22.397Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\User.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\User.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\User.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\User.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T06:08:54.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\Admin.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Admin.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\Admin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T06:09:47.947Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "TienAnhGold\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T08:13:22.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Cart.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Cart.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\Cart.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Cart.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\User\\Cart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-10T02:15:47.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AccessDenied.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\AccessDenied.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Home\\AccessDenied.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\AccessDenied.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Home\\AccessDenied.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T09:13:04.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "contact.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\contact.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Home\\contact.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\contact.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Home\\contact.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-17T06:43:33.607Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\Details.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Home\\Details.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\Details.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Home\\Details.cshtml",
+              "ViewState": "AgIAANoAAAAAAAAAAAASwD8BAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T09:32:11.299Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "TienAnhGold\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAUwMEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T07:32:43.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "20250324060310_AddIdentityTables.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250324060310_AddIdentityTables.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250324060310_AddIdentityTables.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250324060310_AddIdentityTables.cs",
+              "RelativeToolTip": "TienAnhGold\\Migrations\\20250324060310_AddIdentityTables.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T06:03:10.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "20250324045643_UpdateEmployeeIdToNullable.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250324045643_UpdateEmployeeIdToNullable.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250324045643_UpdateEmployeeIdToNullable.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250324045643_UpdateEmployeeIdToNullable.cs",
+              "RelativeToolTip": "TienAnhGold\\Migrations\\20250324045643_UpdateEmployeeIdToNullable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T04:56:44.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\Order.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Order.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\Order.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAswDwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T06:09:14.051Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "20250322135406_CreateChatTables.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250322135406_CreateChatTables.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250322135406_CreateChatTables.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250322135406_CreateChatTables.cs",
+              "RelativeToolTip": "TienAnhGold\\Migrations\\20250322135406_CreateChatTables.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T13:54:07.225Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Gold.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Gold.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\Gold.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Gold.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\Gold.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T04:01:49.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\CartItem.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\CartItem.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\CartItem.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\CartItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T06:09:04.042Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "AccountViewModel.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\AccountViewModel.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\AccountViewModel.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\AccountViewModel.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\AccountViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T05:25:48.212Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAACcCAAAAAAAAAAAiwDcCAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-17T06:05:04.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "OrderDetail.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\OrderDetail.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\OrderDetail.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\OrderDetail.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\OrderDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T06:09:24.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\LoginViewModel.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T00:58:25.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "TransactionLog.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\TransactionLog.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\TransactionLog.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\TransactionLog.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\TransactionLog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T02:52:10.736Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "CheckoutViewModel.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\CheckoutViewModel.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\CheckoutViewModel.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\CheckoutViewModel.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\CheckoutViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T02:51:52.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Golds\\Index.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Golds\\Index.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Golds\\Index.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Golds\\Index.cshtml",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAiwJQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T06:48:00.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ManageOrders.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\ManageOrders.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\ManageOrders.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\ManageOrders.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\ManageOrders.cshtml",
+              "ViewState": "AgIAAP0AAAAAAAAAAAAiwBgBAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-14T08:18:58.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Models\\ErrorViewModel.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "TienAnhGold\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T07:12:39.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "ManageEmployees.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\ManageEmployees.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\ManageEmployees.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\ManageEmployees.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\ManageEmployees.cshtml",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAiwHMAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T00:49:06.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAiwMMBAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T08:23:04.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "site.js",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "TienAnhGold\\wwwroot\\js\\site.js",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "TienAnhGold\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-18T01:14:44.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "site.css",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "TienAnhGold\\wwwroot\\css\\site.css",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "TienAnhGold\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAmG4SF2X8vxYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-18T01:22:56.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "CreateAccount.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\CreateAccount.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\CreateAccount.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\CreateAccount.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\CreateAccount.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAswCUAAAB8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T05:26:17.817Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Login.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\Login.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Login.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\User\\Login.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAACBjwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T00:54:38.432Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 46,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\Dashboard.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\Dashboard.cshtml",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAiwIwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T00:48:43.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Register.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\Register.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Register.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\User\\Register.cshtml",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAiwHEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T00:54:30.225Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Profile.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\Profile.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Profile.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\User\\Profile.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAACBjwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T01:38:49.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "EditEmployee.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\EditEmployee.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\EditEmployee.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\EditEmployee.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\EditEmployee.cshtml",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAwGsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-10T00:37:56.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Employee\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Employee\\Dashboard.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Employee\\Dashboard.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Employee\\Dashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAABhwCkAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T00:49:47.708Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "Orders.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Orders.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\Orders.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Orders.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\User\\Orders.cshtml",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAkwIAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-11T04:06:38.626Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "Checkout.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Checkout.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\Checkout.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\Checkout.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\User\\Checkout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBZwB8AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-17T01:35:48.888Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "DeleteOrder.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\DeleteOrder.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\DeleteOrder.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\DeleteOrder.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\User\\DeleteOrder.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-17T00:57:39.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "DeleteOrder.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\DeleteOrder.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\DeleteOrder.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\DeleteOrder.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\DeleteOrder.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-17T00:57:21.951Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "DeleteEmployee.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\DeleteEmployee.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\DeleteEmployee.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\DeleteEmployee.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\DeleteEmployee.cshtml",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAAwIcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-10T00:38:13.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "OrderDetails.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\OrderDetails.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\User\\OrderDetails.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\User\\OrderDetails.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\User\\OrderDetails.cshtml",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAUwFoAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-07T14:37:28.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "GoldsController.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\GoldsController.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Controllers\\GoldsController.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\GoldsController.cs",
+              "RelativeToolTip": "TienAnhGold\\Controllers\\GoldsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T04:08:36.072Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "DeleteUser.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\DeleteUser.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\DeleteUser.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\DeleteUser.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\DeleteUser.cshtml",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAuwGwAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-10T00:54:50.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "20250317004752_UpdateTienAnhGoldContext.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250317004752_UpdateTienAnhGoldContext.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250317004752_UpdateTienAnhGoldContext.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250317004752_UpdateTienAnhGoldContext.cs",
+              "RelativeToolTip": "TienAnhGold\\Migrations\\20250317004752_UpdateTienAnhGoldContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAMBdwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T00:47:52.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "ClaimsPrincipalExtensions.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Extensions\\ClaimsPrincipalExtensions.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Extensions\\ClaimsPrincipalExtensions.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Extensions\\ClaimsPrincipalExtensions.cs",
+              "RelativeToolTip": "TienAnhGold\\Extensions\\ClaimsPrincipalExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T01:32:01.559Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Controllers\\OrderController.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "TienAnhGold\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAswNUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T14:03:12.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "20250311020436_AddMissingOrderColumns.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250311020436_AddMissingOrderColumns.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250311020436_AddMissingOrderColumns.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250311020436_AddMissingOrderColumns.cs",
+              "RelativeToolTip": "TienAnhGold\\Migrations\\20250311020436_AddMissingOrderColumns.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAACBjwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T02:04:36.933Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "ManageUsers.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\ManageUsers.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\ManageUsers.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\ManageUsers.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\ManageUsers.cshtml",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAuwLQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-04T00:48:55.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "EditUser.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\EditUser.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Admin\\EditUser.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Admin\\EditUser.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Admin\\EditUser.cshtml",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAwwH4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-10T00:54:35.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Golds\\Delete.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Golds\\Delete.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Golds\\Delete.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Golds\\Delete.cshtml",
+              "ViewState": "AgIAAGMAAAAAAAAAAADgv4AAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T07:09:46.066Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Golds\\Details.cshtml",
+              "RelativeDocumentMoniker": "TienAnhGold\\Views\\Golds\\Details.cshtml",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\Golds\\Details.cshtml",
+              "RelativeToolTip": "TienAnhGold\\Views\\Golds\\Details.cshtml",
+              "ViewState": "AgIAAAQAAAAAAAAAAADgvyEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-03T07:17:00.423Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "20250304055211_UpdateModels.Designer.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304055211_UpdateModels.Designer.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250304055211_UpdateModels.Designer.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304055211_UpdateModels.Designer.cs",
+              "RelativeToolTip": "TienAnhGold\\Migrations\\20250304055211_UpdateModels.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T06:48:16.594Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "20250304051823_AddRemainingTables.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304051823_AddRemainingTables.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250304051823_AddRemainingTables.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304051823_AddRemainingTables.cs",
+              "RelativeToolTip": "TienAnhGold\\Migrations\\20250304051823_AddRemainingTables.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T05:18:24.096Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "20250304054014_CreateEmptyDatabase.cs",
+              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304054014_CreateEmptyDatabase.cs",
+              "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250304054014_CreateEmptyDatabase.cs",
+              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304054014_CreateEmptyDatabase.cs",
+              "RelativeToolTip": "TienAnhGold\\Migrations\\20250304054014_CreateEmptyDatabase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T05:40:14.461Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
               "Title": "20250304054438_UpdateAccountModel.cs",
               "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Migrations\\20250304054438_UpdateAccountModel.cs",
               "RelativeDocumentMoniker": "TienAnhGold\\Migrations\\20250304054438_UpdateAccountModel.cs",
@@ -870,43 +1205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "ResetPasswordViewModel.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\ResetPasswordViewModel.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\ResetPasswordViewModel.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\ResetPasswordViewModel.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\ResetPasswordViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T01:55:45.743Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "PasswordReset.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\PasswordReset.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\PasswordReset.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\PasswordReset.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\PasswordReset.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T01:55:25.639Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\LoginViewModel.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\LoginViewModel.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\LoginViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T00:58:25.16Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 71,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "TienAnhGold\\Properties\\launchSettings.json",
@@ -918,7 +1217,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 72,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "TienAnhGold\\Views\\_ViewImports.cshtml",
@@ -927,30 +1226,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-04T00:58:56.194Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "Admin.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Admin.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\Admin.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\Admin.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\Admin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T06:09:47.947Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "CartItem.cs",
-              "DocumentMoniker": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\CartItem.cs",
-              "RelativeDocumentMoniker": "TienAnhGold\\Models\\CartItem.cs",
-              "ToolTip": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\Models\\CartItem.cs",
-              "RelativeToolTip": "TienAnhGold\\Models\\CartItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T06:09:04.042Z"
             }
           ]
         },
@@ -958,6 +1233,10 @@
           "DockedWidth": 276,
           "SelectedChildIndex": -1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"

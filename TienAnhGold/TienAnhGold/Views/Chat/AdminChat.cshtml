@@ -1,0 +1,243 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TienAnhGold.Data
+@using Microsoft.EntityFrameworkCore
+@inject UserManager<IdentityUser> UserManager
+@inject TienAnhGoldContext _context
+
+@{
+    var currentUser = await UserManager.GetUserAsync(User);
+    var isAdmin = await UserManager.IsInRoleAsync(currentUser, "Admin");
+    if (!isAdmin)
+    {
+        <h3>Bạn không có quyền truy cập trang này.</h3>
+        return;
+    }
+
+    // Lấy adminId (email) từ currentUser.UserName
+    string adminId = currentUser?.UserName;
+
+    // Nếu adminId không có, thử lấy từ database
+    if (string.IsNullOrEmpty(adminId))
+    {
+        var admin = await _context.Admins.FirstOrDefaultAsync(a => a.Name == currentUser.UserName && a.IsActive);
+        adminId = admin?.Email;
+    }
+
+    // Nếu vẫn không lấy được adminId, hiển thị lỗi
+    if (string.IsNullOrEmpty(adminId))
+    {
+        <h3>Không thể xác định email của admin. Vui lòng đăng nhập lại.</h3>
+        return;
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Admin</title>
+    <style>
+        .admin-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .employee-list {
+            width: 250px;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+
+        .employee-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+            .employee-item.active {
+                background-color: #d4d4d4;
+                font-weight: bold;
+            }
+
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background-color: #d4a017;
+            color: white;
+            padding: 10px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .employee-message {
+            background-color: #e9ecef;
+            text-align: left;
+        }
+
+        .admin-message {
+            background-color: #d4a017;
+            color: white;
+            text-align: right;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+        }
+
+            .chat-input input {
+                flex: 1;
+                padding: 8px;
+                margin-right: 10px;
+            }
+
+            .chat-input button {
+                padding: 8px 15px;
+                background-color: #d4a017;
+                color: white;
+                border: none;
+            }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="employee-list">
+            <h4>Danh sách nhân viên</h4>
+            <div id="employee-list"></div>
+        </div>
+        <div class="chat-area" id="chat-area" style="display: none;">
+            <div class="chat-header">
+                <span id="chat-header-title">Chat với <span id="chat-with"></span></span>
+            </div>
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" id="chat-input" placeholder="Nhập tin nhắn..." />
+                <button id="send-button" onclick="sendMessage()" disabled>Gửi</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.min.js"></script>
+    <script>
+        let currentChatId = null;
+        let currentEmployeeId = null;
+        const adminId = "@adminId";
+        const adminRole = "Admin";
+
+        // Log để debug
+        console.log("adminId (client):", adminId);
+        console.log("adminRole (client):", adminRole);
+
+        // Kiểm tra adminId ngay khi render
+        if (!adminId) {
+            console.error("adminId is empty or undefined. Admin might not be authenticated or email is missing.");
+            alert("Không thể xác định email của admin. Vui lòng đăng nhập lại.");
+            window.location.href = "/User/Login";
+        }
+
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .build();
+
+        connection.on("ReceiveMessage", (senderId, senderRole, message) => {
+            if (currentChatId) {
+                const messagesDiv = document.getElementById("chat-messages");
+                const messageClass = senderRole === "Employee" ? "employee-message" : "admin-message";
+                messagesDiv.innerHTML += `<div class="message ${messageClass}"><strong>${senderId} (${senderRole}):</strong> ${message}</div>`;
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }
+        });
+
+        connection.start()
+            .then(() => {
+                console.log("SignalR connected successfully");
+                loadEmployeeList();
+            })
+            .catch(err => console.error("SignalR connection error:", err));
+
+        async function loadEmployeeList() {
+            try {
+                const response = await fetch("/Chat/GetActiveChats");
+                const data = await response.json();
+                console.log("GetActiveChats response:", data);
+                if (data.success) {
+                    const employeeListDiv = document.getElementById("employee-list");
+                    employeeListDiv.innerHTML = "";
+                    data.chats.forEach(chat => {
+                        if (chat.employeeId) {
+                            employeeListDiv.innerHTML += `<div class="employee-item" onclick="selectEmployee('${chat.employeeId}', ${chat.id})">${chat.employeeId}</div>`;
+                        }
+                    });
+                } else {
+                    console.error("Error loading active chats:", data.error);
+                }
+            } catch (err) {
+                console.error("Error fetching active chats:", err);
+            }
+        }
+
+        async function selectEmployee(employeeId, chatId) {
+            currentChatId = chatId;
+            currentEmployeeId = employeeId;
+            document.getElementById("chat-with").textContent = employeeId;
+            document.getElementById("chat-area").style.display = "flex";
+            document.getElementById("send-button").disabled = false;
+
+            console.log("Joining chat with chatId:", chatId, "adminId:", adminId);
+            await connection.invoke("JoinChatAsEmployee", chatId.toString(), adminId)
+                .catch(err => console.error("Error joining chat:", err));
+
+            try {
+                const response = await fetch(`/Chat/GetMessages?chatId=${chatId}`);
+                const data = await response.json();
+                console.log("GetMessages response:", data);
+                if (data.success) {
+                    const messagesDiv = document.getElementById("chat-messages");
+                    messagesDiv.innerHTML = "";
+                    data.messages.forEach(msg => {
+                        const messageClass = msg.senderRole === "Employee" ? "employee-message" : "admin-message";
+                        messagesDiv.innerHTML += `<div class="message ${messageClass}"><strong>${msg.senderId} (${msg.senderRole}):</strong> ${msg.message}</div>`;
+                    });
+                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                } else {
+                    console.error("Error loading messages:", data.error);
+                }
+            } catch (err) {
+                console.error("Error fetching messages:", err);
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("chat-input");
+            const message = input.value.trim();
+            if (message && currentChatId) {
+                console.log("Sending message with chatId:", currentChatId, "adminId:", adminId, "adminRole:", adminRole, "message:", message);
+                connection.invoke("SendMessage", currentChatId.toString(), adminId, adminRole, message)
+                    .then(() => {
+                        console.log("Message sent successfully");
+                        input.value = "";
+                    })
+                    .catch(err => console.error("Error sending message:", err));
+            } else {
+                console.warn("Cannot send message: chatId or message is invalid.");
+            }
+        }
+
+        document.getElementById("chat-input").addEventListener("keypress", (e) => {
+            if (e.key === "Enter") sendMessage();
+        });
+    </script>
+</body>
+</html>

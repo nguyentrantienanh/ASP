@@ -2,6 +2,7 @@
 
 namespace TienAnhGold.Models
 {
+    // Lớp CheckoutViewModel dùng để lưu thông tin đặt hàng
     public class CheckoutViewModel
     {
         [Required(ErrorMessage = "Tên khách hàng không được để trống")]
@@ -17,4 +18,4 @@ namespace TienAnhGold.Models
         [Required(ErrorMessage = "Phương thức thanh toán không được để trống")]
         public string PaymentMethod { get; set; } // "COD" hoặc "BankTransfer"
     }
-}
+} 

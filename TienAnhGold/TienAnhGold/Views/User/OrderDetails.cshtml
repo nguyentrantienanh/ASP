@@ -1,4 +1,5 @@
-﻿@model TienAnhGold.Models.Order
+﻿<!-- Views/User/OrderDetails.cshtml -->
+@model TienAnhGold.Models.Order
 
 @{
     ViewData["Title"] = "Chi tiết đơn hàng";
@@ -18,7 +19,7 @@
                 <span class="badge bg-warning">Chờ duyệt</span>
                 break;
             case OrderStatus.Approved:
-                <span class="badge bg-info">Đã duyệt</span>
+                <span class="badge bg-info">Đã xác nhận - Chờ giao hàng</span>
                 break;
             case OrderStatus.AwaitingConfirmation:
                 <span class="badge bg-primary">Chờ xác nhận thanh toán</span>
@@ -26,12 +27,15 @@
             case OrderStatus.Completed:
                 <span class="badge bg-success">Hoàn thành</span>
                 break;
+            default:
+                <span class="badge bg-secondary">Không xác định</span>
+                break;
         }
     </p>
     <p><strong>Tên khách hàng:</strong> @Model.CustomerName</p>
     <p><strong>Số điện thoại:</strong> @Model.CustomerPhone</p>
     <p><strong>Địa chỉ:</strong> @Model.CustomerAddress</p>
-    <p><strong>Phương thức thanh toán:</strong> @Model.PaymentMethod</p>
+    <p><strong>Phương thức thanh toán:</strong> @(Model.PaymentMethod == "COD" ? "Thanh toán khi nhận hàng" : "Chuyển khoản qua STK")</p>
 
     <h5 class="mt-4">Sản phẩm trong đơn hàng</h5>
     <table class="table table-hover">
@@ -58,3 +62,50 @@
 
     <a asp-action="Orders" asp-controller="User" class="btn btn-gold mt-3">Quay lại</a>
 </div>
+
+<style>
+    :root {
+        --gold-color: #d4a017;
+        --gold-hover: #b88a017;
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+    }
+
+    .badge {
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .btn-gold {
+        background-color: var(--gold-color);
+        color: #ffffff;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+        }
+
+    .card {
+        background-color: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+</style>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Kiểm tra trạng thái đơn hàng mỗi 10 giây
+            setInterval(function () {
+                $.get(window.location.href, function (data) {
+                    var newStatus = $(data).find(".badge").text();
+                    $(".badge").text(newStatus); // Cập nhật trạng thái
+                });
+            }, 10000); // Cập nhật mỗi 10 giây
+        });
+    </script>
+}

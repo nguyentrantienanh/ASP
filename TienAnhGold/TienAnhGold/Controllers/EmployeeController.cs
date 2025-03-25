@@ -111,8 +111,12 @@ namespace TienAnhGold.Controllers
             {
                 var dashboardViewModel = new DashboardViewModel
                 {
-                    OrderCount = await _context.Orders.CountAsync(o => o.Status == OrderStatus.Pending), // Đơn chờ xác nhận
-                    GoldCount = await _context.Gold.CountAsync() // Đếm số lượng sản phẩm vàng
+                    OrderCount = await _context.Orders.CountAsync(), // Tổng số đơn hàng, không giới hạn trạng thái
+                    GoldCount = await _context.Gold.CountAsync(), // Đếm số lượng sản phẩm vàng
+                    RecentOrders = await _context.Orders
+                        .OrderByDescending(o => o.OrderDate)
+                        .Take(5) // Lấy 5 đơn hàng gần đây
+                        .ToListAsync()
                 };
 
                 _logger.LogInformation("Employee dashboard loaded successfully for user: {Email}", User.GetEmail());
@@ -120,7 +124,7 @@ namespace TienAnhGold.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error loading employee dashboard.");
+                _logger.LogError(ex, "Error loading employee dashboard for user: {Email}", User.GetEmail());
                 return View(new DashboardViewModel()); // Trả về model rỗng hoặc lỗi
             }
         }
@@ -148,10 +152,14 @@ namespace TienAnhGold.Controllers
         }
 
         // POST: Employee/ConfirmOrder
+        // POST: Admin/ConfirmOrder
         [HttpPost]
-        [Authorize(Roles = "Employee")]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> ConfirmOrder(int id)
         {
+            string adminEmail = User.FindFirst(ClaimTypes.Email)?.Value ?? "Unknown";
+
             try
             {
                 var order = await _context.Orders
@@ -159,46 +167,54 @@ namespace TienAnhGold.Controllers
                     .ThenInclude(od => od.Gold)
                     .FirstOrDefaultAsync(o => o.Id == id);
 
-                if (order != null && order.Status == OrderStatus.Pending)
+                if (order == null)
                 {
-                    order.Status = OrderStatus.Approved; // Thay IsConfirmed = true bằng Status = Approved
+                    _logger.LogWarning("Order ID {Id} not found for confirmation by admin: {AdminEmail}", id, adminEmail);
+                    return Json(new { success = false, message = "Đơn hàng không tồn tại." });
+                }
 
+                if (order.Status != OrderStatus.Pending)
+                {
+                    _logger.LogWarning("Order ID {Id} is not in Pending status for confirmation by admin: {AdminEmail}. Current status: {Status}", id, adminEmail, order.Status);
+                    return Json(new { success = false, message = "Đơn hàng không ở trạng thái chờ xử lý." });
+                }
 
-                    // Giảm số lượng tồn kho
-                    foreach (var detail in order.OrderDetails)
+                // Kiểm tra và cập nhật số lượng tồn kho
+                foreach (var item in order.OrderDetails)
+                {
+                    if (item.Gold == null)
                     {
-                        var gold = await _context.Gold.FindAsync(detail.GoldId);
-                        if (gold != null && gold.Quantity >= detail.Quantity)
-                        {
-                            gold.Quantity -= detail.Quantity;
-                            if (gold.Quantity < 0) gold.Quantity = 0; // Đảm bảo không âm
-                        }
-                        else
-                        {
-                            _logger.LogWarning("Insufficient stock for Gold ID {GoldId} in Order ID {OrderId} by employee: {Email}", detail.GoldId, id, User.GetEmail());
-                            TempData["Error"] = "Số lượng trong kho không đủ để xác nhận đơn hàng.";
-                            return RedirectToAction("ManageOrders");
-                        }
+                        _logger.LogWarning("Gold item with ID {GoldId} not found for OrderDetail in Order ID {OrderId} by admin: {AdminEmail}", item.GoldId, id, adminEmail);
+                        return Json(new { success = false, message = $"Sản phẩm với ID {item.GoldId} không tồn tại trong kho." });
                     }
 
-                    order.TotalAmount = order.OrderDetails.Sum(od => od.Quantity * od.Price); // Cập nhật tổng tiền
-                    await _context.SaveChangesAsync();
-                    _logger.LogInformation("Order {OrderId} approved by employee: {Email}", id, User.GetEmail());
+                    if (item.Gold.Quantity < item.Quantity)
+                    {
+                        _logger.LogWarning("Insufficient quantity for Gold item ID {GoldId} in Order ID {OrderId}. Available: {Available}, Requested: {Requested} by admin: {AdminEmail}",
+                            item.GoldId, id, item.Gold.Quantity, item.Quantity, adminEmail);
+                        return Json(new { success = false, message = $"Số lượng trong kho không đủ cho sản phẩm {item.Gold.Name}." });
+                    }
+
+                    item.Gold.Quantity -= item.Quantity; // Giảm số lượng trong kho
                 }
-                else
-                {
-                    _logger.LogWarning("Order {OrderId} not found or not in Pending status for employee: {Email}", id, User.GetEmail());
-                    TempData["Error"] = "Đơn hàng không tồn tại hoặc không ở trạng thái chờ xác nhận.";
-                }
-                return RedirectToAction("ManageOrders");
+
+                // Cập nhật trạng thái và tổng tiền
+                order.TotalAmount = order.OrderDetails.Sum(od => od.Quantity * od.Price);
+                order.Status = OrderStatus.Approved;
+                order.ConfirmedAt = DateTime.Now; // Ghi lại thời gian xác nhận (nếu bạn có thuộc tính này trong model)
+
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Order ID {Id} confirmed to Approved successfully by admin: {AdminEmail}", id, adminEmail);
+
+                return Json(new { success = true, message = "Đơn hàng đã được xác nhận. Chờ giao hàng!" });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error confirming order {OrderId} by employee: {Email}", id, User.GetEmail());
-                TempData["Error"] = "Đã xảy ra lỗi khi xác nhận đơn hàng.";
-                return RedirectToAction("ManageOrders");
+                _logger.LogError(ex, "Error confirming order ID {Id} by admin: {AdminEmail}", id, adminEmail);
+                return Json(new { success = false, message = $"Đã xảy ra lỗi khi xác nhận đơn hàng: {ex.Message}" });
             }
         }
+
 
         // GET: Employee/OrderDetails (Xem chi tiết đơn hàng, nếu cần)
         [Authorize(Roles = "Employee")]

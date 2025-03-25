@@ -87,10 +87,11 @@
                         </div>
                         <div class="product-buttons" style="flex: 0 0 180px; gap: 8px;">
                             <a asp-area="" asp-controller="Home" asp-action="Details" asp-route-id="@product.Id" class="btn btn-gold" title="Xem chi tiết sản phẩm" style="padding: 8px 12px; font-size: 0.95rem;">Xem chi tiết</a>
-                            <form class="buy-now-form @(product.Quantity == 0 ? "disabled" : "")" data-product-id="@product.Id" style="width: 100%;">
+                            <form asp-action="BuyNow" asp-controller="User" method="post" class="buy-now-form @(product.Quantity == 0 ? "disabled" : "")" data-product-id="@product.Id" style="width: 100%;">
+                                @Html.AntiForgeryToken()
                                 <input type="hidden" name="id" value="@product.Id" />
                                 <input type="hidden" name="quantity" value="1" />
-                                <button type="submit" class="btn btn-success w-100" title="Mua ngay và chuyển đến giỏ hàng" style="padding: 8px 12px; font-size: 0.95rem;">Mua ngay</button>
+                                <button type="submit" class="btn btn-success w-100" title="Mua ngay và chuyển đến Checkout" style="padding: 8px 12px; font-size: 0.95rem;">Mua ngay</button>
                             </form>
                             <form asp-action="AddToCart" asp-controller="User" method="post" class="add-to-cart-form mb-2 flex-grow-1 @(product.Quantity == 0 ? "disabled" : "")" data-product-id="@product.Id">
                                 @Html.AntiForgeryToken()
@@ -392,7 +393,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
-@section Scripts {
+ @section Scripts {
     @{
         await Html.PartialAsync("_ValidationScriptsPartial");
     }
@@ -400,9 +401,8 @@
     <script>
         $(document).ready(function () {
             // Xử lý form "Thêm vào giỏ hàng"
-            $('.add-to-cart-form, .buy-now-form').on('submit', function (e) {
-                e.preventDefault(); // Ngăn submit mặc định
-
+            $('.add-to-cart-form').on('submit', function (e) {
+                e.preventDefault();
                 var $form = $(this);
                 var url = $form.attr('action');
                 var data = $form.serialize();
@@ -415,17 +415,11 @@
                         'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
                     },
                     success: function (response) {
-                        console.log('Response:', response); // Debug phản hồi từ server
-
+                        console.log('Response:', response);
                         if (response.success) {
                             alert(response.message || 'Đã thêm sản phẩm vào giỏ hàng!');
                             if (response.cartCount !== undefined) {
-                                // Cập nhật badge giỏ hàng
-                                $('#cart-count').text(response.cartCount);
-                            }
-                            // Chuyển hướng đến giỏ hàng (nếu cần)
-                            if ($form.hasClass('buy-now-form')) {
-                                window.location.href = response.redirectUrl || '@Url.Action("Cart", "User")';
+                                $('#cart-count').text(response.cartCount); // Cập nhật số lượng giỏ hàng
                             }
                         } else {
                             alert(response.message || 'Không thể thêm sản phẩm vào giỏ hàng.');
@@ -435,12 +429,44 @@
                         }
                     },
                     error: function (xhr, status, error) {
-                        console.error('Error:', error); // Debug lỗi AJAX
+                        console.error('Error:', error);
                         alert('Đã xảy ra lỗi khi thêm sản phẩm vào giỏ hàng: ' + (xhr.responseText || error));
+                    }
+                });
+            });
+
+            // Xử lý form "Mua ngay"
+            $('.buy-now-form').on('submit', function (e) {
+                e.preventDefault();
+                var $form = $(this);
+                var url = $form.attr('action');
+                var data = $form.serialize();
+
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: data,
+                    headers: {
+                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (response) {
+                        console.log('Response:', response);
+                        if (response.success) {
+                            window.location.href = response.redirectUrl || '@Url.Action("Checkout", "User")';
+                        } else {
+                            alert(response.message || 'Không thể thực hiện mua ngay.');
+                            if (response.message && response.message.includes("đăng nhập")) {
+                                window.location.href = '@Url.Action("Login", "User")';
+                            }
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('Đã xảy ra lỗi khi thực hiện mua ngay: ' + (xhr.responseText || error));
                     }
                 });
             });
         });
     </script>
-
+}
 }

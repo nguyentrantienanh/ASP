@@ -1,0 +1,18 @@
+﻿@model TienAnhGold.Models.Order
+
+@{
+    ViewData["Title"] = "Xóa đơn hàng";
+}
+
+<h1 class="text-center fw-bold text-gold">@ViewData["Title"]</h1>
+
+<div class="container mt-5">
+    <h3 class="text-danger">Bạn có chắc chắn muốn xóa đơn hàng #@Model.Id không?</h3>
+    <p>Đơn hàng này sẽ được đánh dấu là đã xóa và người dùng sẽ có thể xóa vĩnh viễn.</p>
+
+    <form asp-action="DeleteOrder" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a asp-action="ManageOrders" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>

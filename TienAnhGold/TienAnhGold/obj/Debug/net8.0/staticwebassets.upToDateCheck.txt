@@ -2,11 +2,14 @@ wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\480337832_934590278662825_7474405072569348015_n.jpg
 wwwroot\images\6. Lắp ráp máy tính.jpg
+wwwroot\images\asus.jpg
 wwwroot\images\botrangsucvangcuoi.jpg
 wwwroot\images\chuot_web_74c1c4a977814857943e98d996e043ae_compact.jpg
 wwwroot\images\foundationtrainingtuyendung-1562808871.jpg
 wwwroot\images\Marketing-cuate.png
+wwwroot\images\nhan18k.jpg
 wwwroot\images\Online world-rafiki (1).png
+wwwroot\images\tuong-con-giap-phu-quy-2018-ga-vang-24k.webp
 wwwroot\images\tuong-con-giap-phu-quy-2018-ran-vang-24k_b908a95c1fa746a5ada74e6d8e68caef_compact.webp
 wwwroot\images\tuong-than-tai-vang-24k.webp
 wwwroot\images\vongtay1.jpg
@@ -69,4 +72,5 @@ wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
 wwwroot\Logo\2.png
+wwwroot\Logo\Gold.png
 wwwroot\poster\poster.webp

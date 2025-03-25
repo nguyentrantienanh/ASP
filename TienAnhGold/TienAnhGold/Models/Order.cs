@@ -65,6 +65,7 @@ namespace TienAnhGold.Models
         Pending,            // Chờ duyệt
         Approved,           // Đã duyệt (hiển thị QR nếu là BankTransfer)
         AwaitingConfirmation, // Chờ admin xác nhận thanh toán
-        Completed           // Hoàn thành
+        Completed,           // Hoàn thành
+            Deleted             // Đã xóa bởi admin
     }
 }

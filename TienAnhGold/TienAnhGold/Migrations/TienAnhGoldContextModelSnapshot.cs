@@ -61,7 +61,7 @@ namespace TienAnhGold.Migrations
                             Email = "admin@tienanhgold.com",
                             IsActive = true,
                             Name = "Admin Master",
-                            Password = "$2a$11$/xvl7IqgVj/tNHxnDEm6juWZbOJTontsljZkgEWiaXpDwMOxX1nJq",
+                            Password = "$2a$11$0ZDM3Ow988uSrdACj7T18.WDHo.8FBe0znJCuo9UK6Z2RMH/jX6z.",
                             Role = "Admin"
                         });
                 });
@@ -88,6 +88,73 @@ namespace TienAnhGold.Migrations
                     b.HasIndex("GoldId");
 
                     b.ToTable("CartItems", (string)null);
+                });
+
+            modelBuilder.Entity("TienAnhGold.Models.Chat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("EmployeeEnded")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("EmployeeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("HasAdminJoinedMessage")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("UserEnded")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Chats");
+                });
+
+            modelBuilder.Entity("TienAnhGold.Models.ChatMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ChatId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderRole")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SentAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatId");
+
+                    b.ToTable("ChatMessages");
                 });
 
             modelBuilder.Entity("TienAnhGold.Models.Employee", b =>
@@ -173,28 +240,8 @@ namespace TienAnhGold.Migrations
                     b.Property<DateTime?>("ConfirmedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("CustomerAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerPhone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("PaymentMethod")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("QRCodeUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -239,31 +286,6 @@ namespace TienAnhGold.Migrations
                     b.HasIndex("OrderId");
 
                     b.ToTable("OrderDetails", (string)null);
-                });
-
-            modelBuilder.Entity("TienAnhGold.Models.PasswordReset", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("Expiration")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Token")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("PasswordResets", (string)null);
                 });
 
             modelBuilder.Entity("TienAnhGold.Models.User", b =>
@@ -317,6 +339,15 @@ namespace TienAnhGold.Migrations
                     b.Navigation("Gold");
                 });
 
+            modelBuilder.Entity("TienAnhGold.Models.ChatMessage", b =>
+                {
+                    b.HasOne("TienAnhGold.Models.Chat", null)
+                        .WithMany("Messages")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("TienAnhGold.Models.Order", b =>
                 {
                     b.HasOne("TienAnhGold.Models.User", "User")
@@ -347,15 +378,9 @@ namespace TienAnhGold.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("TienAnhGold.Models.PasswordReset", b =>
+            modelBuilder.Entity("TienAnhGold.Models.Chat", b =>
                 {
-                    b.HasOne("TienAnhGold.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
+                    b.Navigation("Messages");
                 });
 
             modelBuilder.Entity("TienAnhGold.Models.Order", b =>

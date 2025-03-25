@@ -1,7 +1,7 @@
 ﻿@model TienAnhGold.Models.DashboardViewModel
 
 @{
-    ViewData["Title"] = "Bảng điều khiển Nhân viên";
+    ViewData["Title"] = "Bảng Điều Khiển Nhân Viên";
 }
 
 <header class="bg-light py-4 mb-5">
@@ -9,27 +9,94 @@
 </header>
 
 <div class="container">
-    <div class="row g-4">
-        <div class="col-md-6">
+    <!-- Thẻ thống kê -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-6 col-sm-12">
             <div class="card h-100 shadow-lg border-0 rounded-4 text-center p-4 bg-warning text-dark">
-                <h5>Đơn chờ xác nhận</h5>
-                <h2>@Model.OrderCount</h2>
+                <h5 class="fw-bold">Đơn Chờ Xác Nhận</h5>
+                <h2 class="mb-0">@(Model?.OrderCount ?? 0)</h2>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 col-sm-12">
             <div class="card h-100 shadow-lg border-0 rounded-4 text-center p-4 bg-primary text-white">
-                <h5>Sản phẩm</h5>
-                <h2>@Model.GoldCount</h2>
+                <h5 class="fw-bold">Sản Phẩm Vàng</h5>
+                <h2 class="mb-0">@(Model?.GoldCount ?? 0)</h2>
             </div>
         </div>
     </div>
 
+    <!-- Nút quản lý -->
     <div class="mt-5">
-        <h3 class="text-dark mb-4">Quản lý</h3>
-        <div class="row g-4">
-            <div class="col-md-12">
-                <a asp-action="ManageOrders" asp-controller="Employee" class="btn btn-gold w-100 py-3 fw-bold">Quản lý đơn hàng</a>
+        <h3 class="text-dark mb-4">Quản Lý</h3>
+        <div class="row g-4 mb-5">
+            <div class="col-12">
+                <a asp-action="ManageOrders" asp-controller="Admin" class="btn btn-gold w-100 py-3 fw-bold">
+                    Quản Lý Đơn Hàng
+                </a>
             </div>
+        </div>
+    </div>
+
+    <!-- Đơn hàng gần đây -->
+    <div class="card shadow-lg rounded-4 mb-5">
+        <div class="card-header bg-light py-3">
+            <h5 class="m-0 fw-bold text-dark">Đơn Hàng Gần Đây</h5>
+        </div>
+        <div class="card-body">
+            @if (Model?.RecentOrders?.Any() == true)
+            {
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ngày Đặt</th>
+                            <th>Tổng Tiền</th>
+                            <th>Trạng Thái</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in Model.RecentOrders)
+                        {
+                            <tr>
+                                <td>@order.Id</td>
+                                <td>@order.OrderDate.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td>@order.TotalAmount?.ToString("N0", new System.Globalization.CultureInfo("vi-VN")) VNĐ</td>
+                                <td>
+                                    @switch (order.Status)
+                                    {
+                                        case OrderStatus.Pending:
+                                            <span class="badge bg-warning text-dark">Chờ duyệt</span>
+                                            break;
+                                        case OrderStatus.Approved:
+                                            <span class="badge bg-info text-dark">Đã duyệt</span>
+                                            break;
+                                        case OrderStatus.AwaitingConfirmation:
+                                            <span class="badge bg-primary">Chờ xác nhận</span>
+                                            break;
+                                        case OrderStatus.Completed:
+                                            <span class="badge bg-success">Hoàn thành</span>
+                                            break;
+                                        case OrderStatus.Deleted:
+                                            <span class="badge bg-danger">Đã xóa</span>
+                                            break;
+                                        default:
+                                            <span class="badge bg-secondary">Không xác định</span>
+                                            break;
+                                    }
+                                </td>
+                                <td>
+                                    <a asp-action="OrderDetails" asp-controller="Employee" asp-route-id="@order.Id" class="btn btn-sm btn-secondary">Chi Tiết</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p class="text-center text-muted py-3">Không có đơn hàng gần đây.</p>
+            }
         </div>
     </div>
 </div>
@@ -43,16 +110,24 @@
 
     body {
         font-family: 'Arial', sans-serif;
-        background-color: #f5f5f5;
+        background-color: #f8f9fa; /* Màu nền nhẹ nhàng */
     }
 
     header {
-        border-bottom: 2px solid var(--gold-color);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border-bottom: 3px solid var(--gold-color); /* Tăng độ dày viền */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Bóng nhẹ hơn */
     }
 
     .text-gold {
         color: var(--gold-color) !important;
+    }
+
+    .bg-warning {
+        background-color: #ffc107 !important; /* Màu vàng cam */
+    }
+
+    .bg-primary {
+        background-color: #007bff !important; /* Màu xanh dương */
     }
 
     .card {
@@ -60,16 +135,35 @@
     }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px); /* Hiệu ứng nâng lên khi hover */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Bóng đậm hơn */
         }
 
     .btn-gold {
+        background-color: var(--gold-color);
+        border-color: var(--gold-color);
+        color: #fff;
         transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     }
 
         .btn-gold:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            background-color: var(--gold-hover);
+            border-color: var(--gold-hover);
+            transform: translateY(-2px); /* Hiệu ứng nhấn khi hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Bóng nhẹ */
+            color: #fff;
         }
+
+    .table th, .table td {
+        vertical-align: middle;
+    }
+
+    .badge {
+        font-size: 0.9rem;
+        padding: 0.4em 0.8em;
+    }
+
+    h1, h2, h3, h5 {
+        font-weight: 600; /* Tăng độ đậm cho tiêu đề */
+    }
 </style>

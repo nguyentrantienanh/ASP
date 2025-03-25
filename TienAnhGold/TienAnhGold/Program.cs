@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using TienAnhGold.Data;
-using TienAnhGold.Models;
+using TienAnhGold.Hubs; // Thêm namespace cho ChatHub
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +24,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     .AddCookie(options =>
     {
         options.LoginPath = "/User/Login";
-        options.AccessDeniedPath = "/Home/AccessDenied"; // Đảm bảo action AccessDenied tồn tại
+        options.AccessDeniedPath = "/Home/AccessDenied";
         options.SlidingExpiration = true;
     });
 
@@ -35,10 +35,10 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("Employee", policy => policy.RequireRole("Employee"));
     options.AddPolicy("User", policy => policy.RequireRole("User"));
     options.AddPolicy("RequireAdminOrEmployee", policy => policy.RequireRole("Admin", "Employee"));
-    options.AddPolicy("AdminOrEmployee", policy => policy.RequireRole("Admin", "Employee")); // Chính sách này cho phép cả Admin và Employee
 });
 
-builder.Services.AddLogging();
+// Thêm SignalR
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -56,6 +56,11 @@ app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Map SignalR Hub với namespace đầy đủ
+app.MapHub<TienAnhGold.Hubs.ChatHub>("/chatHub");
+
+// Map API và MVC
+app.MapControllers();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

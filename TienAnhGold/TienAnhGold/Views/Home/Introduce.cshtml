@@ -1,0 +1,204 @@
+﻿@model object
+
+@{
+    ViewData["Title"] = "Giới Thiệu";
+}
+
+<header class="bg-light py-3 mb-4">
+    <h1 class="text-center fw-bold text-gold" style="text-shadow: 2px 2px 4px rgba(212, 160, 23, 0.3); font-size: 2.2rem;">@ViewData["Title"]</h1>
+</header>
+
+<div class="container about-page">
+    <!-- Phần giới thiệu về shop -->
+    <div class="about-section mb-5">
+        <div class="row align-items-center">
+            <!-- Hình ảnh minh họa -->
+            <div class="col-md-6 mb-4">
+                <div class="about-image text-center">
+                    <img src="~/poster/poster.webp" alt="Trang Sức Vàng" class="img-fluid rounded-3 shadow-lg border border-gold" style="max-width: 100%; height: auto; max-height: 400px; object-fit: cover;" />
+                </div>
+            </div>
+            <!-- Nội dung giới thiệu -->
+            <div class="col-md-6 mb-4">
+                <div class="about-content bg-white p-4 rounded-3 shadow-lg border border-gold">
+                    <h2 class="fw-bold text-gold mb-3" style="font-size: 1.8rem; text-shadow: 1px 1px 3px rgba(212, 160, 23, 0.2);">
+                        Giới Thiệu Về Trang Sức Vàng
+                    </h2>
+                    <p class="text-muted" style="font-size: 1rem; line-height: 1.6;">
+                        Chào mừng bạn đến với <strong>Trang Sức Vàng</strong> - nơi hội tụ vẻ đẹp tinh tế và giá trị vĩnh cửu! 
+                        Chúng tôi tự hào là đơn vị cung cấp trang sức vàng cao cấp với chất lượng hàng đầu, từ vàng 18K, 24K đến 99K. 
+                        Mỗi sản phẩm đều được chế tác tỉ mỉ bởi các nghệ nhân lành nghề, mang đến sự sang trọng và đẳng cấp cho từng khách hàng.
+                    </p>
+                    <p class="text-muted" style="font-size: 1rem; line-height: 1.6;">
+                        Tại Trang Sức Vàng, chúng tôi cam kết mang đến trải nghiệm mua sắm tuyệt vời với dịch vụ tận tâm, 
+                        giá cả hợp lý và chính sách bảo hành rõ ràng. Hãy để chúng tôi đồng hành cùng bạn trong hành trình tôn vinh vẻ đẹp và giá trị!
+                    </p>
+                    <div class="text-center mt-3">
+                        <a href="@Url.Action("Contact", "Home")" class="btn btn-gold px-4 py-2" style="font-size: 0.9rem;">Liên Hệ Với Chúng Tôi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phần vị trí shop -->
+    <div class="location-section mb-5">
+        <h2 class="text-center fw-bold text-gold mb-4" style="font-size: 2rem; text-shadow: 1px 1px 3px rgba(212, 160, 23, 0.2);">
+            Vị Trí Shop Trang Sức Vàng
+        </h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="location-container bg-white p-4 rounded-3 shadow-lg border border-gold">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-wrapper me-3">
+                            <i class="bi bi-geo-alt-fill" style="font-size: 1.5rem; color: var(--gold-color);"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold mb-1" style="font-size: 1.2rem;">Địa chỉ</h5>
+                            <p class="text-muted" style="font-size: 1rem;">Nha Trang - Khánh Hòa</p>
+                        </div>
+                    </div>
+                    <!-- Bản đồ Google Maps -->
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.447219804465!2d109.18820891417358!3d12.238785291326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3170677811c54c6d%3A0x728f2d82c0f918f8!2sNha%20Trang%2C%20Kh%C3%A1nh%20H%C3%B2a%2C%20Vietnam!5e0!3m2!1sen!2s!4v1698051234567!5m2!1sen!2s" 
+                                width="100%" height="300" style="border: 2px solid var(--gold-color); border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --gold-color: #d4a017;
+        --gold-hover: #b88a0f;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        border-bottom: 2px solid var(--gold-color);
+        box-shadow: 0 2px 10px rgba(212, 160, 23, 0.15);
+        background: linear-gradient(135deg, #ffffff 80%, #f8f9fa 100%);
+        text-align: center;
+    }
+
+    .text-gold {
+        color: var(--gold-color) !important;
+        text-shadow: 1px 1px 3px rgba(212, 160, 23, 0.2);
+    }
+
+    .container.about-page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 15px 40px;
+    }
+
+    /* Phần giới thiệu */
+    .about-section {
+        margin-bottom: 40px;
+    }
+
+    .about-content {
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1), 0 3px 8px rgba(0, 0, 0, 0.05);
+        border: 2px solid var(--gold-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .about-image img {
+        transition: transform 0.3s ease;
+    }
+
+    .about-image img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Phần vị trí */
+    .location-section {
+        margin-bottom: 40px;
+    }
+
+    .location-container {
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1), 0 3px 8px rgba(0, 0, 0, 0.05);
+        border: 2px solid var(--gold-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .location-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .icon-wrapper {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff8e1;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+
+    .location-container:hover .icon-wrapper {
+        background-color: var(--gold-color);
+    }
+
+    .location-container:hover .icon-wrapper i {
+        color: #ffffff;
+    }
+
+    /* Nút */
+    .btn {
+        padding: 6px 10px;
+        font-weight: 600;
+        border-radius: 6px;
+        transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        font-size: 0.85rem;
+    }
+
+    .btn:hover {
+        transform: translateY(-1px);
+        opacity: 0.95;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-gold {
+        background-color: var(--gold-color);
+        border-color: var(--gold-color);
+        color: #ffffff;
+    }
+
+    .btn-gold:hover {
+        background-color: var(--gold-hover);
+        border-color: var(--gold-hover);
+    }
+
+    .border-gold {
+        border: 2px solid var(--gold-color) !important;
+    }
+</style>
+
+@section Scripts {
+    @{
+        await Html.PartialAsync("_ValidationScriptsPartial");
+    }
+}

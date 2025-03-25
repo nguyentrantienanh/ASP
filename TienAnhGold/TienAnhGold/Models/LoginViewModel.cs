@@ -2,6 +2,7 @@
 
 namespace TienAnhGold.Models
 {
+    // Lớp LoginViewModel dùng để lưu thông tin đăng nhập
     public class LoginViewModel
     {
         [Required]

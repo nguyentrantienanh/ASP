@@ -1,0 +1,55 @@
+﻿<!-- Views/Chat/Index.cshtml -->
+<div id="chat-box" style="position: fixed; bottom: 20px; right: 20px; width: 300px; height: 400px; border: 1px solid #ccc; background: #fff;">
+    <div id="chat-messages" style="height: 350px; overflow-y: scroll; padding: 10px;"></div>
+    <input type="text" id="chat-input" style="width: 100%; padding: 10px;" placeholder="Nhập tin nhắn..." />
+    <button id="end-chat" style="display: none;">Kết thúc trò chuyện</button>
+</div>
+
+@section Scripts {
+    <script src="/lib/microsoft-signalr/signalr.js"></script>
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .build();
+
+        let chatId = null;
+
+        connection.on("ReceiveMessage", (senderId, senderRole, message) => {
+            const messagesDiv = document.getElementById("chat-messages");
+            messagesDiv.innerHTML += `<p><strong>${senderRole} (${senderId}):</strong> ${message}</p>`;
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        });
+
+        connection.start().then(() => {
+            // Bắt đầu một đoạn chat mới
+            fetch("/Chat/StartChat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ userId: "User1" }) // Thay "User1" bằng ID người dùng thực tế
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatId = data.chatId;
+                connection.invoke("JoinChat", chatId.toString());
+            });
+        });
+
+        document.getElementById("chat-input").addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                const message = e.target.value;
+                connection.invoke("SendMessage", chatId.toString(), "User1", "User", message);
+                e.target.value = "";
+            }
+        });
+
+        document.getElementById("end-chat").addEventListener("click", () => {
+            fetch("/Chat/EndChat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chatId })
+            }).then(() => {
+                document.getElementById("end-chat").style.display = "none";
+            });
+        });
+    </script>
+}

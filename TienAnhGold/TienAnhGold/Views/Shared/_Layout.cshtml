@@ -11,120 +11,132 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
     <style>
         :root {
-            --gold-color: #d4a017; /* Màu vàng sang trọng */
-            --gold-hover: #b88a0f; /* Màu vàng đậm hơn khi hover */
-            --secondary-color: #333333; /* Màu phụ đen nhạt */
-            --navbar-bg: #ffffff; /* Màu nền navbar */
+        --gold-color: #d4a017;
+        --gold-hover: #b88a0f;
+        --secondary-color: #333333;
+        --navbar-bg: #ffffff;
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+        font-family: 'Arial', sans-serif;
         }
 
-        /* Navbar */
         .navbar {
-            background-color: var(--navbar-bg);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 10px 0;
+        background-color: var(--navbar-bg);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
         }
 
         .navbar-brand {
-            font-size: 1.5rem;
-            color: var(--gold-color) !important;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            transition: color 0.3s ease;
+        font-size: 1.5rem;
+        color: var(--gold-color) !important;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease;
         }
 
-            .navbar-brand:hover {
-                color: var(--gold-hover) !important;
-            }
+        .navbar-brand:hover {
+        color: var(--gold-hover) !important;
+        }
 
-            .navbar-brand img {
-                width: 30px;
-                margin-right: 10px;
-            }
+        .navbar-brand img {
+        width: 100px;
+        height: auto;
+        margin-right: 3px;
+        padding: 0;
+        display: block;
+        }
+
+        .navbar-brand .brand-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--gold-color);
+        text-transform: uppercase;
+        text-shadow: 1px 1px 2px rgba(212, 160, 23, 0.2);
+        transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover .brand-text {
+        color: var(--gold-hover);
+        }
 
         .nav-link {
-            color: var(--secondary-color) !important;
-            font-weight: 500;
-            padding: 10px 15px;
-            transition: all 0.3s ease;
-            font-size: 1rem; /* Kích thước chữ cố định */
+        color: var(--secondary-color) !important;
+        font-weight: 500;
+        padding: 10px 15px;
+        transition: all 0.3s ease;
+        font-size: 1rem;
         }
 
-            .nav-link:hover, .nav-link:focus {
-                color: var(--gold-hover) !important;
-                background-color: rgba(212, 160, 23, 0.1);
-                border-radius: 5px;
-            }
+        .nav-link:hover, .nav-link:focus {
+        color: var(--gold-hover) !important;
+        background-color: rgba(212, 160, 23, 0.1);
+        border-radius: 5px;
+        }
 
         .dropdown-menu {
-            border: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
         }
 
         .dropdown-item {
-            color: var(--secondary-color);
-            transition: all 0.3s ease;
-            padding: 8px 15px; /* Khoảng cách cố định */
+        color: var(--secondary-color);
+        transition: all 0.3s ease;
+        padding: 8px 15px;
         }
 
-            .dropdown-item:hover {
-                color: var(--gold-hover);
-                background-color: rgba(212, 160, 23, 0.1);
-            }
+        .dropdown-item:hover {
+        color: var(--gold-hover);
+        background-color: rgba(212, 160, 23, 0.1);
+        }
 
-        /* Badge cho giỏ hàng */
         .nav-link .badge {
-            background-color: var(--gold-color);
-            color: #ffffff;
-            font-size: 0.7rem;
-            padding: 3px 6px;
-            border-radius: 50%;
-            margin-left: 5px;
+        background-color: var(--gold-color);
+        color: #ffffff;
+        font-size: 0.7rem;
+        padding: 3px 6px;
+        border-radius: 50%;
+        margin-left: 5px;
         }
 
-        /* Thanh tìm kiếm */
         .btn-outline-gold {
-            border-color: var(--gold-color);
-            color: var(--gold-color);
-            transition: all 0.3s ease;
-            padding: 5px 10px; /* Kích thước cố định */
+        border-color: var(--gold-color);
+        color: var(--gold-color);
+        transition: all 0.3s ease;
+        padding: 5px 10px;
         }
 
-            .btn-outline-gold:hover {
-                background-color: var(--gold-hover);
-                color: #ffffff;
-            }
+        .btn-outline-gold:hover {
+        background-color: var(--gold-hover);
+        color: #ffffff;
+        }
 
         .search-form {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
         }
 
-            .search-form .form-control {
-                font-size: 0.9rem; /* Kích thước chữ cố định */
-                padding: 5px 10px; /* Khoảng cách cố định */
-            }
+        .search-form .form-control {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+        }
     </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="container-fluid">
-                <!-- Logo -->
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/Logo/2.png" alt="Gold Icon" />
+                    <img src="~/Logo/Gold.png" alt="Gold Icon" />
+                    <span class="brand-text">AnhGold</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <!-- Menu chính -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
@@ -138,12 +150,24 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="User" asp-action="Cart">
-                                <i class="bi bi-cart"></i> Giỏ hàng <span class="badge">@ViewBag.CartCount</span>
+                                <i class="bi bi-cart"></i> Giỏ hàng
+                                @if (ViewBag.CartCount > 0)
+                                {
+                                    <span class="badge">@ViewBag.CartCount</span>
+                                }
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Introduce">
+                                <i class="bi bi-info"></i> Giới thiệu
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">
+                                <i class="bi bi-telephone"></i> Liên hệ
                             </a>
                         </li>
                     </ul>
-
-                    <!-- Menu người dùng -->
                     <ul class="navbar-nav">
                         @if (User?.Identity?.IsAuthenticated == true)
                         {
@@ -160,6 +184,7 @@
                                         <li><a class="dropdown-item" asp-area="" asp-controller="Admin" asp-action="ManageEmployees">Quản lý nhân viên</a></li>
                                         <li><a class="dropdown-item" asp-area="" asp-controller="Golds" asp-action="Index">Quản lý danh mục</a></li>
                                         <li><a class="dropdown-item" asp-area="" asp-controller="Admin" asp-action="CreateAccount">Tạo tài khoản</a></li>
+
                                     }
                                     else if (User.IsInRole("Employee"))
                                     {
@@ -232,6 +257,14 @@
             background-color: var(--navbar-bg);
         }
     </style>
+
+    <!-- Biểu tượng chat -->
+    <div class="chat-icon" onclick="toggleChatBox()">
+        <span style="font-size: 30px;">💬</span>
+    </div>
+
+    <!-- Chatbox được render từ partial view -->
+    @await Html.PartialAsync("_ChatBox")
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

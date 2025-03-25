@@ -1,0 +1,251 @@
+﻿@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "Employee Chat";
+}
+
+<div class="chat-container">
+    <div class="conversation-list" id="conversation-list">
+        <h3>Danh sách trò chuyện</h3>
+        <ul id="user-list"></ul>
+    </div>
+
+    <div class="chat-box" id="chat-box">
+        <div class="chat-header">
+            <span>Chat Hỗ Trợ</span>
+            <button class="chat-end-button" id="end-chat">Kết thúc</button>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input">
+            <input type="text" id="chat-input" placeholder="Nhập tin nhắn..." />
+            <button id="send-button" onclick="sendMessage()" disabled>Gửi</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.min.js"></script>
+    <script>
+        let chatId = null;
+        const userId = "@(User.Identity.IsAuthenticated ? User.FindFirst(ClaimTypes.Email)?.Value : "")";
+        const userRole = "@(User.FindFirst(ClaimTypes.Role)?.Value ?? (User.IsInRole("Admin") ? "Admin" : User.IsInRole("Employee") ? "Employee" : User.IsInRole("User") ? "User" : ""))";
+        let isChatInitialized = false;
+        let hasAttemptedStartChat = false;
+        let selectedUserId = null;
+
+        console.log("userId:", userId);
+        console.log("userRole:", userRole);
+
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .build();
+
+        connection.on("ReceiveMessage", (senderId, senderRole, message) => {
+            const messagesDiv = document.getElementById("chat-messages");
+            let messageClass;
+            if (senderRole === "User") {
+                messageClass = "user-message";
+            } else if (senderRole === "Employee") {
+                messageClass = "employee-message";
+            } else if (senderRole === "Admin") {
+                messageClass = "admin-message";
+            } else {
+                messageClass = "system-message";
+            }
+            messagesDiv.innerHTML += `<div class="message ${messageClass}"><strong>${senderId} (${senderRole}):</strong> ${message}</div>`;
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        });
+
+        if (userId) {
+            connection.start()
+                .then(() => {
+                    console.log("SignalR connected successfully");
+                    if (userRole === "Employee" || userRole === "Admin") {
+                        loadUserList();
+                    }
+                })
+                .catch(err => {
+                    console.error("SignalR connection error:", err);
+                    displayError("Không thể kết nối SignalR. Vui lòng thử lại sau.");
+                });
+        }
+
+        function loadUserList() {
+            fetch("/Chat/GetActiveChats")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const userList = document.getElementById("user-list");
+                        userList.innerHTML = "";
+                        data.chats.forEach(chat => {
+                            fetch(`/User/GetUserInfo?userId=${chat.userId}`)
+                                .then(res => res.json())
+                                .then(userData => {
+                                    if (userData.success) {
+                                        userList.innerHTML += `
+                                            <li onclick="selectUser('${chat.id}', '${userData.user.name}')">
+                                                <img src="${userData.user.avatar || '/default-avatar.png'}" alt="Avatar" />
+                                                <div>
+                                                    <strong>${userData.user.name}</strong>
+                                                    <p>${chat.lastMessage || "Chưa có tin nhắn"}</p>
+                                                </div>
+                                            </li>`;
+                                    }
+                                })
+                                .catch(err => {
+                                    console.error("Error fetching user info:", err);
+                                });
+                        });
+                    } else {
+                        displayError("Không thể tải danh sách cuộc trò chuyện: " + data.error);
+                    }
+                })
+                .catch(err => {
+                    console.error("Error loading active chats:", err);
+                    displayError("Không thể tải danh sách cuộc trò chuyện. Vui lòng thử lại.");
+                });
+        }
+
+        function selectUser(chatId, userName) {
+            selectedUserId = chatId;
+            const chatBox = document.getElementById("chat-box");
+            const chatHeader = chatBox.querySelector(".chat-header span");
+            chatHeader.textContent = `Chat với ${userName}`;
+            chatBox.style.display = "flex";
+
+            const userItems = document.querySelectorAll("#user-list li");
+            userItems.forEach(item => item.classList.remove("active"));
+            event.currentTarget.classList.add("active");
+
+            if (!isChatInitialized && !hasAttemptedStartChat && connection.state === "Connected") {
+                hasAttemptedStartChat = true;
+                joinChatAsEmployee();
+            }
+        }
+
+        async function joinChatAsEmployee() {
+            const sendButton = document.getElementById("send-button");
+            sendButton.disabled = true;
+
+            if (connection.state !== "Connected") {
+                displayError("Không thể kết nối SignalR. Vui lòng thử lại sau.");
+                return;
+            }
+
+            try {
+                await connection.invoke("JoinChatAsEmployee", selectedUserId, userId)
+                    .catch(err => {
+                        console.error("Error invoking JoinChatAsEmployee:", err);
+                        displayError("Không thể tham gia chat. Vui lòng thử lại.");
+                    });
+                chatId = selectedUserId;
+                isChatInitialized = true;
+                sendButton.disabled = false;
+                loadMessages();
+            } catch (err) {
+                console.error("Error joining chat:", err);
+                displayError("Không thể tham gia chat. Vui lòng thử lại.");
+            }
+        }
+
+        function loadMessages() {
+            if (!chatId) return;
+            fetch(`/Chat/GetMessages?chatId=${chatId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const messagesDiv = document.getElementById("chat-messages");
+                        messagesDiv.innerHTML = "";
+                        data.messages.forEach(msg => {
+                            let messageClass;
+                            if (msg.senderRole === "User") {
+                                messageClass = "user-message";
+                            } else if (msg.senderRole === "Employee") {
+                                messageClass = "employee-message";
+                            } else if (msg.senderRole === "Admin") {
+                                messageClass = "admin-message";
+                            } else {
+                                messageClass = "system-message";
+                            }
+                            messagesDiv.innerHTML += `<div class="message ${messageClass}"><strong>${msg.senderId} (${msg.senderRole}):</strong> ${msg.message}</div>`;
+                        });
+                        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                    } else {
+                        displayError("Không thể tải lịch sử tin nhắn: " + data.error);
+                    }
+                })
+                .catch(err => {
+                    console.error("Error loading messages:", err);
+                    displayError("Không thể tải lịch sử tin nhắn. Vui lòng thử lại.");
+                });
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("chat-input");
+            const message = input.value.trim();
+            if (!message || !chatId) {
+                console.warn("Cannot send message: chatId or message is invalid.");
+                displayError("Vui lòng chờ khởi tạo chat trước khi gửi tin nhắn.");
+                return;
+            }
+
+            if (connection.state !== "Connected") {
+                displayError("Không thể kết nối SignalR. Vui lòng thử lại sau.");
+                return;
+            }
+
+            connection.invoke("SendMessage", chatId.toString(), userId, userRole, message)
+                .then(() => {
+                    console.log("Message sent successfully");
+                    input.value = "";
+                })
+                .catch(err => {
+                    console.error("Error invoking SendMessage:", err);
+                    displayError("Không thể gửi tin nhắn. Vui lòng thử lại.");
+                });
+        }
+
+        function displayError(message) {
+            const messagesDiv = document.getElementById("chat-messages");
+            messagesDiv.innerHTML += `<div class="message system-message">${message}</div>`;
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function displaySystemMessage(message) {
+            const messagesDiv = document.getElementById("chat-messages");
+            messagesDiv.innerHTML += `<div class="message system-message">${message}</div>`;
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        document.getElementById("chat-input").addEventListener("keypress", (e) => {
+            if (e.key === "Enter") sendMessage();
+        });
+
+        document.getElementById("end-chat").addEventListener("click", () => {
+            if (!chatId) return;
+            fetch("/Chat/EndChat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chatId: parseInt(chatId) })
+            }).then(response => response.json()).then(data => {
+                if (data.success) {
+                    connection.invoke("LeaveChat", chatId.toString())
+                        .catch(err => console.error("Error invoking LeaveChat:", err));
+                    document.getElementById("chat-box").style.display = "none";
+                    chatId = null;
+                    isChatInitialized = false;
+                    hasAttemptedStartChat = false;
+                    document.getElementById("chat-messages").innerHTML = "";
+                    const userItems = document.querySelectorAll("#user-list li");
+                    userItems.forEach(item => item.classList.remove("active"));
+                    loadUserList();
+                } else {
+                    displayError("Không thể kết thúc chat: " + data.error);
+                }
+            }).catch(err => {
+                console.error("Error ending chat:", err);
+                displayError("Không thể kết thúc chat. Vui lòng thử lại.");
+            });
+        });
+    </script>
+}

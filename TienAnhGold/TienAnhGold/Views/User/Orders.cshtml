@@ -10,79 +10,77 @@
 </header>
 
 <div class="container">
+    @if (TempData["OrderNotification"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["OrderNotification"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
     @if (Model == null || !Model.Any())
     {
         <p class="text-center text-muted py-5">Bạn chưa có đơn hàng nào.</p>
     }
     else
     {
-        <form id="paymentForm">
-            <div class="mb-3 d-flex justify-content-between align-items-center">
-                <div>
-                    <input type="checkbox" id="selectAll" class="form-check-input me-2">
-                    <label for="selectAll" class="form-check-label">Chọn tất cả</label>
-                </div>
-                <div>
-                    <strong>Tổng tiền thanh toán: </strong>
-                    <span id="totalAmount" class="text-gold fw-bold">0 VND</span>
-                </div>
-            </div>
-
-            <table class="table table-hover shadow-lg rounded-4">
-                <thead class="table-light">
-                    <tr>
-                        <th class="fw-bold text-dark">Chọn</th>
-                        <th class="fw-bold text-dark">Mã đơn hàng</th>
-                        <th class="fw-bold text-dark">Phương thức thanh toán</th>
-                        <th class="fw-bold text-dark">Ngày đặt</th>
-                        <th class="fw-bold text-dark">Tổng tiền</th>
-                        <th class="fw-bold text-dark">Trạng thái</th>
-                        <th class="fw-bold text-dark">Hành động</th>
+        <table class="table table-hover shadow-lg rounded-4" id="ordersTable">
+            <thead class="table-light">
+                <tr>
+                    <th class="fw-bold text-dark">Mã đơn hàng</th>
+                    <th class="fw-bold text-dark">Phương thức thanh toán</th>
+                    <th class="fw-bold text-dark">Ngày đặt</th>
+                    <th class="fw-bold text-dark">Tổng tiền</th>
+                    <th class="fw-bold text-dark">Trạng thái</th>
+                    <th class="fw-bold text-dark">Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr data-order-id="@order.Id" class="@(order.Status == OrderStatus.Deleted ? "deleted-order" : "")">
+                        <td class="text-muted">@order.Id</td>
+                        <td class="text-muted">@(order.PaymentMethod == "COD" ? "Thanh toán khi nhận hàng" : "Chuyển khoản qua STK")</td>
+                        <td class="text-muted">@order.OrderDate.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td class="text-muted">@order.TotalAmount?.ToString("N0") VND</td>
+                        <td class="text-muted">
+                            @switch (order.Status)
+                            {
+                                case OrderStatus.Pending:
+                                    <span class="badge bg-warning status-text">Chờ duyệt</span>
+                                    break;
+                                case OrderStatus.Approved:
+                                    <span class="badge bg-info status-text">Đã duyệt</span>
+                                    break;
+                                case OrderStatus.AwaitingConfirmation:
+                                    <span class="badge bg-primary status-text">Chờ xác nhận thanh toán</span>
+                                    break;
+                                case OrderStatus.Completed:
+                                    <span class="badge bg-success status-text">Hoàn thành</span>
+                                    break;
+                                case OrderStatus.Deleted:
+                                    <span class="badge bg-danger status-text">Đơn hàng đã bị xóa</span>
+                                    break;
+                                default:
+                                    <span class="badge bg-secondary status-text">Không xác định</span>
+                                    break;
+                            }
+                        </td>
+                        <td>
+                            <a asp-action="OrderDetails" asp-controller="User" asp-route-id="@order.Id" class="btn btn-gold btn-sm py-1 px-3">Xem chi tiết</a>
+                            @if (order.Status == OrderStatus.Deleted)
+                            {
+                                <form asp-action="DeleteOrder" asp-controller="User" method="post" style="display:inline;">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="id" value="@order.Id" />
+                                    <button type="submit" class="btn btn-danger btn-sm py-1 px-3">Xóa vĩnh viễn</button>
+                                </form>
+                            }
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach (var order in Model)
-                    {
-                        <tr>
-                            <td>
-                                @if (order.Status == OrderStatus.Pending || order.Status == OrderStatus.AwaitingConfirmation)
-                                {
-                                    <input type="checkbox"
-                                           class="form-check-input order-checkbox"
-                                           value="@order.TotalAmount"
-                                           data-order-id="@order.Id">
-                                }
-                            </td>
-                            <td class="text-muted">@order.Id</td>
-                            <td class="text-muted">@(order.PaymentMethod == "COD" ? "Thanh toán khi nhận hàng" : "Chuyển khoản qua STK")</td>
-                            <td class="text-muted">@order.OrderDate.ToString("dd/MM/yyyy HH:mm")</td>
-                            <td class="text-muted">@order.TotalAmount?.ToString("N0") VND</td>
-                            <td class="text-muted">
-                                @switch (order.Status)
-                                {
-                                    case OrderStatus.Pending:
-                                        <span class="badge bg-warning">Chờ duyệt</span>
-                                        break;
-                                    
-                                    case OrderStatus.AwaitingConfirmation:
-                                        <span class="badge bg-primary">Chờ xác nhận nhận hàng</span>
-                                        break;
-                                    case OrderStatus.Completed:
-                                        <span class="badge bg-success">Hoàn thành</span>
-                                        break;
-                                    default:
-                                        <span class="badge bg-secondary">Không xác định</span>
-                                        break;
-                                }
-                            </td>
-                            <td>
-                                <a asp-action="OrderDetails" asp-controller="User" asp-route-id="@order.Id" class="btn btn-gold btn-sm py-1 px-3">Xem chi tiết</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </form>
+                }
+            </tbody>
+        </table>
     }
 </div>
 
@@ -124,43 +122,8 @@
     .text-muted {
         color: #6c757d;
     }
+
+    .deleted-order {
+        opacity: 0.5;
+    }
 </style>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const checkboxes = document.querySelectorAll('.order-checkbox');
-        const selectAll = document.getElementById('selectAll');
-        const totalAmountSpan = document.getElementById('totalAmount');
-
-        function updateTotal() {
-            let total = 0;
-            checkboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    total += parseFloat(checkbox.value) || 0;
-                }
-            });
-            totalAmountSpan.textContent = total.toLocaleString('vi-VN') + ' VND';
-        }
-
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function () {
-                updateTotal();
-                selectAll.checked = [...checkboxes].every(cb => cb.checked);
-            });
-        });
-
-        selectAll.addEventListener('change', function () {
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = this.checked;
-            });
-            updateTotal();
-        });
-
-        updateTotal();
-
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('orderSuccess') === 'true') {
-            alert('Đơn hàng đã được gửi thành công. Vui lòng chờ xác nhận.');
-        }
-    });
-</script>

@@ -1,0 +1,625 @@
+﻿@model dynamic
+@using System.Security.Claims
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Chat Hỗ Trợ</title>
+    <style>
+        .chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+
+            .chat-icon:hover {
+                transform: scale(1.1);
+            }
+
+        .chat-box {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            border: 1px solid #ddd;
+        }
+
+        .chat-header {
+            background: linear-gradient(90deg, #ffd700, #ffcc00);
+            color: white;
+            padding: 15px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f5f5f5;
+        }
+
+            .chat-messages .message {
+                margin-bottom: 15px;
+                padding: 10px 15px;
+                border-radius: 10px;
+                max-width: 75%;
+                word-wrap: break-word;
+                line-height: 1.4;
+            }
+
+            .chat-messages .user-message {
+                background-color: #ffd700;
+                color: white;
+                margin-left: auto;
+                text-align: right;
+                border-bottom-right-radius: 0;
+            }
+
+            .chat-messages .employee-message {
+                background-color: #e9ecef;
+                color: #333;
+                margin-right: auto;
+                border-bottom-left-radius: 0;
+            }
+
+            .chat-messages .admin-message {
+                background-color: #d1e7dd;
+                color: #333;
+                margin-right: auto;
+                border-bottom-left-radius: 0;
+            }
+
+            .chat-messages .system-message {
+                text-align: center;
+                color: #888;
+                font-size: 0.9em;
+                margin: 10px 0;
+            }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+            .chat-input input {
+                flex: 1;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 20px;
+                margin-right: 10px;
+                font-size: 14px;
+                outline: none;
+            }
+
+            .chat-input button {
+                padding: 10px 20px;
+                background-color: #ffd700;
+                color: white;
+                border: none;
+                border-radius: 20px;
+                font-size: 14px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+                .chat-input button:hover {
+                    background-color: #e6c200;
+                }
+
+        .chat-end-button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .chat-end-button:hover {
+                background-color: #c82333;
+            }
+
+        .user-list, .admin-list, .employee-list {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            max-height: 500px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            overflow-y: auto;
+            display: none;
+            z-index: 1000;
+            border: 1px solid #ddd;
+        }
+
+        .list-header {
+            background: linear-gradient(90deg, #ffd700, #ffcc00);
+            color: white;
+            padding: 15px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .list-tabs {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f5f5f5;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .list-tab {
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+            .list-tab.active {
+                color: #ffd700;
+                border-bottom: 2px solid #ffd700;
+            }
+
+        .user-list-content, .admin-list-content {
+            display: none;
+        }
+
+            .user-list-content.active, .admin-list-content.active {
+                display: block;
+            }
+
+        .user-list-item, .admin-list-item, .employee-list-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+            .user-list-item:hover, .admin-list-item:hover, .employee-list-item:hover {
+                background-color: #f9f9f9;
+            }
+
+        .unread-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Biểu tượng chat -->
+    <div class="chat-icon" onclick="toggleChatBox()">
+        <span>💬</span>
+        <span class="unread-count" id="unread-count">0</span>
+    </div>
+
+    <!-- Hộp chat -->
+    <div class="chat-box" id="chat-box">
+        <div class="chat-header">
+            <span id="chat-header-title">Chat Hỗ Trợ</span>
+            <button class="chat-end-button" id="end-chat">Kết thúc</button>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input">
+            <input type="text" id="chat-input" placeholder="Nhập tin nhắn..." />
+            <button id="send-button" onclick="sendMessage()" disabled>Gửi</button>
+        </div>
+    </div>
+
+    <!-- Danh sách cho nhân viên (User và Admin) -->
+    <div class="user-list" id="user-list">
+        <div class="list-header">Danh sách liên hệ</div>
+        <div class="list-tabs">
+            <div class="list-tab active" onclick="showTab('users')">Người dùng</div>
+            <div class="list-tab" onclick="showTab('admins')">Admin</div>
+        </div>
+        <div class="user-list-content active" id="user-list-content"></div>
+        <div class="admin-list-content" id="admin-list-content"></div>
+    </div>
+
+    <!-- Danh sách nhân viên cho quản trị viên -->
+    <div class="employee-list" id="employee-list">
+        <div class="list-header" id="employee-list-header">Danh sách nhân viên</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.min.js"></script>
+    <script>
+        let chatId = null;
+        let targetName = null;
+        let targetId = null;
+        let targetRole = null;
+        let unreadCount = 0;
+        const userId = "@(User.Identity.IsAuthenticated ? User.FindFirst(ClaimTypes.Email)?.Value : "")";
+        const userRole = "@(User.FindFirst(ClaimTypes.Role)?.Value ?? (User.IsInRole("Admin") ? "Admin" : User.IsInRole("Employee") ? "Employee" : User.IsInRole("User") ? "User" : ""))";
+        let isChatInitialized = false;
+
+        console.log("UserId:", userId);
+        console.log("UserRole:", userRole);
+
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .withAutomaticReconnect()
+            .build();
+
+        connection.on("ReceiveMessage", (senderId, senderRole, message) => {
+            console.log(`Received message from ${senderId} (${senderRole}): ${message}`);
+            const messagesDiv = document.getElementById("chat-messages");
+
+            if (userRole === "User" && (senderRole === "User" || senderRole === "Employee")) {
+                const messageClass = senderId === userId ? "user-message" : "employee-message";
+                messagesDiv.innerHTML += `<div class="message ${messageClass}"><strong>${senderId} (${senderRole}):</strong> ${message}</div>`;
+            } else if (userRole !== "User") {
+                const messageClass = senderId === userId ? "user-message" :
+                    (senderRole === "Employee" ? "employee-message" : "admin-message");
+                messagesDiv.innerHTML += `<div class="message ${messageClass}"><strong>${senderId} (${senderRole}):</strong> ${message}</div>`;
+            }
+
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+            if ((userRole === "Employee" || userRole === "Admin") && senderRole === "User" &&
+                document.getElementById("chat-box").style.display === "none") {
+                unreadCount++;
+                updateUnreadCount();
+            }
+        });
+
+        connection.on("ReceiveSystemMessage", (senderId, senderRole, message) => {
+            console.log(`Received system message: ${message}`);
+            const messagesDiv = document.getElementById("chat-messages");
+            const chatBox = document.getElementById("chat-box");
+
+            if (chatBox.style.display === "none") {
+                chatBox.style.display = "flex";
+            }
+
+            messagesDiv.innerHTML += `<div class="message system-message">${message}</div>`;
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+            if (message === "Đoạn chat đã kết thúc.") {
+                document.getElementById("send-button").disabled = true;
+                document.getElementById("chat-input").disabled = true;
+            }
+        });
+
+        connection.on("ChatFullyEnded", () => {
+            console.log("Received ChatFullyEnded signal, resetting chat box.");
+            resetChatBox();
+        });
+
+        async function startConnection() {
+            try
+            {
+                if (connection.state !== signalR.HubConnectionState.Connected) {
+                    await connection.start();
+                    console.log("Đã kết nối SignalR");
+                    if (userRole === "Employee") {
+                        loadUserList();
+                        loadAdminList();
+                    }
+                    if (userRole === "Admin") {
+                        loadEmployeeList();
+                    }
+                }
+            } catch (err) {
+                console.error("Lỗi kết nối SignalR:", err);
+                displayError("Không thể kết nối SignalR: " + err.message);
+                setTimeout(startConnection, 5000);
+            }
+        }
+
+        startConnection();
+
+        function updateUnreadCount() {
+            const unreadCountElement = document.getElementById("unread-count");
+            unreadCountElement.textContent = unreadCount;
+            unreadCountElement.style.display = unreadCount > 0 ? "block" : "none";
+        }
+
+        function toggleChatBox() {
+            const chatBox = document.getElementById("chat-box");
+            const userList = document.getElementById("user-list");
+            const employeeList = document.getElementById("employee-list");
+
+            if (!userId || !userRole) {
+                displayError("Vui lòng đăng nhập để sử dụng chat.");
+                setTimeout(() => window.location.href = "/User/Login", 1000);
+                return;
+            }
+
+            if (userRole === "User") {
+                chatBox.style.display = chatBox.style.display === "none" ? "flex" : "none";
+                userList.style.display = "none";
+                employeeList.style.display = "none";
+                if (!isChatInitialized) {
+                    startChat();
+                }
+                else {
+                    loadMessages();
+                }
+            } else if (userRole === "Employee") {
+                userList.style.display = userList.style.display === "none" ? "block" : "none";
+                chatBox.style.display = "none";
+                employeeList.style.display = "none";
+                if (userList.style.display === "block") {
+                    unreadCount = 0;
+                    updateUnreadCount();
+                }
+            } else if (userRole === "Admin") {
+                employeeList.style.display = employeeList.style.display === "none" ? "block" : "none";
+                chatBox.style.display = "none";
+                userList.style.display = "none";
+                if (employeeList.style.display === "block") {
+                    unreadCount = 0;
+                    updateUnreadCount();
+                }
+            }
+        }
+
+        function showTab(tab) {
+            const userTab = document.querySelector('.list-tab:nth-child(1)');
+            const adminTab = document.querySelector('.list-tab:nth-child(2)');
+            const userListContent = document.getElementById("user-list-content");
+            const adminListContent = document.getElementById("admin-list-content");
+
+            if (tab === "users") {
+                userTab.classList.add("active");
+                adminTab.classList.remove("active");
+                userListContent.classList.add("active");
+                adminListContent.classList.remove("active");
+            } else {
+                userTab.classList.remove("active");
+                adminTab.classList.add("active");
+                userListContent.classList.remove("active");
+                adminListContent.classList.add("active");
+            }
+        }
+
+        async function startChat(targetIdParam = null, targetNameParam = null, targetRoleParam = null) {
+            const sendButton = document.getElementById("send-button");
+            sendButton.disabled = true;
+
+            try {
+                console.log(`Starting chat: userId=${userId}, role=${userRole}, targetId=${targetIdParam}, targetRole=${targetRoleParam}`);
+                const response = await fetch("/Chat/StartChat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ userId, targetId: targetIdParam, role: userRole, targetRole: targetRoleParam })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    chatId = data.chatId;
+                    targetId = targetIdParam;
+                    targetRole = targetRoleParam;
+                    console.log(`Chat started successfully with chatId: ${chatId}`);
+
+                    if (connection.state !== signalR.HubConnectionState.Connected) {
+                        console.log("Kết nối SignalR chưa sẵn sàng, đang thử kết nối lại...");
+                        await startConnection();
+                    }
+
+                    await connection.invoke("JoinChat", chatId.toString(), userId, userRole);
+                    isChatInitialized = true;
+                    sendButton.disabled = false;
+                    document.getElementById("chat-input").disabled = false;
+                    loadMessages();
+
+                    if (targetNameParam) {
+                        targetName = targetNameParam;
+                        document.getElementById("chat-header-title").textContent = `Chat với ${targetName}`;
+                    } else {
+                        document.getElementById("chat-header-title").textContent = "Chat Hỗ Trợ";
+                    }
+
+                    if (userRole === "Employee" || userRole === "Admin") {
+                        unreadCount = 0;
+                        updateUnreadCount();
+                    }
+                } else {
+                    displayError(data.error);
+                    console.error("Failed to start chat:", data.error);
+                }
+            } catch (err) {
+                displayError("Không thể khởi tạo chat: " + err.message);
+                console.error("Error starting chat:", err);
+            }
+        }
+
+        async function loadMessages() {
+            if (!chatId) return;
+            try {
+                console.log(`Loading messages for chatId: ${chatId}`);
+                const response = await fetch(`/Chat/GetMessages?chatId=${chatId}`);
+                const data = await response.json();
+                if (data.success) {
+                    const messagesDiv = document.getElementById("chat-messages");
+                    messagesDiv.innerHTML = "";
+                    data.messages.forEach(msg => {
+                        if (userRole === "User" && (msg.senderRole === "User" || msg.senderRole === "Employee")) {
+                            const messageClass = msg.senderId === userId ? "user-message" : "employee-message";
+                            messagesDiv.innerHTML += `<div class="message ${messageClass}"><strong>${msg.senderId} (${msg.senderRole}):</strong> ${msg.message}</div>`;
+                        } else if (userRole !== "User") {
+                            const messageClass = msg.senderId === userId ? "user-message" :
+                                (msg.senderRole === "Employee" ? "employee-message" : "admin-message");
+                            messagesDiv.innerHTML += `<div class="message ${messageClass}"><strong>${msg.senderId} (${msg.senderRole}):</strong> ${msg.message}</div>`;
+                        }
+                    });
+                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                }
+            } catch (err) {
+                displayError("Không thể tải tin nhắn: " + err.message);
+                console.error("Error loading messages:", err);
+            }
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById("chat-input");
+            const message = input.value.trim();
+            if (!message || !chatId) {
+                displayError("Không thể gửi tin nhắn: chatId không hợp lệ.");
+                console.error("Cannot send message: chatId is invalid:", chatId);
+                return;
+            }
+            try {
+                console.log(`Sending message with chatId: ${chatId}, userId: ${userId}, role: ${userRole}, message: ${message}`);
+                // Không hiển thị tin nhắn ngay tại đây, để ReceiveMessage xử lý
+                await connection.invoke("SendMessage", chatId.toString(), userId, userRole, message);
+                input.value = "";
+            } catch (err) {
+                displayError("Không thể gửi tin nhắn: " + err.message);
+                console.error("Error sending message:", err);
+            }
+        }
+
+        async function loadUserList() {
+            try {
+                const response = await fetch("/Chat/GetUsers");
+                const data = await response.json();
+                if (data && Array.isArray(data)) {
+                    const userListContent = document.getElementById("user-list-content");
+                    userListContent.innerHTML = data.map(user =>
+                        `<div class="user-list-item" onclick="openChat('${user.id}', '${user.name}', 'User')">${user.name}</div>`
+                    ).join("");
+                }
+            } catch (err) {
+                console.error("Lỗi tải danh sách người dùng:", err);
+            }
+        }
+
+        async function loadAdminList() {
+            try {
+                const response = await fetch("/Chat/GetAdmins");
+                const data = await response.json();
+                if (data && Array.isArray(data)) {
+                    const adminListContent = document.getElementById("admin-list-content");
+                    adminListContent.innerHTML = data.map(admin =>
+                        `<div class="admin-list-item" onclick="openChat('${admin.id}', '${admin.name}', 'Admin')">${admin.name}</div>`
+                    ).join("");
+                }
+            } catch (err) {
+                console.error("Lỗi tải danh sách admin:", err);
+            }
+        }
+
+        async function loadEmployeeList() {
+            try {
+                const response = await fetch("/Chat/GetEmployees");
+                const data = await response.json();
+                if (data && Array.isArray(data)) {
+                    const employeeList = document.getElementById("employee-list");
+                    employeeList.innerHTML = '<div class="list-header" id="employee-list-header">Danh sách nhân viên</div>' +
+                        data.map(emp =>
+                            `<div class="employee-list-item" onclick="openChat('${emp.id}', '${emp.name}', 'Employee')">${emp.name}</div>`
+                        ).join("");
+                }
+            } catch (err) {
+                console.error("Lỗi tải danh sách nhân viên:", err);
+            }
+        }
+
+        function openChat(targetId, targetName, targetRole) {
+            const chatBox = document.getElementById("chat-box");
+            const userList = document.getElementById("user-list");
+            const employeeList = document.getElementById("employee-list");
+
+            chatBox.style.display = "flex";
+            userList.style.display = "none";
+            employeeList.style.display = "none";
+            startChat(targetId, targetName, targetRole);
+        }
+
+        function displayError(message) {
+            const messagesDiv = document.getElementById("chat-messages");
+            messagesDiv.innerHTML += `<div class="message system-message">${message}</div>`;
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function resetChatBox() {
+            const chatBox = document.getElementById("chat-box");
+            const messagesDiv = document.getElementById("chat-messages");
+            const chatHeaderTitle = document.getElementById("chat-header-title");
+            const sendButton = document.getElementById("send-button");
+            const chatInput = document.getElementById("chat-input");
+
+            messagesDiv.innerHTML = "";
+            chatHeaderTitle.textContent = "Chat Hỗ Trợ";
+            sendButton.disabled = true;
+            chatInput.disabled = true;
+            chatInput.value = "";
+            chatId = null;
+            targetId = null;
+            targetRole = null;
+            targetName = null;
+            isChatInitialized = false;
+            chatBox.style.display = "none";
+        }
+
+        document.getElementById("chat-input").addEventListener("keypress", (e) => {
+            if (e.key === "Enter") sendMessage();
+        });
+
+        document.getElementById("end-chat").addEventListener("click", async () => {
+            if (!chatId) return;
+            try {
+                const response = await fetch("/Chat/EndChat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ chatId, userId, userRole })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    await connection.invoke("LeaveChat", chatId.toString(), data.userId, data.userRole);
+                }
+            } catch (err) {
+                displayError("Không thể kết thúc chat: " + err.message);
+                console.error("Error ending chat:", err);
+            }
+        });
+    </script>
+</body>
+</html>

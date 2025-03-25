@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\Logo\\2.png"
     },
     {
+      "Id": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\wwwroot\\Logo\\Gold.png",
+      "PackagePath": "staticwebassets\\Logo\\Gold.png"
+    },
+    {
       "Id": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -33,6 +37,10 @@
       "PackagePath": "staticwebassets\\images\\Online world-rafiki (1).png"
     },
     {
+      "Id": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\wwwroot\\images\\asus.jpg",
+      "PackagePath": "staticwebassets\\images\\asus.jpg"
+    },
+    {
       "Id": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\wwwroot\\images\\botrangsucvangcuoi.jpg",
       "PackagePath": "staticwebassets\\images\\botrangsucvangcuoi.jpg"
     },
@@ -43,6 +51,14 @@
     {
       "Id": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\wwwroot\\images\\foundationtrainingtuyendung-1562808871.jpg",
       "PackagePath": "staticwebassets\\images\\foundationtrainingtuyendung-1562808871.jpg"
+    },
+    {
+      "Id": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\wwwroot\\images\\nhan18k.jpg",
+      "PackagePath": "staticwebassets\\images\\nhan18k.jpg"
+    },
+    {
+      "Id": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\wwwroot\\images\\tuong-con-giap-phu-quy-2018-ga-vang-24k.webp",
+      "PackagePath": "staticwebassets\\images\\tuong-con-giap-phu-quy-2018-ga-vang-24k.webp"
     },
     {
       "Id": "D:\\CNTT17A\\ASP\\TienAnhGold\\TienAnhGold\\wwwroot\\images\\tuong-con-giap-phu-quy-2018-ran-vang-24k_b908a95c1fa746a5ada74e6d8e68caef_compact.webp",

@@ -71,7 +71,7 @@
     <!-- Slider sản phẩm -->
     <div class="product-slider-container mb-5">
         <button class="slider-btn prev-btn" onclick="scrollSlider(-1)"><i class="bi bi-chevron-left"></i></button>
-        <div class="product-slider">
+        <div class="product-slider" id="product-slider">
             @if (Model != null && Model.Any())
             {
                 foreach (var product in Model)
@@ -101,9 +101,11 @@
                                 <div class="mt-auto">
                                     <div class="d-flex gap-1 mb-1">
                                         <a asp-area="" asp-controller="Home" asp-action="Details" asp-route-id="@product.Id" class="btn btn-gold flex-grow-1" title="Xem chi tiết sản phẩm" style="padding: 6px 8px; font-size: 0.85rem;">Xem chi tiết</a>
-                                        <a asp-area="" asp-controller="Order" asp-action="Index" asp-route-id="@product.Id"
-                                           class="btn btn-success flex-grow-1 @(product.Quantity == 0 ? "disabled" : "")"
-                                           title="Mua sản phẩm ngay lập tức" style="padding: 6px 8px; font-size: 0.85rem;">Mua ngay</a>
+                                        <form asp-action="BuyNow" asp-controller="User" method="post" class="buy-now-form @(product.Quantity == 0 ? "disabled" : "")" data-product-id="@product.Id">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="id" value="@product.Id" />
+                                            <button type="submit" class="btn btn-success flex-grow-1" title="Mua sản phẩm ngay lập tức" style="padding: 6px 8px; font-size: 0.85rem;">Mua ngay</button>
+                                        </form>
                                     </div>
                                     <form asp-action="AddToCart" asp-controller="User" method="post" class="add-to-cart-form @(product.Quantity == 0 ? "disabled" : "")" data-product-id="@product.Id">
                                         @Html.AntiForgeryToken()
@@ -257,6 +259,11 @@
         position: relative;
         overflow: hidden;
         padding: 15px 0;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+        max-width: 1200px;
     }
 
     .product-slider {
@@ -265,10 +272,12 @@
         transition: transform 0.5s ease;
         gap: 15px;
         overflow-x: hidden;
+        scroll-behavior: smooth;
+        padding: 0 30px;
     }
 
     .slider-item {
-        flex: 0 0 19.5%; /* Hiển thị 5 sản phẩm */
+        flex: 0 0 19.5%;
         max-width: 19.5%;
         box-sizing: border-box;
     }
@@ -284,21 +293,28 @@
         cursor: pointer;
         border-radius: 50%;
         z-index: 10;
-        transition: background-color 0.3s ease, transform 0.2s ease;
+        transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        opacity: 1;
+        visibility: visible;
     }
 
     .prev-btn {
-        left: 0;
+        left: 10px;
     }
 
     .next-btn {
-        right: 0;
+        right: 10px;
     }
 
     .slider-btn:hover {
         background-color: var(--gold-hover);
         transform: translateY(-50%) scale(1.1);
+    }
+
+    .product-slider-container.active .slider-btn {
+        opacity: 1;
+        visibility: visible;
     }
 
     /* Card */
@@ -309,11 +325,12 @@
         overflow: hidden;
         border: 1px solid #e9ecef;
         max-width: 100%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
     .card-img-top {
@@ -362,12 +379,17 @@
         font-size: 1.1rem;
         margin-bottom: 8px;
         color: #222;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
     }
 
     .card-text {
         font-size: 0.85rem;
         line-height: 1.4;
         margin-bottom: 8px;
+        color: #555;
     }
 
     .btn {
@@ -455,7 +477,7 @@
     .container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 15px;
+        padding-bottom: 30px;
     }
 </style>
 
@@ -465,21 +487,43 @@
     }
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        // Định nghĩa hàm scrollSlider ở cấp độ toàn cục
+        function scrollSlider(direction) {
+            const slider = $('#product-slider');
+            const itemWidth = $('.slider-item').outerWidth(true);
+            const scrollAmount = direction * itemWidth; // Cuộn 1 sản phẩm mỗi lần
+            const currentScroll = slider.scrollLeft();
+            const maxScroll = slider[0].scrollWidth - slider.outerWidth();
+
+            let newScroll = currentScroll + scrollAmount;
+            if (newScroll < 0) newScroll = 0;
+            if (newScroll > maxScroll) newScroll = maxScroll;
+
+            slider.animate({ scrollLeft: newScroll }, 500);
+        }
+
         $(document).ready(function () {
-            // Hàm điều khiển slider
-            function scrollSlider(direction) {
-                const slider = $('.product-slider');
-                const itemWidth = $('.slider-item').outerWidth(true);
-                const scrollAmount = direction * itemWidth * 5;
-                const currentScroll = slider.scrollLeft();
-                const maxScroll = slider[0].scrollWidth - slider.outerWidth();
+            // Kiểm tra và thêm class active khi cần cuộn
+            function checkScrollButtons() {
+                const slider = $('#product-slider');
+                const container = $('.product-slider-container');
+                const totalItems = $('.slider-item').length;
+                const visibleItems = Math.floor(slider.outerWidth() / $('.slider-item').outerWidth(true));
 
-                let newScroll = currentScroll + scrollAmount;
-                if (newScroll < 0) newScroll = 0;
-                if (newScroll > maxScroll) newScroll = maxScroll;
+                console.log('Total items:', totalItems, 'Visible items:', visibleItems); // Debug
 
-                slider.animate({ scrollLeft: newScroll }, 500);
+                if (totalItems > visibleItems) {
+                    container.addClass('active');
+                } else {
+                    container.removeClass('active');
+                }
             }
+
+            // Gọi hàm kiểm tra ngay khi trang tải
+            checkScrollButtons();
+
+            // Gọi lại khi thay đổi kích thước cửa sổ
+            $(window).on('resize', checkScrollButtons);
 
             // Xử lý thêm vào giỏ hàng
             $('.add-to-cart-form').on('submit', function (e) {
@@ -513,6 +557,38 @@
                     error: function (xhr, status, error) {
                         console.error('Error:', error);
                         alert('Đã xảy ra lỗi khi thêm sản phẩm vào giỏ hàng: ' + (xhr.responseText || error));
+                    }
+                });
+            });
+
+            // Xử lý "Mua ngay"
+            $('.buy-now-form').on('submit', function (e) {
+                e.preventDefault();
+                var $form = $(this);
+                var url = $form.attr('action');
+                var data = $form.serialize();
+
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: data,
+                    headers: {
+                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (response) {
+                        console.log('Response:', response);
+                        if (response.success) {
+                            window.location.href = response.redirectUrl || '@Url.Action("Checkout", "User")';
+                        } else {
+                            alert(response.message || 'Không thể thực hiện mua ngay.');
+                            if (response.message && response.message.includes("đăng nhập")) {
+                                window.location.href = '@Url.Action("Login", "User")';
+                            }
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('Đã xảy ra lỗi khi thực hiện mua ngay: ' + (xhr.responseText || error));
                     }
                 });
             });

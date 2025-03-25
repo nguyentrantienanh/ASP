@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TienAnhGold")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+499c7a39de07cf0ccf69ef30313937d51ed0cc81")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b10fa7ff01bcccce9dc9219448358378ae045d7f")]
 [assembly: System.Reflection.AssemblyProductAttribute("TienAnhGold")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TienAnhGold")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -2,6 +2,7 @@
 
 namespace TienAnhGold.Models
 {
+    // Lớp AccountViewModel dùng để lưu thông tin tạo tài khoản
     public class AccountViewModel
     {
         [Required(ErrorMessage = "Tên là bắt buộc.")]

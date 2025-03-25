@@ -14,70 +14,158 @@
         <a asp-action="Dashboard" class="btn btn-secondary py-2 px-4">Quay lại bảng điều khiển</a>
     </div>
 
-    <table class="table table-hover shadow-lg rounded-4">
-        <thead class="table-light">
-            <tr>
-                <th class="fw-bold text-dark">ID</th>
-                <th class="fw-bold text-dark">Người dùng</th>
-                <th class="fw-bold text-dark">Ngày đặt</th>
-                <th class="fw-bold text-dark">Tổng tiền</th>
-                <th class="fw-bold text-dark">Phương thức thanh toán</th>
-                <th class="fw-bold text-dark">Trạng thái</th>
-                <th class="fw-bold text-dark">Hành động</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var order in Model)
-            {
+    <form asp-action="ManageOrders" method="post">
+        @Html.AntiForgeryToken()
+        <table class="table table-hover shadow-lg rounded-4">
+            <thead class="table-light">
                 <tr>
-                    <td class="text-muted">@order.Id</td>
-                    <td class="text-muted">@order.User.Name</td>
-                    <td class="text-muted">@order.OrderDate.ToString("dd/MM/yyyy HH:mm")</td>
-                    <td class="text-muted">@order.TotalAmount?.ToString("N0") VND</td>
-                    <td class="text-muted">@(order.PaymentMethod == "COD" ? "Thanh toán khi nhận hàng" : "Chuyển khoản qua STK")</td>
-                    <td class="text-muted">
-                        @switch (order.Status)
-                        {
-                            case TienAnhGold.Models.OrderStatus.Pending:
-                                <span class="text-warning fw-bold">Chờ xác nhận</span>
-                                break;
-                            case TienAnhGold.Models.OrderStatus.Approved:
-                                <span class="text-info fw-bold">Đã duyệt</span>
-                                break;
-                            case TienAnhGold.Models.OrderStatus.AwaitingConfirmation:
-                                <span class="text-primary fw-bold">Chờ xác nhận nhận hàng</span>
-                                break;
-                            case TienAnhGold.Models.OrderStatus.Completed:
-                                <span class="text-success fw-bold">Hoàn thành</span>
-                                break;
-                            default:
-                                <span class="text-muted">Không xác định</span>
-                                break;
-                        }
-                    </td>
-                    <td>
-                        <div class="d-flex gap-2">
-                            @if (order.Status == TienAnhGold.Models.OrderStatus.Pending)
-                            {
-                                <a asp-action="ConfirmOrder" asp-route-id="@order.Id" class="btn btn-gold btn-sm py-1 px-3 confirm-order-btn">Xác nhận</a>
-                            }
-                            @if (order.Status == TienAnhGold.Models.OrderStatus.AwaitingConfirmation)
-                            {
-                                <a asp-action="CompleteOrder" asp-route-id="@order.Id" class="btn btn-success btn-sm py-1 px-3 complete-order-btn">Hoàn thành</a>
-                            }
-                            <a asp-action="OrderDetails" asp-route-id="@order.Id" class="btn btn-secondary btn-sm py-1 px-3">Chi tiết</a>
-                        </div>
-                    </td>
+                    <th class="fw-bold text-dark">ID</th>
+                    <th class="fw-bold text-dark">Người dùng</th>
+                    <th class="fw-bold text-dark">Ngày đặt</th>
+                    <th class="fw-bold text-dark">Tổng tiền</th>
+                    <th class="fw-bold text-dark">Phương thức thanh toán</th>
+                    <th class="fw-bold text-dark">Trạng thái</th>
+                    <th class="fw-bold text-dark">Hành động</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td class="text-muted">@order.Id</td>
+                        <td class="text-muted">@(order.User?.Name ?? "Unknown")</td>
+                        <td class="text-muted">@order.OrderDate.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td class="text-muted">@order.TotalAmount?.ToString("N0") VND</td>
+                        <td class="text-muted">@(order.PaymentMethod == "COD" ? "Thanh toán khi nhận hàng" : "Chuyển khoản qua STK")</td>
+                        <td class="text-muted">
+                            @switch (order.Status)
+                            {
+                                case TienAnhGold.Models.OrderStatus.Pending:
+                                    <span class="text-warning fw-bold">Chờ duyệt</span>
+                                    break;
+                                case TienAnhGold.Models.OrderStatus.AwaitingConfirmation:
+                                    <span class="text-primary fw-bold">Chờ xác nhận thanh toán</span>
+                                    break;
+                                case TienAnhGold.Models.OrderStatus.Approved:
+                                    <span class="text-info fw-bold">Đã duyệt</span>
+                                    break;
+                                case TienAnhGold.Models.OrderStatus.Completed:
+                                    <span class="text-success fw-bold">Hoàn thành</span>
+                                    break;
+                                case TienAnhGold.Models.OrderStatus.Deleted:
+                                    <span class="text-danger fw-bold">Đã xóa</span>
+                                    break;
+                                default:
+                                    <span class="text-muted">Không xác định</span>
+                                    break;
+                            }
+                        </td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                @if (order.Status == TienAnhGold.Models.OrderStatus.Pending || order.Status == TienAnhGold.Models.OrderStatus.AwaitingConfirmation)
+                                {
+                                    <button class="btn btn-gold btn-sm py-1 px-3 confirm-order-btn" data-order-id="@order.Id">Duyệt</button>
+                                }
+                                @if (order.Status == TienAnhGold.Models.OrderStatus.Approved)
+                                {
+                                    <button class="btn btn-gold btn-sm py-1 px-3 complete-order-btn" data-order-id="@order.Id">Xác nhận</button>
+                                }
+                                @if (order.Status != TienAnhGold.Models.OrderStatus.Deleted)
+                                {
+                                    <button class="btn btn-danger btn-sm py-1 px-3 delete-order-btn" data-order-id="@order.Id">Xóa</button>
+                                }
+                                <a asp-action="OrderDetails" asp-route-id="@order.Id" class="btn btn-secondary btn-sm py-1 px-3">Chi tiết</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
 
     @if (!Model.Any())
     {
         <p class="text-center text-muted py-5">Không có đơn hàng nào available.</p>
     }
 </div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.confirm-order-btn').click(function (e) {
+                e.preventDefault();
+                var orderId = $(this).data('order-id');
+                var url = '@Url.Action("ConfirmOrder", "Admin")';
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: { id: orderId },
+                    headers: { 'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() },
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message);
+                            location.reload();
+                        } else {
+                            alert('Lỗi: ' + response.message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Đã xảy ra lỗi khi duyệt đơn hàng: ' + error);
+                    }
+                });
+            });
+
+            $('.complete-order-btn').click(function (e) {
+                e.preventDefault();
+                var orderId = $(this).data('order-id');
+                var url = '@Url.Action("CompleteOrder", "Admin")';
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: { id: orderId },
+                    headers: { 'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() },
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message);
+                            location.reload();
+                        } else {
+                            alert('Lỗi: ' + response.message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Đã xảy ra lỗi khi xác nhận thanh toán: ' + error);
+                    }
+                });
+            });
+
+            $('.delete-order-btn').click(function (e) {
+                e.preventDefault();
+                if (confirm('Bạn có chắc chắn muốn xóa đơn hàng này không?')) {
+                    var orderId = $(this).data('order-id');
+                    var url = '@Url.Action("DeleteOrder", "Admin")';
+                    $.ajax({
+                        url: url,
+                        type: 'POST',
+                        data: { id: orderId },
+                        headers: { 'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() },
+                        success: function (response) {
+                            if (response.success) {
+                                alert(response.message);
+                                location.reload();
+                            } else {
+                                alert('Lỗi: ' + response.message);
+                        }
+                        },
+                        error: function (xhr, status, error) {
+                            alert('Đã xảy ra lỗi khi xóa đơn hàng: ' + error);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}
 
 <style>
     :root {
@@ -148,35 +236,35 @@
             border-color: #5a6268;
         }
 
-    .btn-success {
-        background-color: #28a745;
-        border-color: #28a745;
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
         color: #ffffff;
     }
 
-        .btn-success:hover {
-            background-color: #218838;
-            border-color: #1e7e34;
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #c82333;
         }
 
     .text-success {
         color: #28a745;
     }
 
-    .text-warning {
-        color: #ffc107;
+    .text-danger {
+        color: #dc3545;
     }
 
-    .text-info {
-        color: #17a2b8;
+    .text-warning {
+        color: #ffc107;
     }
 
     .text-primary {
         color: #007bff;
     }
 
-    .text-danger {
-        color: #dc3545;
+    .text-info {
+        color: #17a2b8;
     }
 
     .fw-bold {
@@ -191,58 +279,3 @@
         color: var(--secondary-color);
     }
 </style>
-
-@section Scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Xử lý nút Xác nhận
-            $('.confirm-order-btn').click(function (e) {
-                e.preventDefault();
-                var url = $(this).attr('href');
-                $.ajax({
-                    url: url,
-                    type: 'POST',
-                    headers: {
-                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
-                    },
-                    success: function (response) {
-                        if (response.success) {
-                            alert(response.message);
-                            location.reload();
-                        } else {
-                            alert('Lỗi: ' + response.message);
-                        }
-                    },
-                    error: function () {
-                        alert('Đã xảy ra lỗi khi xác nhận đơn hàng.');
-                    }
-                });
-            });
-
-            // Xử lý nút Hoàn thành
-            $('.complete-order-btn').click(function (e) {
-                e.preventDefault();
-                var url = $(this).attr('href');
-                $.ajax({
-                    url: url,
-                    type: 'POST',
-                    headers: {
-                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
-                    },
-                    success: function (response) {
-                        if (response.success) {
-                            alert(response.message);
-                            location.reload();
-                        } else {
-                            alert('Lỗi: ' + response.message);
-                        }
-                    },
-                    error: function () {
-                        alert('Đã xảy ra lỗi khi hoàn thành đơn hàng.');
-                    }
-                });
-            });
-        });
-    </script>
-}
